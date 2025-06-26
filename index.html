@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Deadly Panthers (R.) - Panthers Super League</title>
+  <title>Deadly Panthers (R.)</title>
   <style>
     html {
       scroll-behavior: smooth;
@@ -46,10 +46,16 @@
     header {
       position: relative;
     }
-    header img {
+    /* header img {
       width: 100%;
       height: auto;
       display: block;
+    } */
+    header img {
+    width: 100%;
+    max-height: 270px; /* Adjust this as needed */
+    object-fit: cover;
+    display: block;
     }
     header .overlay-text {
       position: absolute;
@@ -150,14 +156,16 @@
 <body>
   <div class="loader" id="loader"></div>
   <header>
+    <h1 style="text-align: center;">Deadly Panthers (R.)</h1>
+
     <img src="HeaderImage.jpg" alt="Header Image">
-    <div class="overlay-text">Deadly Panthers Presents Panthers Super League 2025</div>
+    <!-- <div class="overlay-text">Deadly Panthers Presents Panthers Super League 2025</div> -->
     <div class="toggle-dark" onclick="toggleDarkMode()">Toggle Dark Mode</div>
   </header>
 
   <div class="content">
-    <h1 style="text-align: center;">Deadly Panthers (R.)</h1>
-    <h2>About the Tournament</h2>
+    <!-- <h1 style="text-align: center;">Deadly Panthers (R.)</h1> -->
+    <h2>About the Tournament - Panthers Super League 2025 </h2>
     <p>We are excited to bring to you the 4th Season of <strong>Panthers Super League</strong> - a thrilling cricket tournament featuring top talent and fierce competition. Join us for a weekend full of action, sportsmanship, and fun!</p>
 
     <h3>Tournament Highlights:</h3>
