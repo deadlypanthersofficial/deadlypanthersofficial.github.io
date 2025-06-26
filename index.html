@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Deadly Panthers (R.)</title>
-  <link rel="icon" type="image/png" href="deadlypanthers-favicon.png">
   <style>
     html {
       scroll-behavior: smooth;
@@ -69,16 +68,67 @@
       font-size: 24px;
       font-weight: bold;
     }
-    .toggle-dark {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      padding: 10px;
-      background: #fff;
-      color: #000;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+
+.toggle-dark {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  background: #fff;
+  border: 2px solid #f26b1d;
+  border-radius: 10px;
+  padding: 8px 14px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 42px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ccc;
+  border-radius: 24px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #f26b1d;
+}
+
+input:checked + .slider:before {
+  transform: translateX(18px);
+}
+
     .content {
       padding: 20px;
       max-width: 1000px;
@@ -156,16 +206,27 @@
 </head>
 <body>
   <div class="loader" id="loader"></div>
+  <div class="toggle-dark">
+  <label class="switch-label" for="darkModeSwitch">Dark Mode</label>
+  <label class="switch">
+    <input type="checkbox" id="darkModeSwitch" onclick="toggleDarkMode()">
+    <span class="slider"></span>
+  </label>
+</div>
   <header>
     <h1 style="text-align: center;">Deadly Panthers (R.)</h1>
 
     <img src="HeaderImage.jpg" alt="Header Image">
     <!-- <div class="overlay-text">Deadly Panthers Presents Panthers Super League 2025</div> -->
-    <div class="toggle-dark" onclick="toggleDarkMode()">Toggle Dark Mode</div>
+    <!-- <div class="toggle-dark" onclick="toggleDarkMode()">Toggle Dark Mode</div> -->
+    <!-- <div class="toggle-dark">
+  <label for="darkModeSwitch">Dark Mode</label>
+  <button id="darkModeSwitch" onclick="toggleDarkMode()">Turn On</button>
+</div> -->
+
   </header>
 
   <div class="content">
-    <!-- <h1 style="text-align: center;">Deadly Panthers (R.)</h1> -->
     <h2>About the Tournament - Panthers Super League 2025 </h2>
     <p>We are excited to bring to you the 4th Season of <strong>Panthers Super League</strong> - a thrilling cricket tournament featuring top talent and fierce competition. Join us for a weekend full of action, sportsmanship, and fun!</p>
 
@@ -178,7 +239,8 @@
 
     <div class="countdown" id="countdown">Countdown to Match Day...</div>
 
-    <a href="#registration" class="register-button">Register Now</a>
+    <!-- <a href="#registration" class="register-button">Register Now</a> -->
+    <a href="https://forms.gle/4Uoe25dLLC46o6Bt8" target="_blank" class="register-button">Register Now</a>
 
     <div class="gallery">
       <img src="KINGS ULLAL.jpg" alt="Kings Ullal">
@@ -197,12 +259,36 @@
 
     <img src="TournamentPoster.jpg" alt="Match Poster" style="margin-top: 40px; width: 100%; border-radius: 10px;">
 
-    <div class="form-container" id="registration">
+    <!-- <div class="form-container" id="registration">
       <h2>Player Registration Form</h2>
       <iframe src="https://forms.gle/4Uoe25dLLC46o6Bt8" width="100%" height="800" style="border:none;">Loading…</iframe>
-    </div>
+    </div> -->
 
-    <iframe class="instagram-media" src="https://www.instagram.com/p/C8IQMmcxNTf/embed" allowtransparency="true" allowfullscreen="true"></iframe>
+    <h2 style="text-align:center; color:#f26b1d; margin-top: 60px;">
+  🎥 Watch the Highlights from PSL - Season 3
+</h2>
+
+<!-- Instagram Reel 1 -->
+<iframe 
+  class="instagram-media"
+  src="https://www.instagram.com/reel/DDeAt2_vw9s/embed"
+  allowtransparency="true"
+  allowfullscreen="true"
+  frameborder="0"
+  scrolling="no"
+  style="width:100%; height:600px; border:none; overflow:hidden; margin-bottom: 40px;">
+</iframe>
+
+<!-- Instagram Reel 2 -->
+<iframe 
+  class="instagram-media"
+  src="https://www.instagram.com/reel/DDHUqRChezg/embed"
+  allowtransparency="true"
+  allowfullscreen="true"
+  frameborder="0"
+  scrolling="no"
+  style="width:100%; height:600px; border:none; overflow:hidden;">
+</iframe>
 
     <div class="instagram-follow">
       📸 Follow us on Instagram for behind-the-scenes, live updates & highlights:<br>
@@ -215,9 +301,18 @@
   </footer>
 
   <script>
+    // function toggleDarkMode() {
+    //   document.body.classList.toggle('dark-mode');
+    // }
     function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
-    }
+  document.body.classList.toggle('dark-mode');
+  const btn = document.getElementById("darkModeSwitch");
+  if (document.body.classList.contains('dark-mode')) {
+    btn.textContent = "Turn Off";
+  } else {
+    btn.textContent = "Turn On";
+  }
+}
 
     window.addEventListener("load", () => {
       document.getElementById("loader").style.display = "none";
