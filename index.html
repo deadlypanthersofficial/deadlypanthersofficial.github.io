@@ -19,6 +19,30 @@
       background-color: #121212;
       color: #f0f0f0;
     }
+    .loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    .loader::after {
+      content: "";
+      width: 40px;
+      height: 40px;
+      border: 5px solid #f26b1d;
+      border-top-color: transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
     header {
       position: relative;
     }
@@ -58,17 +82,17 @@
       margin-top: 20px;
       padding: 12px 24px;
       font-size: 16px;
-      background-color: #111;
+      background-color: #f26b1d;
       color: white;
       border: none;
       border-radius: 5px;
       text-decoration: none;
     }
     .register-button:hover {
-      background-color: #444;
+      background-color: #d4590f;
     }
     h1, h2, h3 {
-      color: inherit;
+      color: #f26b1d;
     }
     .gallery {
       display: flex;
@@ -102,7 +126,7 @@
       font-size: 18px;
     }
     .instagram-follow a {
-      color: #d6249f;
+      color: #f26b1d;
       font-weight: bold;
       text-decoration: none;
     }
@@ -124,16 +148,15 @@
   </style>
 </head>
 <body>
-
+  <div class="loader" id="loader"></div>
   <header>
-    <img src="deadly panthers 3.jpg" alt="Header Image">
+    <img src="HeaderImage.jpg" alt="Header Image">
     <div class="overlay-text">Deadly Panthers Presents Panthers Super League 2025</div>
     <div class="toggle-dark" onclick="toggleDarkMode()">Toggle Dark Mode</div>
   </header>
 
   <div class="content">
     <h1 style="text-align: center;">Deadly Panthers (R.)</h1>
-
     <h2>About the Tournament</h2>
     <p>We are excited to bring to you the 4th Season of <strong>Panthers Super League</strong> - a thrilling cricket tournament featuring top talent and fierce competition. Join us for a weekend full of action, sportsmanship, and fun!</p>
 
@@ -149,21 +172,21 @@
     <a href="#registration" class="register-button">Register Now</a>
 
     <div class="gallery">
-      <img src="logo1.png" alt="Team 1">
-      <img src="logo2.png" alt="Team 2">
-      <img src="logo3.png" alt="Team 3">
-      <img src="logo4.png" alt="Team 4">
-      <img src="logo5.png" alt="Team 5">
-      <img src="logo6.png" alt="Team 6">
-      <img src="logo7.png" alt="Team 7">
-      <img src="logo8.png" alt="Team 8">
-      <img src="logo9.png" alt="Team 9">
-      <img src="logo10.png" alt="Team 10">
-      <img src="logo11.png" alt="Team 11">
-      <img src="logo12.png" alt="Team 12">
+      <img src="KINGS ULLAL.jpg" alt="Kings Ullal">
+      <img src="WEEKEND SPORTS CLUB.jpeg" alt="Weekend Sports Club">
+      <img src="VEERA VENKATESH WARRIORS.jpg" alt="Veera Venkatesh Warriors">
+      <img src="SUPREME GOLDEN GARUDAS GOSRIPURAM.jpg" alt="Golden Garudas Gosripuram">
+      <img src="GAJAKESARI SULLIA BATTLERS.jpg" alt="Gajakesari Sullia Battlers">
+      <img src="ROYAL CHALLENGERS BANTWAL.jpg" alt="Royal Challengers Bantwal">
+      <img src="GSB KINGS.jpg" alt="GSB Kings">
+      <img src="MYSORE GSB MAHARAJAS.jpeg" alt="Mysore GSB Maharajas">
+      <img src="ENJOY TITANS.png" alt="Enjoy Titans">
+      <img src="V STRIKERS.png" alt="V Strikers">
+      <img src="VEERANJANEYA CRICKETERS KAUP.jpg" alt="Veeranjaneya Cricketers Kaup">
+      <img src="RISING STARS MANGALORE.jpeg" alt="Rising Stars Mangalore">
     </div>
 
-    <img src="deadly panthers 3.jpg" alt="Match Poster" style="margin-top: 40px; width: 100%; border-radius: 10px;">
+    <img src="TournamentPoster.jpg" alt="Match Poster" style="margin-top: 40px; width: 100%; border-radius: 10px;">
 
     <div class="form-container" id="registration">
       <h2>Player Registration Form</h2>
@@ -187,6 +210,10 @@
       document.body.classList.toggle('dark-mode');
     }
 
+    window.addEventListener("load", () => {
+      document.getElementById("loader").style.display = "none";
+    });
+
     const matchDate = new Date("November 29, 2025 10:00:00").getTime();
     const countdownEl = document.getElementById("countdown");
     setInterval(() => {
@@ -201,6 +228,5 @@
       countdownEl.innerHTML = `⏳ ${days}d ${hours}h ${minutes}m ${seconds}s left`;
     }, 1000);
   </script>
-
 </body>
 </html>
