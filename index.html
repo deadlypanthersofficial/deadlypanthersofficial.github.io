@@ -4,20 +4,41 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Deadly Panthers (R.)</title>
+  <link rel="canonical" href="https://www.deadlypanthers.com/">
+  <link rel="icon" type="image/png" href="deadlypanthers-favicon.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <style>
     html {
       scroll-behavior: smooth;
     }
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f8f8f8;
-      margin: 0;
-      padding: 0;
-      transition: background-color 0.3s, color 0.3s;
-    }
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+  transition: background-color 0.3s, color 0.3s;
+}
     body.dark-mode {
       background-color: #121212;
       color: #f0f0f0;
+    }
+    h2 {
+      color: #f26b1d;
+    }
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .swiper-slide img {
+      height: 120px;
+      border-radius: 12px;
+    }
+    .swiper-button-next, .swiper-button-prev {
+      color: #f26b1d;
+    }
+    .swiper-pagination-bullet-active {
+      background: #f26b1d;
     }
     .loader {
       position: fixed;
@@ -46,14 +67,9 @@
     header {
       position: relative;
     }
-    /* header img {
-      width: 100%;
-      height: auto;
-      display: block;
-    } */
     header img {
     width: 100%;
-    max-height: 350px; /* Adjust this as needed */
+    max-height: 270px; /* Adjust this as needed */
     object-fit: cover;
     display: block;
     }
@@ -202,10 +218,181 @@ input:checked + .slider:before {
         padding: 8px 12px;
       }
     }
-  </style>
+    .reels-slider iframe {
+  width: 100%;
+  height: 600px;
+  border: none;
+  overflow: hidden;
+  border-radius: 10px;
+}
+footer a:hover img {
+  transform: scale(1.3);
+}
+footer a:hover {
+  filter: drop-shadow(0 0 5px #f26b1d);
+}
+
+body.dark-mode footer {
+  background-color: #1e1e1e;
+}
+body.dark-mode footer div {
+  color: #ccc;
+}
+#backToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #f26b1d;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 12px 16px;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 1000;
+  display: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: opacity 0.3s ease;
+}
+#backToTop:hover {
+  background-color: #d4590f;
+}
+
+body.dark-mode #backToTop {
+  background-color: #ff7f3f;
+}
+.follow-float {
+  position: fixed;
+  bottom: 100px;
+  left: 30px;
+  z-index: 1000;
+  background-color: white;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+.follow-float img {
+  width: 28px;
+  height: 28px;
+}
+.follow-float:hover {
+  transform: scale(1.2);
+}
+
+body.dark-mode .follow-float {
+  background-color: #333;
+}
+/* Modal Overlay */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(2px);
+}
+
+/* Modal Content */
+.modal-content {
+  background: #fff;
+  color: #000;
+  padding: 30px 20px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Actions */
+.modal-actions {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-actions button {
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.modal-actions button:first-child {
+  background-color: #f26b1d;
+  color: white;
+}
+.modal-actions button:first-child:hover {
+  background-color: #d4590f;
+}
+
+.modal-actions button:last-child {
+  background-color: #ccc;
+}
+.modal-actions button:last-child:hover {
+  background-color: #999;
+}
+
+/* Dark mode support */
+body.dark-mode .modal-content {
+  background: #222;
+  color: #fff;
+}
+body.dark-mode .modal-actions button:last-child {
+  background-color: #444;
+  color: white;
+}
+body.dark-mode .modal-actions button:last-child:hover {
+  background-color: #666;
+}
+
+/* Responsive adjustments */
+@media (min-width: 480px) {
+  .modal-actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+.blink {
+  animation: blinker 1.5s linear infinite;
+}
+
+@keyframes blinker {
+  50% { opacity: 0; }
+}
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.pulse {
+  animation: pulse 1.5s infinite;
+}
+</style>
+
 </head>
 <body>
   <div class="loader" id="loader"></div>
+  <a href="https://www.instagram.com/deadlypanthersofficial/" 
+   class="follow-float" target="_blank" title="Follow us on Instagram">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+</a>
   <div class="toggle-dark">
   <label class="switch-label" for="darkModeSwitch">Dark Mode</label>
   <label class="switch">
@@ -217,32 +404,52 @@ input:checked + .slider:before {
     <h1 style="text-align: center;">Deadly Panthers (R.)</h1>
 
     <img src="HeaderImage.jpg" alt="Header Image">
-    <!-- <div class="overlay-text">Deadly Panthers Presents Panthers Super League 2025</div> -->
-    <!-- <div class="toggle-dark" onclick="toggleDarkMode()">Toggle Dark Mode</div> -->
-    <!-- <div class="toggle-dark">
-  <label for="darkModeSwitch">Dark Mode</label>
-  <button id="darkModeSwitch" onclick="toggleDarkMode()">Turn On</button>
-</div> -->
-
   </header>
 
   <div class="content">
     <h2>About the Tournament - Panthers Super League 2025 </h2>
     <p>We are excited to bring to you the 4th Season of <strong>Panthers Super League</strong> - a thrilling cricket tournament featuring top talent and fierce competition. Join us for a weekend full of action, sportsmanship, and fun!</p>
 
-    <h3>Tournament Highlights:</h3>
+    <!-- <h3>Tournament Highlights:</h3>
     <ul>
       <li>🏏 Format: Player Auction, Teams, and League Matches</li>
       <li>📅 Match Dates: November 29 & 30, 2025</li>
       <li>📍 Venue: Urwa Cricket Ground (Under Floodlights)</li>
-    </ul>
+    </ul> -->
 
-    <div class="countdown" id="countdown">Countdown to Match Day...</div>
+   <!-- Countdown Section -->
+<!-- Venue & Match Schedule Section -->
+<section class="venue-schedule" style="background-color: #fff8f2; padding: 40px 20px; text-align: center;">
+  <h2>📍 Match Venue & Schedule</h2>
+  <p style="font-size: 18px; margin-top: 10px; color: #333;">
+    🏟️ <strong>Venue:</strong> Urwa Cricket Ground (Under Floodlights)<br>
+    📅 <strong>Dates:</strong> November 29 & 30, 2025<br>
+    🕘 <strong>Start Time:</strong> 09:00 AM Onwards
+  </p>
+</section>
+<section class="countdown-section" style="background: #fff3e6; padding: 40px 20px; text-align: center;">
+  <h2>⏳ Countdown to Panthers Super League 2025</h2>
+  <div id="countdown" style="font-size: 32px; margin-top: 20px; font-weight: bold; color: #333;"></div>
+</section>
+     
+    <div style="
+  background-color: #fff3e6;
+  border-left: 6px solid #f26b1d;
+  padding: 16px;
+  margin-top: 40px;
+  font-size: 18px;
+  text-align: center;
+  border-radius: 8px;
+">
+  🚨 <strong>Player registrations are now LIVE!</strong><br>
+  <!-- Don’t miss your chance to be a part of <strong>Panthers Super League 2025</strong>.<br> -->
+  <span style="color: #d4590f;">Only the first 180 players will be accepted!</span>
+</div>
+    <div style="text-align: center; margin-top: 10px;">
+    <a href="#" class="register-button" onclick="openRegisterPopup()">Register Now</a>
+    </div>
 
-    <!-- <a href="#registration" class="register-button">Register Now</a> -->
-    <a href="https://forms.gle/4Uoe25dLLC46o6Bt8" target="_blank" class="register-button">Register Now</a>
-
-    <div class="gallery">
+    <!-- <div class="gallery">
       <img src="KINGS ULLAL.jpg" alt="Kings Ullal">
       <img src="WEEKEND SPORTS CLUB.jpeg" alt="Weekend Sports Club">
       <img src="VEERA VENKATESH WARRIORS.jpg" alt="Veera Venkatesh Warriors">
@@ -255,40 +462,81 @@ input:checked + .slider:before {
       <img src="V STRIKERS.png" alt="V Strikers">
       <img src="VEERANJANEYA CRICKETERS KAUP.jpg" alt="Veeranjaneya Cricketers Kaup">
       <img src="RISING STARS MANGALORE.jpeg" alt="Rising Stars Mangalore">
-    </div>
+    </div> -->
+
+    <!-- Team Gallery Section
+<section class="team-gallery swiper" style="padding: 40px 20px; background-color: #f9f9f9; text-align: center; overflow: hidden;">
+  <h2>🏏 Teams Participating</h2>
+  <div class="swiper-wrapper" style="margin-top: 30px;">
+    <div class="swiper-slide"><img src="GSB KINGS.jpg" alt="GSB KINGS"></div>
+    <div class="swiper-slide"><img src="KINGS ULLAL.jpg" alt="KINGS ULLAL"></div>
+    <div class="swiper-slide"><img src="MYSORE GSB MAHARAJAS.jpeg" alt="MYSORE GSB MAHARAJAS"></div>
+    <div class="swiper-slide"><img src="RISING STARS MANGALORE.jpeg" alt="RISING STARS MANGALORE"></div>
+    <div class="swiper-slide"><img src="ROYAL CHALLENGERS BANTWAL.jpg" alt="ROYAL CHALLENGERS BANTWAL"></div>
+    <div class="swiper-slide"><img src="SUPREME GOLDEN GARUDAS GOSRIPURAM.jpg" alt="SUPREME GOLDEN GARUDAS GOSRIPURAM"></div>
+    <div class="swiper-slide"><img src="V STRIKERS.png" alt="V STRIKERS"></div>
+    <div class="swiper-slide"><img src="VEERA VENKATESH WARRIORS.jpg" alt="VEERA VENKATESH WARRIORS"></div>
+    <div class="swiper-slide"><img src="VEERANJANEYA CRICKETERS KAUP.jpg" alt="VEERANJANEYA CRICKETERS KAUP"></div>
+    <div class="swiper-slide"><img src="WEEKEND SPORTS CLUB.jpeg" alt="WEEKEND SPORTS CLUB"></div>
+    <div class="swiper-slide"><img src="GAJAKESARI SULLIA BATTLERS.jpg" alt="GAJAKESARI SULLIA BATTLERS"></div>
+    <div class="swiper-slide"><img src="ENJOY TITANS.png" alt="ENJOY TITANS"></div>
+  </div>
+  <div class="swiper-pagination"></div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+</section> -->
+
+<!-- Team Gallery Section -->
+<section class="team-gallery swiper" style="padding: 40px 20px; background-color: #f9f9f9; text-align: center; overflow: hidden;">
+  <h2 style="color: #f26b1d;">🏏 Teams Participating</h2>
+  <div class="swiper-wrapper" style="margin-top: 30px;">
+    <div class="swiper-slide"><img src="GSB KINGS.jpg" alt="GSB KINGS" style="height: 120px; border-radius: 12px;"></div>
+    <div class="swiper-slide"><img src="KINGS ULLAL.jpg" alt="KINGS ULLAL" style="height: 120px; border-radius: 12px;"></div>
+    <div class="swiper-slide"><img src="MYSORE GSB MAHARAJAS.jpeg" alt="MYSORE GSB MAHARAJAS" style="height: 120px; border-radius: 12px;"></div>
+    <div class="swiper-slide"><img src="RISING STARS MANGALORE.jpeg" alt="RISING STARS MANGALORE" style="height: 120px; border-radius: 12px;"></div>
+    <div class="swiper-slide"><img src="ROYAL CHALLENGERS BANTWAL.jpg" alt="ROYAL CHALLENGERS BANTWAL" style="height: 120px; border-radius: 12px;"></div>
+    <div class="swiper-slide"><img src="SUPREME GOLDEN GARUDAS GOSRIPURAM.jpg" alt="SUPREME GOLDEN GARUDAS GOSRIPURAM" style="height: 120px; border-radius: 12px;"></div>
+    <div class="swiper-slide"><img src="V STRIKERS.png" alt="V STRIKERS" style="height: 120px; border-radius: 12px;"></div>
+    <div class="swiper-slide"><img src="VEERA VENKATESH WARRIORS.jpg" alt="VEERA VENKATESH WARRIORS" style="height: 120px; border-radius: 12px;"></div>
+    <div class="swiper-slide"><img src="VEERANJANEYA CRICKETERS KAUP.jpg" alt="VEERANJANEYA CRICKETERS KAUP" style="height: 120px; border-radius: 12px;"></div>
+    <div class="swiper-slide"><img src="WEEKEND SPORTS CLUB.jpeg" alt="WEEKEND SPORTS CLUB" style="height: 120px; border-radius: 12px;"></div>
+    <div class="swiper-slide"><img src="GAJAKESARI SULLIA BATTLERS.jpg" alt="GAJAKESARI SULLIA BATTLERS" style="height: 120px; border-radius: 12px;"></div>
+    <div class="swiper-slide"><img src="ENJOY TITANS.png" alt="ENJOY TITANS" style="height: 120px; border-radius: 12px;"></div>
+  </div>
+  <div class="swiper-pagination"></div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+</section>
 
     <img src="TournamentPoster.jpg" alt="Match Poster" style="margin-top: 40px; width: 100%; border-radius: 10px;">
 
-    <!-- <div class="form-container" id="registration">
-      <h2>Player Registration Form</h2>
-      <iframe src="https://forms.gle/4Uoe25dLLC46o6Bt8" width="100%" height="800" style="border:none;">Loading…</iframe>
-    </div> -->
-
-    <h2 style="text-align:center; color:#f26b1d; margin-top: 60px;">
+<h2 style="text-align:center; color:#f26b1d; margin-top: 60px;">
   🎥 Watch the Highlights from PSL - Season 3
 </h2>
 
-<!-- Instagram Reel 1 -->
-<iframe 
-  class="instagram-media"
-  src="https://www.instagram.com/reel/DDeAt2_vw9s/embed"
-  allowtransparency="true"
-  allowfullscreen="true"
-  frameborder="0"
-  scrolling="no"
-  style="width:100%; height:600px; border:none; overflow:hidden; margin-bottom: 40px;">
-</iframe>
+<!-- Instagram Reels Swiper -->
+<section class="reels-slider swiper" style="margin-top: 40px; padding-bottom: 40px;">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
+      <iframe class="instagram-media" src="https://www.instagram.com/reel/DDeAt2_vw9s/embed" allowfullscreen frameborder="0" scrolling="no"></iframe>
+    </div>
+    <div class="swiper-slide">
+      <iframe class="instagram-media" src="https://www.instagram.com/reel/DDHUqRChezg/embed" allowfullscreen frameborder="0" scrolling="no"></iframe>
+    </div>
+    <!-- Add more reels below -->
+    <div class="swiper-slide">
+      <iframe class="instagram-media" src="https://www.instagram.com/reel/DC6yyI7yvZg/embed" allowfullscreen frameborder="0" scrolling="no"></iframe>
+    </div>
+    <div class="swiper-slide">
+      <iframe class="instagram-media" src="https://www.instagram.com/reel/C1uUUZIPC1y/embed" allowfullscreen frameborder="0" scrolling="no"></iframe>
+    </div>
+  </div>
 
-<!-- Instagram Reel 2 -->
-<iframe 
-  class="instagram-media"
-  src="https://www.instagram.com/reel/DDHUqRChezg/embed"
-  allowtransparency="true"
-  allowfullscreen="true"
-  frameborder="0"
-  scrolling="no"
-  style="width:100%; height:600px; border:none; overflow:hidden;">
-</iframe>
+  <!-- Optional navigation/pagination -->
+  <div class="swiper-pagination"></div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+</section>
 
     <div class="instagram-follow">
       📸 Follow us on Instagram for behind-the-scenes, live updates & highlights:<br>
@@ -296,14 +544,51 @@ input:checked + .slider:before {
     </div>
   </div>
 
-  <footer>
-    &copy; 2025 Deadly Panthers (R.) | Panthers Super League - Season 4
-  </footer>
+<!-- Developed By -->
+<!-- <div style="text-align: center; font-size: 14px; margin-top: 30px;">
+  Developed by: 
+  <a href="https://www.instagram.com/anvi_mallya/" target="_blank" 
+     style="color: #f26b1d; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 6px;">
+    <img id="instaIcon" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" 
+         alt="Instagram" style="width: 16px; height: 16px;">
+    AnVeEtH mAlLyA
+  </a>
+</div> -->
 
-  <script>
-    // function toggleDarkMode() {
-    //   document.body.classList.toggle('dark-mode');
-    // }
+  <!-- <footer>
+    &copy; 2025 Deadly Panthers (R.) | Panthers Super League - Season 4
+  </footer> -->
+
+  <footer style="text-align: center; padding: 24px; background-color: #eee; margin-top: 40px;">
+  <div style="margin-bottom: 8px; color: #444; font-weight: 500;">
+    &copy; 2025 Deadly Panthers (R.) | Panthers Super League - Season 4
+  </div>
+  <div style="font-size: 14px; font-family: 'Courier New', monospace; letter-spacing: 0.5px; margin-bottom: 6px;">
+    Built with ❤️ using <strong>HTML + JS</strong>
+  </div>
+  <div style="font-size: 14px; font-family: 'Courier New', monospace; letter-spacing: 0.5px;">
+    Developed by: 
+    <a href="https://www.instagram.com/anvi_mallya/" target="_blank"
+       style="
+        background: linear-gradient(90deg, #f26b1d, #ff914d);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-decoration: none;
+        font-weight: bold;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: all 0.3s ease;">
+      <img id="instaIcon" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+           alt="Instagram" style="width: 16px; height: 16px; transition: transform 0.3s ease;">
+      AnVeEtH mAlLyA
+    </a>
+  </div>
+</footer>
+
+
+<script>
+  //Dark Mode Toggle
     function toggleDarkMode() {
   document.body.classList.toggle('dark-mode');
   const btn = document.getElementById("darkModeSwitch");
@@ -313,24 +598,175 @@ input:checked + .slider:before {
     btn.textContent = "Turn On";
   }
 }
-
     window.addEventListener("load", () => {
       document.getElementById("loader").style.display = "none";
     });
 
-    const matchDate = new Date("November 29, 2025 10:00:00").getTime();
-    const countdownEl = document.getElementById("countdown");
-    setInterval(() => {
-      const now = new Date().getTime();
-      const distance = matchDate - now;
+  //Countdown Script
+  const targetDate = new Date("November 29, 2025 09:00:00").getTime();
+  const countdownEl = document.getElementById("countdown");
+  const countdownTimer = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+    if (distance < 0) {
+      clearInterval(countdownTimer);
+      countdownEl.innerHTML = "🏏 Let the games begin!";
+      return;
+    }
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    countdownEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  }, 1000);
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  //   //Swiper JS
+  //   const teamSwiper = new Swiper('.team-gallery.swiper', {
+  //   slidesPerView: 2,
+  //   spaceBetween: 20,
+  //   loop: true,
+  //   autoplay: {
+  //     delay: 3000,
+  //     disableOnInteraction: false,
+  //   },
+  //   pagination: {
+  //     el: '.swiper-pagination',
+  //     clickable: true,
+  //   },
+  //   navigation: {
+  //     nextEl: '.swiper-button-next',
+  //     prevEl: '.swiper-button-prev',
+  //   },
+  //   breakpoints: {
+  //     768: { slidesPerView: 3 },
+  //     1024: { slidesPerView: 4 }
+  //   }
+  // });
 
-      countdownEl.innerHTML = `⏳ ${days}d ${hours}h ${minutes}m ${seconds}s left`;
-    }, 1000);
-  </script>
+  src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"
+  const teamSwiper = new Swiper('.team-gallery.swiper', {
+    slidesPerView: 2,
+    spaceBetween: 20,
+    loop: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+      768: { slidesPerView: 3 },
+      1024: { slidesPerView: 4 }
+    }
+  });
+
+  const instaSwiper = new Swiper('.reels-slider', {
+    loop: true,
+    spaceBetween: 20,
+    autoplay: {
+      delay: 8000,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    grabCursor: true,
+    slidesPerView: 1,
+    centeredSlides: true,
+    breakpoints: {
+      768: { slidesPerView: 1 },
+      1024: { slidesPerView: 1 }
+    }
+  });
+  function updateInstaIcon() {
+    const icon = document.getElementById("instaIcon");
+    const isDark = document.body.classList.contains('dark-mode');
+    icon.src = isDark 
+      ? "https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" 
+      : "https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png";
+  }
+
+  document.getElementById("darkModeSwitch").addEventListener("change", updateInstaIcon);
+  window.addEventListener("load", updateInstaIcon);
+
+//Back To Top Button
+  const backToTopBtn = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+  backToTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
+});
+
+backToTopBtn.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+// Apply dark mode from saved preference on page load
+window.addEventListener("DOMContentLoaded", () => {
+  const darkPref = localStorage.getItem("darkMode");
+  if (darkPref === "enabled") {
+    document.body.classList.add("dark-mode");
+    document.getElementById("darkModeSwitch").checked = true;
+  }
+  document.getElementById("loader").style.display = "none";
+  updateInstaIcon(); // optional, if you're toggling icon
+});
+
+// Toggle + Save preference
+function toggleDarkMode() {
+  document.body.classList.toggle('dark-mode');
+  const isDark = document.body.classList.contains('dark-mode');
+  localStorage.setItem("darkMode", isDark ? "enabled" : "disabled");
+}
+function openRegisterPopup() {
+  document.getElementById("registerModal").style.display = "flex";
+}
+
+function closeRegisterPopup() {
+  document.getElementById("registerModal").style.display = "none";
+}
+
+function proceedRegister() {
+  closeRegisterPopup();
+  window.open("https://forms.gle/4Uoe25dLLC46o6Bt8", "_blank");
+}
+
+// Close modal if clicked outside content
+window.addEventListener('click', function (e) {
+  const modal = document.getElementById("registerModal");
+  if (e.target === modal) closeRegisterPopup();
+});
+
+// Close modal on Esc key
+window.addEventListener('keydown', function (e) {
+  if (e.key === "Escape") closeRegisterPopup();
+});
+</script>
+
+  <!-- Custom Register Confirmation Modal -->
+<div id="registerModal" class="modal-overlay">
+  <div class="modal-content scale-in">
+    <p>
+      You're being redirected to the <strong>PSL 2025 Registration Form</strong>.<br><br>
+      Do you want to continue?
+    </p>
+    <div class="modal-actions">
+      <button onclick="proceedRegister()">✅ Yes, Proceed</button>
+      <button onclick="closeRegisterPopup()">❌ Cancel</button>
+    </div>
+  </div>
+</div>
+  <button id="backToTop" title="Back to Top">↑</button>
 </body>
 </html>
