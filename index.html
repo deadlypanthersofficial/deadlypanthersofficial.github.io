@@ -562,9 +562,6 @@ body.dark-mode .nav-menu li a:hover {
 
 /* Mobile Menu */
 @media (max-width: 768px) {
-  .nav-toggle {
-    display: block;
-  }
   .nav-menu {
     flex-direction: column;
     position: absolute;
@@ -575,7 +572,7 @@ body.dark-mode .nav-menu li a:hover {
     max-height: 0;
     overflow: hidden;
     opacity: 0;
-    border-top: 1px solid #ddd;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
   }
   .nav-menu.show {
     max-height: 300px;
@@ -828,6 +825,18 @@ body.dark-mode .nav-menu li a.active {
 <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
+
+// Wait for DOM to be ready
+document.addEventListener("DOMContentLoaded", function () {
+  const toggle = document.querySelector(".nav-toggle");
+  const menu = document.querySelector(".nav-menu");
+
+  if (toggle && menu) {
+    toggle.addEventListener("click", () => {
+      menu.classList.toggle("show");
+    });
+  }
+});
 
   // Toggle Mobile Menu
 document.querySelector(".nav-toggle").addEventListener("click", () => {
