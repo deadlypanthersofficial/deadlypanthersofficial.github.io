@@ -7,6 +7,7 @@
   <link rel="canonical" href="https://www.deadlypanthers.com/">
   <link rel="icon" type="image/png" href="deadlypanthers-favicon.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
   <style>
     html {
       scroll-behavior: smooth;
@@ -618,6 +619,56 @@ body.dark-mode .nav-menu li a.active {
   color: white;
 }
 
+/* Fancy Header  */
+.fancy-header {
+  font-size: 48px; /* reduced from 64px */
+  font-weight: 800;
+  background: linear-gradient(90deg, #f26b1d, #ff914d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.3);
+  animation: pulseText 2s ease-in-out infinite;
+  margin-bottom: 8px;
+}
+
+.tagline {
+  font-size: 16px; /* reduced from 20px */
+  color: #555;
+  font-weight: 600;
+  font-style: italic;
+  letter-spacing: 0.4px;
+  animation: fadeIn 1.2s ease-in-out both;
+}
+
+.header-block {
+  text-align: center;
+  margin-top: 30px;
+}
+
+@media (max-width: 600px) {
+  .fancy-header {
+    font-size: 32px;
+  }
+  .tagline {
+    font-size: 14px;
+  }
+}
+
+body.dark-mode .tagline {
+  color: #ccc;
+}
+
+@keyframes pulseText {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 </style>
 
 </head>
@@ -650,7 +701,10 @@ body.dark-mode .nav-menu li a.active {
 </nav>
 
   <header>
-    <h1 style="text-align: center;">Deadly Panthers (R.)</h1>
+    <div class="header-block">
+  <h1 class="fancy-header">Deadly Panthers (R.)</h1>
+  <p class="tagline">🏏 Since 2007 | Fearless. Fierce. Unstoppable.</p>
+</div>
 
     <img src="HeaderImage.jpg" alt="Header Image">
   </header>
@@ -658,13 +712,6 @@ body.dark-mode .nav-menu li a.active {
   <div class="content">
     <h2>About the Tournament - Panthers Super League 2025 </h2>
     <p>We are excited to bring to you the 4th Season of <strong>Panthers Super League</strong> - a thrilling cricket tournament featuring top talent and fierce competition. Join us for a weekend full of action, sportsmanship, and fun!</p>
-
-    <!-- <h3>Tournament Highlights:</h3>
-    <ul>
-      <li>🏏 Format: Player Auction, Teams, and League Matches</li>
-      <li>📅 Match Dates: November 29 & 30, 2025</li>
-      <li>📍 Venue: Urwa Cricket Ground (Under Floodlights)</li>
-    </ul> -->
 
    <!-- Countdown Section -->
 <!-- Venue & Match Schedule Section -->
