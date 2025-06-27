@@ -562,6 +562,27 @@ body.dark-mode .nav-menu li a:hover {
 
 /* Mobile Menu */
 @media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+  .nav-menu {
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background: #fff;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    border-top: 1px solid #ddd;
+  }
+  .nav-menu.show {
+    max-height: 300px;
+    opacity: 1;
+  }
+}
+@media (max-width: 768px) {
   .nav-menu {
     flex-direction: column;
     position: absolute;
