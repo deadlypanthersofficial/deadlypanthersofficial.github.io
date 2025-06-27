@@ -418,6 +418,188 @@ body.dark-mode .team-card:hover {
 body.dark-mode .team-card p {
   color: #ddd;
 }
+
+/* Navbar Styles */
+.navbar {
+  background-color: #fff;
+  padding: 10px 20px;
+  border-bottom: 2px solid #f26b1d;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: #f26b1d;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-menu li a:hover {
+  color: #f26b1d;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* Dark Mode Styles */
+body.dark-mode .navbar {
+  background-color: #1f1f1f;
+  border-color: #333;
+}
+body.dark-mode .nav-menu li a {
+  color: #f0f0f0;
+}
+body.dark-mode .nav-menu li a:hover {
+  color: #ff914d;
+}
+
+/* Mobile Responsive Menu */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #fff;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 10px 0;
+    border-top: 1px solid #ccc;
+  }
+  .nav-menu.show {
+    display: flex;
+  }
+  body.dark-mode .nav-menu {
+    background-color: #1f1f1f;
+  }
+}
+
+/* NAVBAR STYLES */
+.navbar {
+  background-color: #fff;
+  padding: 10px 20px;
+  border-bottom: 2px solid #f26b1d;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  margin: auto;
+  position: relative;
+}
+
+.logo img {
+  height: 40px;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  align-items: center;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+  padding: 6px 8px;
+  border-radius: 5px;
+}
+
+.nav-menu li a:hover,
+.nav-menu li a.active {
+  background-color: #f26b1d;
+  color: #fff;
+}
+
+/* Hamburger Button */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* Mobile Menu */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+  .nav-menu {
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background: #fff;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    border-top: 1px solid #ddd;
+  }
+  .nav-menu.show {
+    max-height: 300px;
+    opacity: 1;
+  }
+}
+
+/* Dark Mode Support */
+body.dark-mode .navbar {
+  background-color: #1f1f1f;
+  border-color: #333;
+}
+body.dark-mode .nav-menu {
+  background-color: #1f1f1f;
+}
+body.dark-mode .nav-menu li a {
+  color: #eee;
+}
+body.dark-mode .nav-menu li a:hover,
+body.dark-mode .nav-menu li a.active {
+  background-color: #f26b1d;
+  color: white;
+}
+
 </style>
 
 </head>
@@ -427,13 +609,28 @@ body.dark-mode .team-card p {
    class="follow-float" target="_blank" title="Follow us on Instagram">
   <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
 </a>
-  <div class="toggle-dark">
-  <label class="switch-label" for="darkModeSwitch">Dark Mode</label>
-  <label class="switch">
-    <input type="checkbox" id="darkModeSwitch" onclick="toggleDarkMode()">
-    <span class="slider"></span>
-  </label>
-</div>
+
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="#top" class="logo">
+      <img src="deadlypanthers-logo.png" alt="Deadly Panthers Logo">
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+    <ul class="nav-menu">
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#teams" class="nav-link">Teams</a></li>
+      <li><a href="#register" class="nav-link">Register</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+      <li>
+        <label class="switch" title="Toggle Dark Mode">
+          <input type="checkbox" id="darkModeSwitch" onclick="toggleDarkMode()">
+          <span class="slider"></span>
+        </label>
+      </li>
+    </ul>
+  </div>
+</nav>
+
   <header>
     <h1 style="text-align: center;">Deadly Panthers (R.)</h1>
 
@@ -482,21 +679,6 @@ body.dark-mode .team-card p {
     <div style="text-align: center; margin-top: 10px;">
     <a href="#" class="register-button" onclick="openRegisterPopup()">Register Now</a>
     </div>
-
-    <!-- <div class="gallery">
-      <img src="KINGS ULLAL.jpg" alt="Kings Ullal">
-      <img src="WEEKEND SPORTS CLUB.jpeg" alt="Weekend Sports Club">
-      <img src="VEERA VENKATESH WARRIORS.jpg" alt="Veera Venkatesh Warriors">
-      <img src="SUPREME GOLDEN GARUDAS GOSRIPURAM.jpg" alt="Golden Garudas Gosripuram">
-      <img src="GAJAKESARI SULLIA BATTLERS.jpg" alt="Gajakesari Sullia Battlers">
-      <img src="ROYAL CHALLENGERS BANTWAL.jpg" alt="Royal Challengers Bantwal">
-      <img src="GSB KINGS.jpg" alt="GSB Kings">
-      <img src="MYSORE GSB MAHARAJAS.jpeg" alt="Mysore GSB Maharajas">
-      <img src="ENJOY TITANS.png" alt="Enjoy Titans">
-      <img src="V STRIKERS.png" alt="V Strikers">
-      <img src="VEERANJANEYA CRICKETERS KAUP.jpg" alt="Veeranjaneya Cricketers Kaup">
-      <img src="RISING STARS MANGALORE.jpeg" alt="Rising Stars Mangalore">
-    </div> -->
 
 <!-- Team Gallery Section -->
 <section class="team-gallery swiper" style="padding: 40px 20px; background-color: #f9f9f9; text-align: center; overflow: hidden;">
@@ -612,17 +794,6 @@ body.dark-mode .team-card p {
     </div>
   </div>
 
-<!-- Developed By -->
-<!-- <div style="text-align: center; font-size: 14px; margin-top: 30px;">
-  Developed by: 
-  <a href="https://www.instagram.com/anvi_mallya/" target="_blank" 
-     style="color: #f26b1d; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 6px;">
-    <img id="instaIcon" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" 
-         alt="Instagram" style="width: 16px; height: 16px;">
-    AnVeEtH mAlLyA
-  </a>
-</div> -->
-
   <!-- <footer>
     &copy; 2025 Deadly Panthers (R.) | Panthers Super League - Season 4
   </footer> -->
@@ -657,6 +828,27 @@ body.dark-mode .team-card p {
 <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
+
+  // Toggle Mobile Menu
+document.querySelector(".nav-toggle").addEventListener("click", () => {
+  document.querySelector(".nav-menu").classList.toggle("show");
+});
+
+// Active Link Highlighting
+const navLinks = document.querySelectorAll(".nav-link");
+navLinks.forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.forEach(l => l.classList.remove("active"));
+    link.classList.add("active");
+    document.querySelector(".nav-menu").classList.remove("show"); // auto-close on mobile
+  });
+});
+
+  // Toggle mobile nav
+document.querySelector(".nav-toggle").addEventListener("click", () => {
+  document.querySelector(".nav-menu").classList.toggle("show");
+});
+
   //Dark Mode Toggle
     function toggleDarkMode() {
   document.body.classList.toggle('dark-mode');
@@ -688,29 +880,6 @@ body.dark-mode .team-card p {
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
     countdownEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
   }, 1000);
-
-  //   //Swiper JS
-  //   const teamSwiper = new Swiper('.team-gallery.swiper', {
-  //   slidesPerView: 2,
-  //   spaceBetween: 20,
-  //   loop: true,
-  //   autoplay: {
-  //     delay: 3000,
-  //     disableOnInteraction: false,
-  //   },
-  //   pagination: {
-  //     el: '.swiper-pagination',
-  //     clickable: true,
-  //   },
-  //   navigation: {
-  //     nextEl: '.swiper-button-next',
-  //     prevEl: '.swiper-button-prev',
-  //   },
-  //   breakpoints: {
-  //     768: { slidesPerView: 3 },
-  //     1024: { slidesPerView: 4 }
-  //   }
-  // });
 
   // Swiper JS
   const teamSwiper = new Swiper('.team-gallery.swiper', {
