@@ -69,7 +69,7 @@
     }
     header img {
     width: 100%;
-    max-height: 400px; /* Adjust this as needed */
+    max-height: 270px; /* Adjust this as needed */
     object-fit: cover;
     display: block;
     }
@@ -384,6 +384,40 @@ body.dark-mode .modal-actions button:last-child:hover {
 .pulse {
   animation: pulse 1.5s infinite;
 }
+/* Team Card Hover */
+.team-card {
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+.team-card img {
+  height: 120px;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+.team-card:hover img {
+  transform: scale(1.1);
+}
+.team-card p {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+body.dark-mode .team-card p {
+  color: #f0f0f0;
+}
+body.dark-mode .team-card {
+  background: #1f1f1f;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .team-card:hover {
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .team-card p {
+  color: #ddd;
+}
 </style>
 
 </head>
@@ -464,48 +498,82 @@ body.dark-mode .modal-actions button:last-child:hover {
       <img src="RISING STARS MANGALORE.jpeg" alt="Rising Stars Mangalore">
     </div> -->
 
-    <!-- Team Gallery Section
-<section class="team-gallery swiper" style="padding: 40px 20px; background-color: #f9f9f9; text-align: center; overflow: hidden;">
-  <h2>🏏 Teams Participating</h2>
-  <div class="swiper-wrapper" style="margin-top: 30px;">
-    <div class="swiper-slide"><img src="GSB KINGS.jpg" alt="GSB KINGS"></div>
-    <div class="swiper-slide"><img src="KINGS ULLAL.jpg" alt="KINGS ULLAL"></div>
-    <div class="swiper-slide"><img src="MYSORE GSB MAHARAJAS.jpeg" alt="MYSORE GSB MAHARAJAS"></div>
-    <div class="swiper-slide"><img src="RISING STARS MANGALORE.jpeg" alt="RISING STARS MANGALORE"></div>
-    <div class="swiper-slide"><img src="ROYAL CHALLENGERS BANTWAL.jpg" alt="ROYAL CHALLENGERS BANTWAL"></div>
-    <div class="swiper-slide"><img src="SUPREME GOLDEN GARUDAS GOSRIPURAM.jpg" alt="SUPREME GOLDEN GARUDAS GOSRIPURAM"></div>
-    <div class="swiper-slide"><img src="V STRIKERS.png" alt="V STRIKERS"></div>
-    <div class="swiper-slide"><img src="VEERA VENKATESH WARRIORS.jpg" alt="VEERA VENKATESH WARRIORS"></div>
-    <div class="swiper-slide"><img src="VEERANJANEYA CRICKETERS KAUP.jpg" alt="VEERANJANEYA CRICKETERS KAUP"></div>
-    <div class="swiper-slide"><img src="WEEKEND SPORTS CLUB.jpeg" alt="WEEKEND SPORTS CLUB"></div>
-    <div class="swiper-slide"><img src="GAJAKESARI SULLIA BATTLERS.jpg" alt="GAJAKESARI SULLIA BATTLERS"></div>
-    <div class="swiper-slide"><img src="ENJOY TITANS.png" alt="ENJOY TITANS"></div>
-  </div>
-  <div class="swiper-pagination"></div>
-  <div class="swiper-button-next"></div>
-  <div class="swiper-button-prev"></div>
-</section> -->
-
 <!-- Team Gallery Section -->
 <section class="team-gallery swiper" style="padding: 40px 20px; background-color: #f9f9f9; text-align: center; overflow: hidden;">
   <h2 style="color: #f26b1d;">🏏 Teams Participating</h2>
   <div class="swiper-wrapper" style="margin-top: 30px;">
-    <div class="swiper-slide"><img src="GSB KINGS.jpg" alt="GSB KINGS" style="height: 120px; border-radius: 12px;"></div>
-    <div class="swiper-slide"><img src="KINGS ULLAL.jpg" alt="KINGS ULLAL" style="height: 120px; border-radius: 12px;"></div>
-    <div class="swiper-slide"><img src="MYSORE GSB MAHARAJAS.jpeg" alt="MYSORE GSB MAHARAJAS" style="height: 120px; border-radius: 12px;"></div>
-    <div class="swiper-slide"><img src="RISING STARS MANGALORE.jpeg" alt="RISING STARS MANGALORE" style="height: 120px; border-radius: 12px;"></div>
-    <div class="swiper-slide"><img src="ROYAL CHALLENGERS BANTWAL.jpg" alt="ROYAL CHALLENGERS BANTWAL" style="height: 120px; border-radius: 12px;"></div>
-    <div class="swiper-slide"><img src="SUPREME GOLDEN GARUDAS GOSRIPURAM.jpg" alt="SUPREME GOLDEN GARUDAS GOSRIPURAM" style="height: 120px; border-radius: 12px;"></div>
-    <div class="swiper-slide"><img src="V STRIKERS.png" alt="V STRIKERS" style="height: 120px; border-radius: 12px;"></div>
-    <div class="swiper-slide"><img src="VEERA VENKATESH WARRIORS.jpg" alt="VEERA VENKATESH WARRIORS" style="height: 120px; border-radius: 12px;"></div>
-    <div class="swiper-slide"><img src="VEERANJANEYA CRICKETERS KAUP.jpg" alt="VEERANJANEYA CRICKETERS KAUP" style="height: 120px; border-radius: 12px;"></div>
-    <div class="swiper-slide"><img src="WEEKEND SPORTS CLUB.jpeg" alt="WEEKEND SPORTS CLUB" style="height: 120px; border-radius: 12px;"></div>
-    <div class="swiper-slide"><img src="GAJAKESARI SULLIA BATTLERS.jpg" alt="GAJAKESARI SULLIA BATTLERS" style="height: 120px; border-radius: 12px;"></div>
-    <div class="swiper-slide"><img src="ENJOY TITANS.png" alt="ENJOY TITANS" style="height: 120px; border-radius: 12px;"></div>
+    <div class="swiper-slide">
+  <div class="team-card">
+    <img src="GSB KINGS.jpg" alt="GSB KINGS">
+    <p>GSB KINGS</p>
   </div>
-  <div class="swiper-pagination"></div>
-  <div class="swiper-button-next"></div>
-  <div class="swiper-button-prev"></div>
+</div>
+<div class="swiper-slide">
+  <div class="team-card">
+    <img src="KINGS ULLAL.jpg" alt="KINGS ULLAL">
+    <p>KINGS ULLAL</p>
+  </div>
+</div>
+<div class="swiper-slide">
+  <div class="team-card">
+    <img src="MYSORE GSB MAHARAJAS.jpeg" alt="MYSORE GSB MAHARAJAS">
+    <p>MYSORE GSB MAHARAJAS</p>
+  </div>
+</div>
+<div class="swiper-slide">
+  <div class="team-card">
+    <img src="RISING STARS MANGALORE.jpeg" alt="RISING STARS MANGALORE">
+    <p>RISING STARS MANGALORE</p>
+  </div>
+</div>
+<div class="swiper-slide">
+  <div class="team-card">
+    <img src="ROYAL CHALLENGERS BANTWAL.jpg" alt="ROYAL CHALLENGERS BANTWAL">
+    <p>ROYAL CHALLENGERS BANTWAL</p>
+  </div>
+</div>
+<div class="swiper-slide">
+  <div class="team-card">
+    <img src="SUPREME GOLDEN GARUDAS GOSRIPURAM.jpg" alt="SUPREME GOLDEN GARUDAS GOSRIPURAM">
+    <p>SUPREME GOLDEN GARUDAS GOSRIPURAM</p>
+  </div>
+</div>
+<div class="swiper-slide">
+  <div class="team-card">
+    <img src="V STRIKERS.png" alt="V STRIKERS">
+    <p>V STRIKERS</p>
+  </div>
+</div>
+<div class="swiper-slide">
+  <div class="team-card">
+    <img src="VEERA VENKATESH WARRIORS.jpg" alt="VEERA VENKATESH WARRIORS">
+    <p>VEERA VENKATESH WARRIORS</p>
+  </div>
+</div>
+<div class="swiper-slide">
+  <div class="team-card">
+    <img src="VEERANJANEYA CRICKETERS KAUP.jpg" alt="VEERANJANEYA CRICKETERS KAUP">
+    <p>VEERANJANEYA CRICKETERS KAUP</p>
+  </div>
+</div>
+<div class="swiper-slide">
+  <div class="team-card">
+    <img src="WEEKEND SPORTS CLUB.jpeg" alt="WEEKEND SPORTS CLUB">
+    <p>WEEKEND SPORTS CLUB</p>
+  </div>
+</div>
+<div class="swiper-slide">
+  <div class="team-card">
+    <img src="GAJAKESARI SULLIA BATTLERS.jpg" alt="GAJAKESARI SULLIA BATTLERS">
+    <p>GAJAKESARI SULLIA BATTLERS</p>
+  </div>
+</div>
+<div class="swiper-slide">
+  <div class="team-card">
+    <img src="ENJOY TITANS.png" alt="ENJOY TITANS">
+    <p>ENJOY TITANS</p>
+  </div>
+</div>
 </section>
 
     <img src="TournamentPoster.jpg" alt="Match Poster" style="margin-top: 40px; width: 100%; border-radius: 10px;">
@@ -586,7 +654,8 @@ body.dark-mode .modal-actions button:last-child:hover {
   </div>
 </footer>
 
-
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
   //Dark Mode Toggle
     function toggleDarkMode() {
@@ -643,7 +712,7 @@ body.dark-mode .modal-actions button:last-child:hover {
   //   }
   // });
 
-  src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"
+  // Swiper JS
   const teamSwiper = new Swiper('.team-gallery.swiper', {
     slidesPerView: 2,
     spaceBetween: 20,
