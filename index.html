@@ -691,12 +691,22 @@ body.dark-mode .tagline {
   text-align: center;
 }
 
+/* .member-card {
+  width: 120px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
+
 .member-card img {
   width: 100%;
-  height: 100px;
-  object-fit: cover;
+  height: auto;
+  max-height: 140px;
+  object-fit: contain;
   border-radius: 10px;
   border: 2px solid #f26b1d;
+  background: #fff;
 }
 
 .member-card p {
@@ -717,6 +727,12 @@ body.dark-mode .member-card img {
 body.dark-mode .modal-actions button {
   background-color: #444;
   color: #fff;
+}
+@media (max-width: 500px) {
+  .team-members {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 </style>
@@ -740,6 +756,10 @@ body.dark-mode .modal-actions button {
         <img src="" alt="Co-owner 2 Photo" id="coOwner2Photo">
         <p><strong>Co-Owner 2:</strong> <span id="coOwner2Name"></span></p>
       </div>
+      <!-- <div class="member-card" id="coOrdinatorCard">
+        <img src="" alt="Co-ordinator Photo" id="coOrdinatorPhoto">
+        <p><strong>Co-ordinator:</strong> <span id="coOrdinatorName"></span></p>
+      </div> -->
       <div class="member-card" id="iconCard">
         <img src="" alt="Icon Player Photo" id="iconPhoto">
         <p><strong>Icon Player:</strong> <span id="iconName"></span></p>
@@ -841,8 +861,8 @@ body.dark-mode .modal-actions button {
 </div>
 <div class="swiper-slide">
   <div class="team-card">
-    <img src="MYSORE GSB MAHARAJAS.jpeg" alt="MYSORE GSB MAHARAJAS">
-    <p>MYSORE GSB MAHARAJAS</p>
+    <img src="SILENT SHORES MYSURU MAHARAJAS.png" alt="SILENT SHORES MYSURU MAHARAJAS">
+    <p>SILENT SHORES MYSURU MAHARAJAS</p>
   </div>
 </div>
 <div class="swiper-slide">
@@ -1225,11 +1245,11 @@ const teamData = {
     coOwner2: { name: "AKSHATHA PAI", img: "/images/team-photos/rising-stars-mangalore/coowner2.jpg" },
     icon: { name: "PRAJWAL SHENOY", img: "/images/team-photos/rising-stars-mangalore/icon.jpg" }
   },
-  "MYSORE GSB MAHARAJAS": {
-    owner: { name: "TBA", img: "/images/team-photos/mysore-gsb-maharajas/owner.jpg" },
-    coOwner1: { name: "TBA", img: "/images/team-photos/mysore-gsb-maharajas/coowner1.jpg" },
-    coOwner2: { name: "TBA", img: "/images/team-photos/mysore-gsb-maharajas/coowner2.jpg" },
-    icon: { name: "TBA", img: "/images/team-photos/mysore-gsb-maharajas/icon.jpg" }
+  "SILENT SHORES MYSURU MAHARAJAS": {
+    owner: { name: "DR.JAGANNATH SHENOY", img: "/images/team-photos/silent-shores-mysuru-maharajas/owner.jpg" },
+    coOwner1: { name: "KUSUMA SHENOY", img: "/images/team-photos/silent-shores-mysuru-maharajas/coowner1.jpg" },
+    coOwner2: { name: "RAMPRASAD KAMATH", img: "/images/team-photos/silent-shores-mysuru-maharajas/coordinator.jpg" },
+    icon: { name: "VINAYAKA PAI", img: "/images/team-photos/silent-shores-mysuru-maharajas/icon.jpg" }
   }
 };
 
@@ -1248,6 +1268,10 @@ function showTeamDetails(teamName) {
   document.getElementById('coOwner2Name').textContent = data.coOwner2?.name || "";
   document.getElementById('coOwner2Photo').src = data.coOwner2?.img || "";
   document.getElementById('coOwner2Card').style.display = data.coOwner2 ? "block" : "none";
+
+  // document.getElementById('coOordinatorName').textContent = data.coOordinator?.name || "";
+  // document.getElementById('coOordinatorPhoto').src = data.coOordinator?.img || "";
+  // document.getElementById('coOordinatorCard').style.display = data.coOordinator ? "block" : "none";
 
   document.getElementById('iconName').textContent = data.icon?.name || "TBA";
   document.getElementById('iconPhoto').src = data.icon?.img || "";
