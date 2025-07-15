@@ -1,0 +1,1790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Players Registered</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"/>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+    .search-box {
+      max-width: 400px;
+      margin: 0 auto 30px auto;
+      display: block;
+    }
+    #searchInput {
+      width: 100%;
+      padding: 10px 15px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    .player-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .player-card {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+    .player-card:hover {
+      transform: translateY(-5px);
+    }
+    .player-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+    }
+    .player-details {
+      padding: 15px;
+      text-align: center;
+    }
+    .player-details h2 {
+      font-size: 18px;
+      margin: 5px 0;
+    }
+    .player-details p {
+      font-size: 14px;
+      margin: 4px 0;
+      color: #333;
+    }
+    
+/*scroll Buttons*/
+#scrollButtons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease;
+  z-index: 1000;
+}
+
+#scrollButtons.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: background 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.scroll-btn:hover {
+  background: #0056b3;
+}
+
+.btn-icon {
+  font-size: 16px;
+}
+
+.btn-text {
+  margin-left: 5px;
+}
+
+/* On small screens: move to left & icons-only */
+@media screen and (max-width: 600px) {
+  #scrollButtons {
+    right: auto;
+    left: 20px;
+  }
+  .btn-text {
+    display: none;
+  }
+  .scroll-btn {
+    padding: 10px;
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    justify-content: center;
+  }
+}
+</style>
+</head>
+<body>
+  <h1>PLAYERS REGISTERED</h1>
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search by name, place, category or team..." />
+  </div>
+  <div class="player-grid" id="playerGrid">
+    <!-- Player cards will be injected here -->
+  </div>
+
+  <script>
+    const players = [
+  {
+    regNo: "1",
+    name: "RAVIKANTH KAMATH",
+    place: "MYSORE",
+    category: "ALL-ROUNDER",
+    teams: "GRS",
+    photo: "images/players/RAVIKANTH_KAMATH.jpg"
+  },
+  {
+    regNo: "2",
+    name: "ROHAN PRABHU",
+    place: "BANTWAL",
+    category: "ALL-ROUNDER",
+    teams: "KINGS ULLAL",
+    photo: "images/players/ROHAN_PRABHU.jpg"
+  },
+  {
+    regNo: "3",
+    name: "PUNDALIKA PAI",
+    place: "SASTHAN",
+    category: "ALL-ROUNDER",
+    teams: "KINGS ULLAL",
+    photo: "images/players/PUNDALIKA_PAI.jpg"
+  },
+  {
+    regNo: "4",
+    name: "ROHITH NAYAK",
+    place: "BANGALORE",
+    category: "ALL-ROUNDER",
+    teams: "GAJKESARI SULIA BATTLERS AND RISING STARS MANGALORE",
+    photo: "images/players/ROHITH_NAYAK.jpg"
+  },
+  {
+    regNo: "5",
+    name: "SANDEEP KAMATH",
+    place: "MANGALORE",
+    category: "ALL-ROUNDER",
+    teams: "DEADLY PANTHERS, MYSORE WARRIORS, KSK, WEEKEND SPORTS CLUB",
+    photo: "images/players/SANDEEP_KAMATH.jpg"
+  },
+  {
+    regNo: "6",
+    name: "ABHISHEK AJITH NAIK",
+    place: "BANGALORE",
+    category: "BOWLER",
+    teams: "GOLDEN GARUDAS",
+    photo: "images/players/ABHISHEK_AJITH_NAIK.jpg"
+  },
+  {
+    regNo: "7",
+    name: "SREEKANTH I",
+    place: "ALLEPPEY",
+    category: "ALL-ROUNDER",
+    teams: "INDO SUPER WARRIORS",
+    photo: "images/players/SREEKANTH_I.jpg"
+  },  
+  {
+    regNo: "8",
+    name: "ATUL PAI",
+    place: "SIRSI",
+    category: "ALL-ROUNDER",
+    teams: "JAIKARA STRIKERS",
+    photo: "images/players/ATUL_PAI.jpg"
+  },
+  {
+    regNo: "9",
+    name: "SATYA PRABHU",
+    place: "MANGALORE",
+    category: "ALL-ROUNDER",
+    teams: "VEERA VENKATESH WARRIORS, RK STRIKERS",
+    photo: "images/players/SATYA_PRABHU.jpg"
+  },
+  {
+    regNo: "10",
+    name: "GANESH A KAMATH",
+    place: "ALAPPUZHA",
+    category: "ALL-ROUNDER",
+    teams: "GPL 2025",
+    photo: "images/players/GANESH_A_KAMATH.jpg"
+  },
+  {
+    regNo: "11",
+    name: "ROHIT B KAMATH",
+    place: "ALLEPPEY",
+    category: "BOWLER",
+    teams: "KODIAL SUPER KINGS",
+    photo: "images/players/ROHIT_B_KAMATH.jpg"
+  },
+  {
+    regNo: "12",
+    name: "VINAYAK SHINGANKULI",
+    place: "HONNAVAR",
+    category: "ALL-ROUNDER",
+    teams: "KINGS ULLAL",
+    photo: "images/players/VINAYAK_SHINGANKULI.jpg"
+  },
+  {
+    regNo: "13",
+    name: "B PAVAN KAMATH",
+    place: "PANEMANGALORE",
+    category: "BATSMAN",
+    teams: "CSB",
+    photo: "images/players/B_PAVAN_KAMATH.jpg"
+  },
+  {
+    regNo: "14",
+    name: "DEEPAK R NAYAK",
+    place: "KARKALA",
+    category: "ALL-ROUNDER",
+    teams: "DEADLY PANTHERS",
+    photo: "images/players/DEEPAK_R_NAYAK.jpg"
+  },
+  {
+    regNo: "15",
+    name: "ANUJ PRABHU",
+    place: "BANGALORE",
+    category: "ALL-ROUNDER",
+    teams: "KINGS ULLAL",
+    photo: "images/players/ANUJ_PRABHU.jpg"
+  },
+  {
+    regNo: "16",
+    name: "RAKESH KUMAR U",
+    place: "KOCHI",
+    category: "BATSMAN",
+    teams: "GOLDEN GARUDAS GOSRIPURAM",
+    photo: "images/players/RAKESH_KUMAR_U.jpg"
+  },
+  {
+    regNo: "17",
+    name: "SACHIN SHENOY",
+    place: "MANGALORE",
+    category: "WK-BATSMAN",
+    teams: "SHIMOGA WARRIORS",
+    photo: "images/players/SACHIN_SHENOY.jpg"
+  },
+  {
+    regNo: "18",
+    name: "ROHAN NAYAK",
+    place: "MUMBAI",
+    category: "ALL-ROUNDER",
+    teams: "DEADLY PANTERS",
+    photo: "images/players/ROHAN_NAYAK.jpg"
+  },
+  {
+    regNo: "19",
+    name: "GOPALKRISHNA PAI",
+    place: "MANGALORE",
+    category: "ALL-ROUNDER",
+    teams: "ASHRAYA UNITED, RISING STARS (PSL 2023, 2024), GRS MYSURU WARRIORS (GPL 2024)",
+    photo: "images/players/GOPALKRISHNA_PAI.jpg"
+  },
+  {
+    regNo: "20",
+    name: "KRISHNA PAI P",
+    place: "PANEMANGALORE",
+    category: "ALL-ROUNDER",
+    teams: "SRILANKA GAB CLUB CRICKET",
+    photo: "images/players/KRISHNA_PAI_P.jpg"
+  },
+  {
+    regNo: "21",
+    name: "SREEJITH B KINI",
+    place: "KOCHI",
+    category: "ALL-ROUNDER",
+    teams: "GOLDEN GARUDAS AND SAPTHAMI WARRIORS",
+    photo: "images/players/SREEJITH_B_KINI.jpg"
+  },
+  {
+    regNo: "22",
+    name: "TILAK KINI T",
+    place: "KALLIANPURA",
+    category: "ALL-ROUNDER",
+    teams: "VFM, VEERANJANEYA KAUP, RISING STARS, SAPTAMI WARRIORS",
+    photo: "images/players/TILAK_KINI_T.jpg"
+  },
+  {
+    regNo: "23",
+    name: "SHRAVAN KAMATH M",
+    place: "SULLIA",
+    category: "ALL-ROUNDER",
+    teams: "GAJAKESARI SULLIA BATTLERS",
+    photo: "images/players/SHRAVAN_KAMATH_M.jpg"
+  },
+  {
+    regNo: "24",
+    name: "GK BHAT",
+    place: "MANGALORE",
+    category: "ALL-ROUNDER",
+    teams: "RK STRIKERS",
+    photo: "images/players/GK_BHAT.jpg"
+  },
+  {
+    regNo: "25",
+    name: "ANAND U KAMATH",
+    place: "KOCHI",
+    category: "BATSMAN",
+    teams: "GOLDEN GARUDAS KOCHI",
+    photo: "images/players/ANAND_U_KAMATH.jpg"
+  },
+  {
+    regNo: "26",
+    name: "TRIVIKRAM BHAGVATH",
+    place: "MULKI",
+    category: "ALL-ROUNDER",
+    teams: "VOLALANKE FIGHTERS MULKI, RISING STARS MANGALORE",
+    photo: "images/players/TRIVIKRAM_BHAGVATH.jpg"
+  },
+  {
+    regNo: "27",
+    name: "B NARENDRA PAI",
+    place: "MYSORE",
+    category: "ALL-ROUNDER",
+    teams: "GAJAKESARI SULLIA BATTLERS",
+    photo: "images/players/B_NARENDRA_PAI.jpg"
+  },
+  {
+    regNo: "28",
+    name: "GURURAJ PAI",
+    place: "BAILUR ,KARKALA",
+    category: "ALL-ROUNDER",
+    teams: "RSM",
+    photo: "images/players/GURURAJ_PAI.jpg"
+  },
+  {
+    regNo: "29",
+    name: "NAGENDRA NAYAK",
+    place: "BANTWAL",
+    category: "ALL-ROUNDER",
+    teams: "RISING STARS MANGALORE, MANGALAPURA, SAPTHAMI",
+    photo: "images/players/NAGENDRA_NAYAK.jpg"
+  },
+  {
+    regNo: "30",
+    name: "PRANAV SHENOY 1",
+    place: "KARKALA",
+    category: "ALL-ROUNDER",
+    teams: "DIDN'T PLAY",
+    photo: "images/players/PRANAV_SHENOY_1.jpg"
+  },
+  {
+    regNo: "31",
+    name: "PREETHAM N PAI B",
+    place: "CHENNAI",
+    category: "ALL-ROUNDER",
+    teams: "GAJAKESARI SULLIA BATTLERS",
+    photo: "images/players/PREETHAM_N_PAI_B.jpg"
+  },
+  {
+    regNo: "32",
+    name: "PRAJWAL",
+    place: "KUDROLI",
+    category: "BOWLER",
+    teams: "VSTRIKERS",
+    photo: "images/players/PRAJWAL.jpg"
+  },
+  {
+    regNo: "33",
+    name: "K.RANJITH KAMATH",
+    place: "KARAKALA",
+    category: "ALL-ROUNDER",
+    teams: "MANGLAPURA",
+    photo: "images/players/K_RANJITH_KAMATH.jpg"
+  },
+  {
+    regNo: "34",
+    name: "GURUDAS SHENOY",
+    place: "MUMBAI",
+    category: "ALL-ROUNDER",
+    teams: "MALPE",
+    photo: "images/players/GURUDAS_SHENOY.jpg"
+  },
+  {
+    regNo: "35",
+    name: "SHRIDHAR",
+    place: "SIRSI",
+    category: "ALL-ROUNDER",
+    teams: "RCB",
+    photo: "images/players/SHRIDHAR.jpg"
+  },
+  {
+    regNo: "36",
+    name: "SHYAMJITH B KAMATH",
+    place: "ALLAPPEY",
+    category: "BATSMAN",
+    teams: "INDO SUPER WARRIRORS",
+    photo: "images/players/SHYAMJITH_B_KAMATH.jpg"
+  },
+  {
+    regNo: "37",
+    name: "SHRIKRISHNA HUNSWADKAR",
+    place: "HALIYAL",
+    category: "ALL-ROUNDER",
+    teams: "DEADLY PANTHERS",
+    photo: "images/players/SHRIKRISHNA_HUNSWADKAR.jpg"
+  },
+  {
+    regNo: "38",
+    name: "GAUTHAM PAI",
+    place: "MANGALORE",
+    category: "ALL-ROUNDER",
+    teams: "DEADLY PANTHERS",
+    photo: "images/players/GAUTHAM_PAI.jpg"
+  },
+  {
+    regNo: "39",
+    name: "SREEJITH G MALLYA",
+    place: "KOCHI",
+    category: "ALL-ROUNDER",
+    teams: "GOLDEN GARUDAS GOSRIPURAM",
+    photo: "images/players/SREEJITH_G_MALLYA.jpg"
+  },
+  {
+    regNo: "40",
+    name: "AJITH BHAT M",
+    place: "MANGALORE",
+    category: "BOWLER",
+    teams: "ENJOY TITANS, KODIAL SUPER KINGS",
+    photo: "images/players/AJITH_BHAT_M.jpg"
+  },
+  {
+    regNo: "41",
+    name: "GURUPRASAD MAHALE",
+    place: "BENGALURU",
+    category: "ALL-ROUNDER",
+    teams: "GPL 2024, GSB LEGENDS CRICKET LEAGUE",
+    photo: "images/players/GURUPRASAD_MAHALE.jpg"
+  },
+  {
+    regNo: "42",
+    name: "SRINIVAS PAI BH",
+    place: "MANGALORE",
+    category: "BATSMAN",
+    teams: "DEADLY PANTHERS",
+    photo: "images/players/SRINIVAS_PAI_BH.jpg"
+  },
+  {
+    regNo: "43",
+    name: "SUNIL SHENOY",
+    place: "UDUPI",
+    category: "BATSMAN",
+    teams: "MALPE UNITED",
+    photo: "images/players/SUNIL_SHENOY.jpg"
+  },
+  {
+    regNo: "44",
+    name: "ASHWATH PAI",
+    place: "HARIKHANDIGE",
+    category: "ALL-ROUNDER",
+    teams: "HARIKHANDIGE",
+    photo: "images/players/ASHWATH_PAI.jpg"
+  },
+  {
+    regNo: "45",
+    name: "BALAKRISHNA KINI",
+    place: "MANGALORE",
+    category: "WK-BATSMAN",
+    teams: "TANK COBRA'S",
+    photo: "images/players/BALAKRISHNA_KINI.jpg"
+  },
+  {
+    regNo: "46",
+    name: "ABHIJIT KINI",
+    place: "MANGALURU",
+    category: "ALL-ROUNDER",
+    teams: "RK STRIKERS, RISING STARS MANGALORE, MUMBAI PALTANS",
+    photo: "images/players/ABHIJIT_KINI.jpg"
+  },  
+  {
+    regNo: "47",
+    name: "PRADEEP NAYAK",
+    place: "UDUPI",
+    category: "BOWLER",
+    teams: "PSL 2024, GPL 2025",
+    photo: "images/players/PRADEEP_NAYAK.jpg"
+  },
+  {
+    regNo: "48",
+    name: "RAMESH BHAT",
+    place: "MANGALORE",
+    category: "BOWLER",
+    teams: "KINGS XI ULLAL, SAPTHAMI WARRIORS",
+    photo: "images/players/RAMESH_BHAT.jpg"
+  },
+  {
+    regNo: "49",
+    name: "DIGANTH KAMATH",
+    place: "UDUPI",
+    category: "BATSMAN",
+    teams: "SAPTHAMI WARRIOR",
+    photo: "images/players/DIGANTH_KAMATH.jpg"
+  },
+  {
+    regNo: "50",
+    name: "DARSHAN PAI",
+    place: "KOTESHWARA",
+    category: "ALL-ROUNDER",
+    teams: "VOLALANKE FIGHTERS MULKY , KONKAN EXPRESS KOTESHWARA",
+    photo: "images/players/DARSHAN_PAI.jpg"
+  },
+  {
+    regNo: "51",
+    name: "SREEKESH S SHENOY",
+    place: "KOCHI",
+    category: "BATSMAN",
+    teams: "GOLDEN GARUDAS KOCHI",
+    photo: "images/players/SREEKESH_S_SHENOY.jpg"
+  },
+  {
+    regNo: "52",
+    name: "PAVAN TELANG",
+    place: "HONNAVAR",
+    category: "BOWLER",
+    teams: "JAIKAR,VEERA VENKATESH UNITED",
+    photo: "images/players/PAVAN_TELANG.jpg"
+  },
+  {
+    regNo: "53",
+    name: "SHIVA PRASAD PRABHU",
+    place: "MANGALORE",
+    category: "BATSMAN",
+    teams: "VARADA PANDURANGA",
+    photo: "images/players/SHIVA_PRASAD_PRABHU.jpg"
+  },
+  {
+    regNo: "54",
+    name: "KARTHIK PRABHU",
+    place: "MANGLORE",
+    category: "BATSMAN",
+    teams: "KINGS ULLAL",
+    photo: "images/players/KARTHIK_PRABHU.jpg"
+  },
+  {
+    regNo: "55",
+    name: "SRINIVASA KINI D",
+    place: "BANGALORE",
+    category: "BATSMAN",
+    teams: "PANTHERS SUPER LEAGUE 2024",
+    photo: "images/players/SRINIVASA_KINI_D.jpg"
+  },
+  {
+    regNo: "56",
+    name: "RAVICHANDRA NAYAK",
+    place: "SIRSI",
+    category: "BATSMAN",
+    teams: "MUMBAI PALTANS",
+    photo: "images/players/RAVICHANDRA_NAYAK.jpg"
+  },  
+  {
+    regNo: "57",
+    name: "ANIRUDH",
+    place: "MANGALORE",
+    category: "BATSMAN",
+    teams: "TANK COBRAS",
+    photo: "images/players/ANIRUDH.jpg"
+  },
+  {
+    regNo: "58",
+    name: "GAUTAM KINI",
+    place: "BENGALURU",
+    category: "BOWLER",
+    teams: "JAIKAR, ISC, MALPE, DEADLY, BBC",
+    photo: "images/players/GAUTAM_KINI.jpg"
+  },
+  {
+    regNo: "59",
+    name: "B MOHAN PAI",
+    place: "MANGALORE",
+    category: "ALL-ROUNDER",
+    teams: "VOLALANKE FIGHTERS MULKI, V STRIKERS",
+    photo: "images/players/B_MOHAN_PAI.jpg"
+  },
+  {
+    regNo: "60",
+    name: "VISHNU S KAMATH",
+    place: "KOCHI",
+    category: "BOWLER",
+    teams: "CHERLAI LIONS",
+    photo: "images/players/VISHNU_S_KAMATH.jpg"
+  },
+  {
+    regNo: "61",
+    name: "KARTIK KAMAT",
+    place: "SIRSI",
+    category: "ALL-ROUNDER",
+    teams: "VEERA VENKATESHA WARRIOERS",
+    photo: "images/players/KARTIK_KAMAT.jpg"
+  },
+  {
+    regNo: "62",
+    name: "DEEPESH D",
+    place: "KOCHI",
+    category: "ALL-ROUNDER",
+    teams: "GPL",
+    photo: "images/players/DEEPESH_D.jpg"
+  },
+  {
+    regNo: "63",
+    name: "VARUN",
+    place: "MANGALURU",
+    category: "ALL-ROUNDER",
+    teams: "YES",
+    photo: "images/players/VARUN.jpg"
+  },
+  {
+    regNo: "64",
+    name: "DIVAKAR D KAMATH",
+    place: "GOSRIPURAM",
+    category: "ALL-ROUNDER",
+    teams: "GOLDEN GARUDAS",
+    photo: "images/players/DIVAKAR_D_KAMATH.jpg"
+  },
+  {
+    regNo: "65",
+    name: "VINAYAKA PAI S (APPU)",
+    place: "MANDYA",
+    category: "BATSMAN",
+    teams: "VOLALANKE FIGHTERS MULKI",
+    photo: "images/players/VINAYAKA_PAI_S_(APPU).jpg"
+  },
+  {
+    regNo: "66",
+    name: "SACHIN PAI",
+    place: "MYSORE",
+    category: "ALL-ROUNDER",
+    teams: "GRS MYSURU WARRIORS GPL 2024 AND GAJAKESARI SULLIA BATTLERS FOR 2025",
+    photo: "images/players/SACHIN_PAI.jpg"
+  },
+  {
+    regNo: "67",
+    name: "VIJAY N PRABHU",
+    place: "KOCHI",
+    category: "ALL-ROUNDER",
+    teams: "GOLDEN GARUDAS KOCHI",
+    photo: "images/players/VIJAY_N_PRABHU.jpg"
+  },
+  {
+    regNo: "68",
+    name: "NITHESH PRABHU",
+    place: "MOODBIDRI",
+    category: "BATSMAN",
+    teams: "JAIKAR STRIKERS GPL",
+    photo: "images/players/NITHESH_PRABHU.jpg"
+  },
+  {
+    regNo: "69",
+    name: "VIVEK N",
+    place: "KOCHI",
+    category: "ALL-ROUNDER",
+    teams: "-",
+    photo: "images/players/VIVEK_N.jpg"
+  },
+  {
+    regNo: "70",
+    name: "AJAY KAMATH",
+    place: "UDUPI",
+    category: "ALL-ROUNDER",
+    teams: "SPARK UDUPI",
+    photo: "images/players/AJAY_KAMATH.jpg"
+  },
+  {
+    regNo: "71",
+    name: "VENKATRAMANA ACHARYA",
+    place: "BANTWAL",
+    category: "ALL-ROUNDER",
+    teams: "V STRIKERS",
+    photo: "images/players/VENKATRAMANA_ACHARYA.jpg"
+  },
+  {
+    regNo: "72",
+    name: "VINAYAKA SHENOY",
+    place: "SAIBRAKATTE",
+    category: "BATSMAN",
+    teams: "DEADLY PANTHERS",
+    photo: "images/players/VINAYAKA_SHENOY.jpg"
+  },
+  {
+    regNo: "73",
+    name: "ANEESH BHAT",
+    place: "MANGALORE",
+    category: "ALL-ROUNDER",
+    teams: "SAPTHAMI WARRIORS, GSB URWA LIONS",
+    photo: "images/players/ANEESH_BHAT.jpg"
+  },
+  {
+    regNo: "74",
+    name: "SRINIVASA PAI",
+    place: "KARKALA",
+    category: "BATSMAN",
+    teams: "PADUTHIRUPATHI",
+    photo: "images/players/SRINIVASA_PAI.jpg"
+  },
+  {
+    regNo: "75",
+    name: "PRATHAMESH KAMATH",
+    place: "PANEMANGALORE",
+    category: "ALL-ROUNDER",
+    teams: "RCB",
+    photo: "images/players/PRATHAMESH_KAMATH.jpg"
+  },
+  {
+    regNo: "76",
+    name: "PAWAN S BHAGATH",
+    place: "MANGALORE",
+    category: "ALL-ROUNDER",
+    teams: "GSB KINGS",
+    photo: "images/players/PAWAN_S_BHAGATH.jpg"
+  },
+  {
+    regNo: "77",
+    name: "VINAYAK NAYAK",
+    place: "HARIKANDIGE",
+    category: "ALL-ROUNDER",
+    teams: "KINGS ULLAL",
+    photo: "images/players/VINAYAK_NAYAK.jpg"
+  },
+  {
+    regNo: "78",
+    name: "KARTHIK NAYAK",
+    place: "HARIKANDIGE",
+    category: "ALL-ROUNDER",
+    teams: "-",
+    photo: "images/players/KARTHIK_NAYAK.jpg"
+  },
+  {
+    regNo: "79",
+    name: "SUMEETH BHAT",
+    place: "MANGALORE",
+    category: "BATSMAN",
+    teams: "VPL",
+    photo: "images/players/SUMEETH_BHAT.jpg"
+  },
+  {
+    regNo: "80",
+    name: "RAGHAV SHENOY",
+    place: "KARKALA",
+    category: "BATSMAN",
+    teams: "TANK COBRAS",
+    photo: "images/players/RAGHAV_SHENOY.jpg"
+  },
+  {
+    regNo: "81",
+    name: "SUNIL KAMATH",
+    place: "KARKALA",
+    category: "ALL-ROUNDER",
+    teams: "KSK, TC",
+    photo: "images/players/SUNIL_KAMATH.jpg"
+  },
+  {
+    regNo: "82",
+    name: "DEEPAK SHENOY",
+    place: "MYSORE",
+    category: "ALL-ROUNDER",
+    teams: "MALPE",
+    photo: "images/players/DEEPAK_SHENOY.jpg"
+  },
+  {
+    regNo: "83",
+    name: "SATHWIK KAMATH",
+    place: "MANGALORE",
+    category: "ALL-ROUNDER",
+    teams: "VCK",
+    photo: "images/players/SATHWIK_KAMATH.jpg"
+  },
+  {
+    regNo: "84",
+    name: "DAYANAND BHANDARKAR",
+    place: "HONNAVAR, UTTARA KANNADA",
+    category: "BOWLER",
+    teams: "JAIKAR STRIKERS 2024, GPL 2024,2025 WEEKEND TROPHY ETC",
+    photo: "images/players/DAYANAND_BHANDARKAR.jpg"
+  },
+  {
+    regNo: "85",
+    name: "VIGNESH BHAT",
+    place: "KOTESHWAR",
+    category: "ALL-ROUNDER",
+    teams: "SAPTHAMI WARRIORS",
+    photo: "images/players/VIGNESH_BHAT.jpg"
+  },
+  {
+    regNo: "86",
+    name: "VEDANTH BHAT",
+    place: "NAIKANKATTE",
+    category: "BOWLER",
+    teams: "AVATARS MALPE",
+    photo: "images/players/VEDANTH_BHAT.jpg"
+  },
+  {
+    regNo: "87",
+    name: "SHIVA PRASAD NAYAK",
+    place: "MANGALORE",
+    category: "BOWLER",
+    teams: "VEERANJANEYA, SAPTHAMI WARRIORS",
+    photo: "images/players/SHIVA_PRASAD_NAYAK.jpg"
+  },
+  {
+    regNo: "88",
+    name: "DAMODAR KAMATH",
+    place: "PARKALA",
+    category: "BATSMAN",
+    teams: "FRIENDS HARIKANDIGE",
+    photo: "images/players/DAMODAR_KAMATH.jpg"
+  },
+  {
+    regNo: "89",
+    name: "VIGNESH PAI",
+    place: "KUMTA",
+    category: "ALL-ROUNDER",
+    teams: "KODIAL SUPER KINGS",
+    photo: "images/players/VIGNESH_PAI.jpg"
+  },
+  {
+    regNo: "90",
+    name: "BHUVAN BHAT",
+    place: "UDUPI",
+    category: "BATSMAN",
+    teams: "PSL-JAIKAR STRIKERS 2024, GPL-UDUPI BLASTERS",
+    photo: "images/players/BHUVAN_BHAT.jpg"
+  },
+  {
+    regNo: "91",
+    name: "PRAJWAL SHENOY",
+    place: "BANGALORE",
+    category: "ALL-ROUNDER",
+    teams: "GPL, PSL",
+    photo: "images/players/PRAJWAL_SHENOY.jpg"
+  },
+  {
+    regNo: "92",
+    name: "JAYANTH V KMATH",
+    place: "UDUPI",
+    category: "ALL-ROUNDER",
+    teams: "VEERA VENKATESHA WARRIORS",
+    photo: "images/players/JAYANTH_V_KMATH.jpg"
+  },
+  {
+    regNo: "93",
+    name: "JAGADISH PAI",
+    place: "UDUPI",
+    category: "ALL-ROUNDER",
+    teams: "SPARK UDUPI AND SAPTAMI WARRIORS",
+    photo: "images/players/JAGADISH_PAI.jpg"
+  },
+  {
+    regNo: "94",
+    name: "GIRISH PAI",
+    place: "MANGALURU",
+    category: "ALL-ROUNDER",
+    teams: "ASHRAYA UNITED",
+    photo: "images/players/GIRISH_PAI.jpg"
+  },
+  {
+    regNo: "95",
+    name: "DEEPAK KAMATH",
+    place: "KOTESHWAR",
+    category: "ALL-ROUNDER",
+    teams: "V V",
+    photo: "images/players/DEEPAK_KAMATH.jpg"
+  },
+  {
+    regNo: "96",
+    name: "MADHAVA BHAT",
+    place: "KOTESHWARA",
+    category: "ALL-ROUNDER",
+    teams: "KONKAN XPRESS KOTESHWARA , ABHARANA DIAMONDS, KINGS LX ULLAL, VCK KAUP",
+    photo: "images/players/MADHAVA_BHAT.jpg"
+  },
+  {
+    regNo: "97",
+    name: "MADHU M PAI",
+    place: "SHIVAMOGGA",
+    category: "ALL-ROUNDER",
+    teams: "GSB",
+    photo: "images/players/MADHU_M_PAI.jpg"
+  },
+  {
+    regNo: "98",
+    name: "ABHISHEK KAMATH",
+    place: "BENGALURU",
+    category: "ALL-ROUNDER",
+    teams: "GSB NAGARBHAVI TEAM , EKADANTHA CRICKET CLUB GPL",
+    photo: "images/players/ABHISHEK_KAMATH.jpg"
+  },
+  {
+    regNo: "99",
+    name: "M SANTHOSH PRABHU",
+    place: "BANGALORE",
+    category: "ALL-ROUNDER",
+    teams: "SRI RAM SUPERKINGS",
+    photo: "images/players/M_SANTHOSH_PRABHU.jpg"
+  },
+  {
+    regNo: "100",
+    name: "RATHAN KAMATH",
+    place: "KEDINJE",
+    category: "ALL-ROUNDER",
+    teams: "SAPTHAMI WARRIORS",
+    photo: "images/players/RATHAN_KAMATH.jpg"
+  },
+  {
+    regNo: "101",
+    name: "SHRIKANTH P PAI",
+    place: "MOODBIDRI",
+    category: "ALL-ROUNDER",
+    teams: "RK STRIKERS",
+    photo: "images/players/SHRIKANTH_P_PAI.jpg"
+  },
+  {
+    regNo: "102",
+    name: "CHAITANYA KANTU",
+    place: "SIRSI, UTTARA KANNADA",
+    category: "ALL-ROUNDER",
+    teams: "GPL,VPL,UKGCL",
+    photo: "images/players/CHAITANYA_KANTU.jpg"
+  },
+  {
+    regNo: "103",
+    name: "RAMNATH BHAT",
+    place: "NAIKANAKATTE",
+    category: "ALL-ROUNDER",
+    teams: "KINGS ULLAL, DEADLY PANTHERS KODIAL",
+    photo: "images/players/RAMNATH_BHAT.jpg"
+  },
+  {
+    regNo: "104",
+    name: "SRINATH SHENOY",
+    place: "MANGLORE",
+    category: "ALL-ROUNDER",
+    teams: "AVATARS ELEVEN MALPE (GPL)",
+    photo: "images/players/SRINATH_SHENOY.jpg"
+  },
+  {
+    regNo: "105",
+    name: "SATHYAJEETH PRABHU",
+    place: "MANGALORE",
+    category: "WK-BATSMAN",
+    teams: "THANE TITANS, SAPTHAMI WARRIORS, MALSI URWA, KODIAL SUPER KINGS",
+    photo: "images/players/SATHYAJEETH_PRABHU.jpg"
+  },
+  {
+    regNo: "106",
+    name: "PRASHANTH RAO B",
+    place: "MANGALURU",
+    category: "ALL-ROUNDER",
+    teams: "MYSURU WARRIORS AND KODIAL SUPER KINGS",
+    photo: "images/players/PRASHANTH_RAO_B.jpg"
+  },  
+  {
+    regNo: "107",
+    name: "RAGHAVENDRA SHENOY",
+    place: "MANGALORE",
+    category: "ALL-ROUNDER",
+    teams: "VEERA VENKATESH WARRIORS",
+    photo: "images/players/RAGHAVENDRA_SHENOY.jpg"
+  },
+  {
+    regNo: "108",
+    name: "VENKATESH N PRABHU",
+    place: "MUMBAI",
+    category: "BOWLER",
+    teams: "PSL 2024 - VEERA VENKATESH WARRIORS",
+    photo: "images/players/VENKATESH_N_PRABHU.jpg"
+  },
+  {
+    regNo: "109",
+    name: "VINOD KAMATH",
+    place: "MANGALORE",
+    category: "ALL-ROUNDER",
+    teams: "WEEKEND SPORTS CLUB AND RISING STARS MANGALORE",
+    photo: "images/players/VINOD_KAMATH.jpg"
+  },
+  {
+    regNo: "110",
+    name: "NARASIMHA NAYAK U",
+    place: "MANGALORE",
+    category: "ALL-ROUNDER",
+    teams: "KINGS ULLAL",
+    photo: "images/players/NARASIMHA_NAYAK_U.jpg"
+  },
+  {
+    regNo: "111",
+    name: "GOKUL GADIYAR",
+    place: "PANEMANGALORE",
+    category: "ALL-ROUNDER",
+    teams: "RISING STARS MANGALORE",
+    photo: "images/players/GOKUL_GADIYAR.jpg"
+  },
+  {
+    regNo: "112",
+    name: "HARIPRASAD P",
+    place: "KOCHI",
+    category: "ALL-ROUNDER",
+    teams: "SUPREME GOLDEN GARUDAS GOSRIPURAM",
+    photo: "images/players/HARIPRASAD_P.jpg"
+  },
+  {
+    regNo: "113",
+    name: "VENUGOPAL R KAMATH",
+    place: "KOCHI",
+    category: "ALL-ROUNDER",
+    teams: "SUPREME GOLDEN GARUDAS GOSRIPURAM",
+    photo: "images/players/VENUGOPAL_R_KAMATH.jpg"
+  },
+  {
+    regNo: "114",
+    name: "M VIKRAM KAMATH",
+    place: "MANGALORE",
+    category: "BOWLER",
+    teams: "-",
+    photo: "images/players/M_VIKRAM_KAMATH.jpg"
+  },
+  {
+    regNo: "115",
+    name: "VIGNESH G BHAT",
+    place: "MULKI",
+    category: "ALL-ROUNDER",
+    teams: "MULKI",
+    photo: "images/players/VIGNESH_G_BHAT.jpg"
+  },
+  {
+    regNo: "116",
+    name: "DEEPAK KAMATH",
+    place: "BOLA",
+    category: "ALL-ROUNDER",
+    teams: "KBC, MULKI",
+    photo: "images/players/DEEPAK_KAMATH_BOLA.jpg"
+  },
+  {
+    regNo: "117",
+    name: "VIJAYRAJ PAI",
+    place: "MANGALORE",
+    category: "WK-BATSMAN",
+    teams: "ENJOY TITANS",
+    photo: "images/players/VIJAYRAJ_PAI.jpg"
+  },
+  {
+    regNo: "118",
+    name: "VIKAS PAI",
+    place: "MANGALORE",
+    category: "BATSMAN",
+    teams: "BANGALORE CHALLENGERS",
+    photo: "images/players/VIKAS_PAI.jpg"
+  },
+  {
+    regNo: "119",
+    name: "SATHVIK BALIGA",
+    place: "BANTWAL",
+    category: "BOWLER",
+    teams: "KSK,VFM",
+    photo: "images/players/SATHVIK_BALIGA.jpg"
+  },
+  {
+    regNo: "120",
+    name: "AKSHAY KAMATH",
+    place: "MANGALORE",
+    category: "BATSMAN",
+    teams: "DEADLY PANTHERS, VEERANJANEYA CRICKETERS",
+    photo: "images/players/AKSHAY_KAMATH.jpg"
+  },
+  {
+    regNo: "121",
+    name: "PAVAN",
+    place: "KARKALA",
+    category: "BATSMAN",
+    teams: "T10",
+    photo: "images/players/PAVAN.jpg"
+  },
+  {
+    regNo: "122",
+    name: "SURAJ PRABHU",
+    place: "MANGALORE",
+    category: "ALL-ROUNDER",
+    teams: "GSB KINGS, TC SCORCHERS, TANK COBRAS",
+    photo: "images/players/SURAJ_PRABHU.jpg"
+  },
+  {
+    regNo: "123",
+    name: "RAVINDRA NAYAK",
+    place: "NERLAKATTE",
+    category: "ALL-ROUNDER",
+    teams: "IRVATHUR SPORTS CLUB",
+    photo: "images/players/RAVINDRA_NAYAK.jpg"
+  },
+  {
+    regNo: "124",
+    name: "PAVAN PAI",
+    place: "MANGALORE",
+    category: "BOWLER",
+    teams: "TC SCHOCHERS, RISING STAR MANGALORE",
+    photo: "images/players/PAVAN_PAI.jpg"
+  },
+  {
+    regNo: "125",
+    name: "ER. GANESHA NAYAK M",
+    place: "KUNDAPURA",
+    category: "ALL-ROUNDER",
+    teams: "RISING STAR, TEAM GSB KUNDAPURA, VEERANJANEYA KAUP",
+    photo: "images/players/GANESHA_NAYAK_M.jpg"
+  },
+  {
+    regNo: "126",
+    name: "SUDESH S MALLYA",
+    place: "MANGALORE",
+    category: "BOWLER",
+    teams: "-",
+    photo: "images/players/SUDESH_S_MALLYA.jpg"
+  },
+  {
+    regNo: "127",
+    name: "SREENIVAS B PAI",
+    place: "COCHIN",
+    category: "ALL-ROUNDER",
+    teams: "-",
+    photo: "images/players/SREENIVAS_B_PAI.jpg"
+  },
+  {
+    regNo: "128",
+    name: "GAURAV BHAT",
+    place: "ULLAL",
+    category: "ALL-ROUNDER",
+    teams: "ENJOY TITANS",
+    photo: "images/players/GAURAV_BHAT.jpg"
+  },
+  {
+    regNo: "129",
+    name: "VITTAL BHAT",
+    place: "MANGALORE",
+    category: "ALL-ROUNDER",
+    teams: "DEADLY PANTHERS",
+    photo: "images/players/VITTAL_BHAT.jpg"
+  },
+  {
+    regNo: "130",
+    name: "SREENATH",
+    place: "ALLEPPEY",
+    category: "BATSMAN",
+    teams: "INDO SUPER WARRIORS",
+    photo: "images/players/SREENATH.jpg"
+  },
+  {
+    regNo: "131",
+    name: "SHANMUKH",
+    place: "BANTWAL",
+    category: "ALL-ROUNDER",
+    teams: "MANGALAPUR",
+    photo: "images/players/SHANMUKH.jpg"
+  },
+  {
+    regNo: "132",
+    name: "RAMNATH SHENOY",
+    place: "ALLEPPY",
+    category: "ALL-ROUNDER",
+    teams: "INDOSUPERWARRIORS ALLEPPY",
+    photo: "images/players/RAMNATH_SHENOY.jpg"
+  },
+  {
+    regNo: "133",
+    name: "PRANAV",
+    place: "ULLAL",
+    category: "ALL-ROUNDER",
+    teams: "KINGS ULLAL",
+    photo: "images/players/PRANAV.jpg"
+  },
+  {
+    regNo: "134",
+    name: "VENKATESH",
+    place: "ULLAL",
+    category: "ALL-ROUNDER",
+    teams: "KINGS ULLAL",
+    photo: "images/players/VENKATESH.jpg"
+  },
+  {
+    regNo: "135",
+    name: "NARASIMHA SHENOY",
+    place: "MANGALORE",
+    category: "BATSMAN",
+    teams: "URBAN CRICKET CLUB",
+    photo: "images/players/NARASIMHA_SHENOY.jpg"
+  },
+  {
+    regNo: "136",
+    name: "SUHAS PRABHU",
+    place: "MULKI",
+    category: "BATSMAN",
+    teams: "VOLALANKE FIGHTERS MULKI",
+    photo: "images/players/SUHAS_PRABHU.jpg"
+  },
+  {
+    regNo: "137",
+    name: "ROHAN PRABHU",
+    place: "BEEJADI",
+    category: "BATSMAN",
+    teams: "GSB TOURNAMENT",
+    photo: "images/players/ROHAN_PRABHU_BEEJADI.jpg"
+  },
+  {
+    regNo: "138",
+    name: "PRASAD MAHALE",
+    place: "MURDERSHWAR",
+    category: "ALL-ROUNDER",
+    teams: "KAUP, ULLAL, JK STRIKERS",
+    photo: "images/players/PRASAD_MAHALE.jpg"
+  },
+  {
+    regNo: "139",
+    name: "HEMANTH BHAT",
+    place: "NAIKANKATTE",
+    category: "ALL-ROUNDER",
+    teams: "SV CRICKETERS",
+    photo: "images/players/HEMANTH_BHAT.jpg"
+  },
+  {
+    regNo: "140",
+    name: "ANIRUDHA KAMATH",
+    place: "UDUPI",
+    category: "ALL-ROUNDER",
+    teams: "MALPE UNITED, GSB FRIENDS PADUBIDRI",
+    photo: "images/players/ANIRUDHA_KAMATH.jpg"
+  },
+  {
+    regNo: "141",
+    name: "PURUSHOTHAM KAMATH",
+    place: "KOTESHWARA",
+    category: "WK-BATSMAN",
+    teams: "ISC MANIPAL, KONKAN EXPRESS KOTESHWARA",
+    photo: "images/players/PURUSHOTHAM_KAMATH.jpg"
+  },
+  {
+    regNo: "142",
+    name: "VINAYAKA PRABHU",
+    place: "MYSORE",
+    category: "ALL-ROUNDER",
+    teams: "VEERANJANEYA KAUP AND MYSORE WARRIORS (GSBPL)",
+    photo: "images/players/VINAYAKA_PRABHU.jpg"
+  },
+  {
+    regNo: "143",
+    name: "RAKSHIT NAYAK",
+    place: "HARIKANDIGE",
+    category: "ALL-ROUNDER",
+    teams: "FRIENDS HARIKANDIGE",
+    photo: "images/players/RAKSHIT_NAYAK.jpg"
+  },
+  {
+    regNo: "144",
+    name: "SANKETH",
+    place: "MULKI",
+    category: "BATSMAN",
+    teams: "MULKI",
+    photo: "images/players/SANKETH.jpg"
+  },
+  {
+    regNo: "145",
+    name: "MANJUNATH NAYAK",
+    place: "MANGALORE",
+    category: "ALL-ROUNDER",
+    teams: "DEADLY PANTHER, SAPTHAMI",
+    photo: "images/players/MANJUNATH_NAYAK.jpg"
+  },
+  {
+    regNo: "146",
+    name: "NIKIL T SHENOY",
+    place: "MANGALORE",
+    category: "BOWLER",
+    teams: "NEW PLAYER",
+    photo: "images/players/NIKIL_T_SHENOY.jpg"
+  },
+  {
+    regNo: "147",
+    name: "ATHUL SHENOY",
+    place: "PUTTUR",
+    category: "BATSMAN",
+    teams: "DEADLY PANTHERS",
+    photo: "images/players/ATHUL_SHENOY.jpg"
+  },
+  {
+    regNo: "148",
+    name: "MAHESH",
+    place: "NAIKANKATTE",
+    category: "BOWLER",
+    teams: "TEAM MANGALAPURA",
+    photo: "images/players/MAHESH.jpg"
+  },
+  {
+    regNo: "149",
+    name: "DEEPAK BADAL",
+    place: "KUMTA",
+    category: "ALL-ROUNDER",
+    teams: "ULLAL",
+    photo: "images/players/DEEPAK_BADAL.jpg"
+  },
+  {
+    regNo: "150",
+    name: "ADITYA SAKHARDANDE",
+    place: "PUNE",
+    category: "ALL-ROUNDER",
+    teams: "RCB",
+    photo: "images/players/ADITYA_SAKHARDANDE.jpg"
+  },
+  {
+    regNo: "151",
+    name: "PRAVEEN BHAT",
+    place: "UDUPI",
+    category: "ALL-ROUNDER",
+    teams: "-",
+    photo: "images/players/PRAVEEN_BHAT.jpg"
+  },
+  {
+    regNo: "152",
+    name: "ASWIN B KAMATH",
+    place: "ALLEPPEY, KERALA",
+    category: "BATSMAN",
+    teams: "PSL, GPL",
+    photo: "images/players/ASWIN_B_KAMATH.jpg"
+  },
+  {
+    regNo: "153",
+    name: "RAGHAVENDRA MAHALE",
+    place: "BANGALORE",
+    category: "ALL-ROUNDER",
+    teams: "RK STRIKERS, ASKB CRICKETERS BENGALURU",
+    photo: "images/players/RAGHAVENDRA_MAHALE.jpg"
+  },
+  {
+    regNo: "154",
+    name: "ABHAY",
+    place: "MULKI",
+    category: "BATSMAN",
+    teams: "MULKI",
+    photo: "images/players/ABHAY.jpg"
+  },
+  {
+    regNo: "155",
+    name: "SURENDRA PAI",
+    place: "SASTHAN",
+    category: "ALL-ROUNDER",
+    teams: "GSB KOTA",
+    photo: "images/players/SURENDRA_PAI.jpg"
+  },
+  {
+    regNo: "156",
+    name: "SANJAY MALLYA",
+    place: "BENGALURU",
+    category: "ALL-ROUNDER",
+    teams: "SAPTHAMI WARRIORS, IRVATTURU SPORTS CLUB, BENGALURU BOMBAT CHARKE",
+    photo: "images/players/SANJAY_MALLYA.jpg"
+  },
+  {
+    regNo: "157",
+    name: "PRATHAP NAYAK",
+    place: "MOODBIDRE",
+    category: "BATSMAN",
+    teams: "SVS",
+    photo: "images/players/PRATHAP_NAYAK.jpg"
+  },
+  {
+    regNo: "158",
+    name: "KEDAR KUDVA",
+    place: "MANGALORE",
+    category: "BATSMAN",
+    teams: "DEADLY PANTHERS",
+    photo: "images/players/KEDAR_KUDVA.jpg"
+  },
+  {
+    regNo: "159",
+    name: "ARYAN",
+    place: "MANGLR",
+    category: "BATSMAN",
+    teams: "DEADLY PANTHERS",
+    photo: "images/players/ARYAN.jpg"
+  },
+  {
+    regNo: "160",
+    name: "VIVEK NAYAK",
+    place: "KOTA",
+    category: "ALL-ROUNDER",
+    teams: "GSB FRIENDS KOTA",
+    photo: "images/players/VIVEK_NAYAK.jpg"
+  },
+  {
+    regNo: "161",
+    name: "RAKESH KAMATH",
+    place: "PUTTUR",
+    category: "ALL-ROUNDER",
+    teams: "DEADLY PANTHERS",
+    photo: "images/players/RAKESH_KAMATH.jpg"
+  },
+  {
+    regNo: "162",
+    name: "ADITHYA PAI",
+    place: "KUNDAPURA",
+    category: "ALL-ROUNDER",
+    teams: "YEKADANTA",
+    photo: "images/players/ADITHYA_PAI.jpg"
+  },
+  {
+    regNo: "163",
+    name: "VARUN SHANBHAG",
+    place: "HEBRI",
+    category: "WK-BATSMAN",
+    teams: "VOLALANKE FIGHTERS MULKY",
+    photo: "images/players/VARUN_SHANBHAG.jpg"
+  },
+  {
+    regNo: "164",
+    name: "KEERTHAN PRABHU",
+    place: "MANGALORE",
+    category: "ALL-ROUNDER",
+    teams: "DEADLY PANTHERS",
+    photo: "images/players/KEERTHAN_PRABHU.jpg"
+  },
+  {
+    regNo: "165",
+    name: "KEERTHAN KAMATH M",
+    place: "SULLIA",
+    category: "ALL-ROUNDER",
+    teams: "GAKAJAKESARI SULLIA BATTLERS",
+    photo: "images/players/KEERTHAN_KAMATH_M.jpg"
+  },
+  {
+    regNo: "166",
+    name: "SOURAB BHAKTHA",
+    place: "MANGALORE",
+    category: "ALL-ROUNDER",
+    teams: "DEADLY PANTHERS",
+    photo: "images/players/SOURAB_BHAKTHA.jpg"
+  },
+  {
+    regNo: "167",
+    name: "ANOOP KAMATH",
+    place: "MULKI",
+    category: "BOWLER",
+    teams: "RISING STARS",
+    photo: "images/players/ANOOP_KAMATH.jpg"
+  },
+  {
+    regNo: "168",
+    name: "ANANTHESH PAI",
+    place: "MANGALORE",
+    category: "ALL-ROUNDER",
+    teams: "GSB URWA",
+    photo: "images/players/ANANTHESH_PAI.jpg"
+  },
+  {
+    regNo: "169",
+    name: "ATUL",
+    place: "KUMTA",
+    category: "ALL-ROUNDER",
+    teams: "DEADLEY PANTHERS",
+    photo: "images/players/ATUL.jpg"
+  },
+  {
+    regNo: "170",
+    name: "M NAGESH PAI",
+    place: "GANGOLLI",
+    category: "ALL-ROUNDER",
+    teams: "ISC MANIPAL",
+    photo: "images/players/M_NAGESH_PAI.jpg"
+  },
+  {
+    regNo: "171",
+    name: "VARUN KINI",
+    place: "MALPE",
+    category: "ALL-ROUNDER",
+    teams: "MALPE UNITED",
+    photo: "images/players/VARUN_KINI.jpg"
+  },
+  {
+    regNo: "172",
+    name: "VIGNESH SHENOY",
+    place: "KARKALA",
+    category: "ALL-ROUNDER",
+    teams: "PADUTHIRUPATHI CRICKETERS, VEERA VENKATESH WARRIORS",
+    photo: "images/players/VIGNESH_SHENOY.jpg"
+  },
+  {
+    regNo: "173",
+    name: "SUJITH BALIGA",
+    place: "MANGALORE",
+    category: "ALL-ROUNDER",
+    teams: "GSK KINGS",
+    photo: "images/players/SUJITH_BALIGA.jpg"
+  },
+  {
+    regNo: "174",
+    name: "P SARTHAK SHENOY",
+    place: "MANGALORE",
+    category: "ALL-ROUNDER",
+    teams: "TEAM MANGALAPURA",
+    photo: "images/players/P_SARTHAK_SHENOY.jpg"
+  },
+  {
+    regNo: "175",
+    name: "VARUN ACHARYA",
+    place: "GANGOLLI",
+    category: "BOWLER",
+    teams: "VEERANJANEYA KAPU, RISING STARS MANGALORE, ABHARAN DIAMONDS",
+    photo: "images/players/VARUN_ACHARYA.jpg"
+  },
+  {
+    regNo: "176",
+    name: "SHASHANK MALLYA",
+    place: "THOKKOTU",
+    category: "BATSMAN",
+    teams: "GSB",
+    photo: "images/players/SHASHANK_MALLYA.jpg"
+  },
+  {
+    regNo: "177",
+    name: "SUDHINDRA HEGDE",
+    place: "MANGALORE",
+    category: "BOWLER",
+    teams: "GSB KINGS",
+    photo: "images/players/SUDHINDRA_HEGDE.jpg"
+  },
+  {
+    regNo: "178",
+    name: "SAMARTH",
+    place: "MANGALORE",
+    category: "BATSMAN",
+    teams: "DEADLY PANTHERS",
+    photo: "images/players/SAMARTH.jpg"
+  },
+  {
+    regNo: "179",
+    name: "DEEPAK",
+    place: "KARKALA",
+    category: "BATSMAN",
+    teams: "VV WARRIORS, ENJOY TITANS",
+    photo: "images/players/DEEPAK.jpg"
+  },
+  {
+    regNo: "180",
+    name: "VIKRAM KAMATH",
+    place: "THEKKATTE",
+    category: "BOWLER",
+    teams: "GSB KOTA AND MORE",
+    photo: "images/players/VIKRAM_KAMATH.jpg"
+  },
+  {
+    regNo: "181",
+    name: "ADITHYA PRABHU",
+    place: "BANTWAL",
+    category: "ALL-ROUNDER",
+    teams: "-",
+    photo: "images/players/ADITHYA_PRABHU.jpg"
+  },
+  {
+    regNo: "182",
+    name: "AKSHAY PRABHU",
+    place: "BANTWAL",
+    category: "ALL-ROUNDER",
+    teams: "ABNG",
+    photo: "images/players/AKSHAY_PRABHU.jpg"
+  },
+  {
+    regNo: "183",
+    name: "VISHWAS MALLYA",
+    place: "BANTWAL",
+    category: "ALL-ROUNDER",
+    teams: "-",
+    photo: "images/players/VISHWAS_MALLYA.jpg"
+  },
+  {
+    regNo: "184",
+    name: "VIGHNESH NAYAK",
+    place: "BANTWAL",
+    category: "ALL-ROUNDER",
+    teams: "KODAJE KNIGHT RIDERS",
+    photo: "images/players/VIGHNESH_NAYAK.jpg"
+  },
+  {
+    regNo: "185",
+    name: "AKASH PRABHU",
+    place: "BEEJADI",
+    category: "ALL-ROUNDER",
+    teams: "GSB TOURNAMENT",
+    photo: "images/players/AKASH_PRABHU.jpg"
+  },
+  {
+    regNo: "186",
+    name: "VASANTHA PAI",
+    place: "UDUPI",
+    category: "BOWLER",
+    teams: "GPL 25 WINNER, PSL 2",
+    photo: "images/players/VASANTHA_PAI.jpg"
+  },
+  {
+    regNo: "187",
+    name: "SATHYA PRASAD PAI",
+    place: "BANTWAL",
+    category: "ALL-ROUNDER",
+    teams: "-",
+    photo: "images/players/SATHYA_PRASAD_PAI.jpg"
+  },
+  {
+    regNo: "188",
+    name: "B SHAILENDRA NAYAK",
+    place: "BANTWAL",
+    category: "ALL-ROUNDER",
+    teams: "JAI HIND BANTWAL",
+    photo: "images/players/B_SHAILENDRA_NAYAK.jpg"
+  },
+  {
+    regNo: "189",
+    name: "K BALAKRISHNA NAYAK",
+    place: "UDUPI",
+    category: "ALL-ROUNDER",
+    teams: "BANGLORE BOMBAT CHERKE",
+    photo: "images/players/K_BALAKRISHNA_NAYAK.jpg"
+  },
+  {
+    regNo: "190",
+    name: "K VIJAY NAYAK",
+    place: "UDUPI",
+    category: "ALL-ROUNDER",
+    teams: "VERANJANEYA KAUP",
+    photo: "images/players/K_VIJAY_NAYAK.jpg"
+  },
+  {
+    regNo: "191",
+    name: "SHIVANAND KAMATH",
+    place: "MANGALORE",
+    category: "ALL-ROUNDER",
+    teams: "DEADLY PANTHERS",
+    photo: "images/players/SHIVANAND_KAMATH.jpg"
+  },
+  {
+    regNo: "192",
+    name: "K AJAY NAYAK",
+    place: "UDUPI",
+    category: "ALL-ROUNDER",
+    teams: "KINGS 11 ULLAL",
+    photo: "images/players/K_AJAY_NAYAK.jpg"
+  },
+  {
+    regNo: "193",
+    name: "NAGARAJ PAI",
+    place: "MANGALORE",
+    category: "ALL-ROUNDER",
+    teams: "TANK COBRA",
+    photo: "images/players/NAGARAJ_PAI.jpg"
+  },
+  {
+    regNo: "194",
+    name: "NANDISH SHENOY",
+    place: "BANTWAL",
+    category: "ALL-ROUNDER",
+    teams: "BHADRA CHALLENGERS",
+    photo: "images/players/NANDISH_SHENOY.jpg"
+  },
+  {
+    regNo: "195",
+    name: "SUBRAMANYA BHANDARKAR",
+    place: "MANGALORE",
+    category: "BATSMAN",
+    teams: "KODIAL UNITED AND URBAN CRICKET CLUB",
+    photo: "images/players/SUBRAMANYA_BHANDARKAR.jpg"
+  },
+  {
+    regNo: "196",
+    name: "HARIPRASAD PAI",
+    place: "KARKALA",
+    category: "ALL-ROUNDER",
+    teams: "PADUTHIRUPATHI CRICKETERS KARKALA",
+    photo: "images/players/HARIPRASAD_PAI.jpg"
+  }
+];
+
+// //Function to get player cards
+// function getPlayerCard(player) {
+//   return `
+//     <div class="player-card">
+//       <img src="${player.photo}" alt="${player.name}" class="player-photo" onerror="this.onerror=null; this.src='images/players/default.jpg';">
+//       <div class="player-details">
+//         <p><strong>REGISTRATION NO:</strong> ${player.regNo}</p>
+//         <p><strong>NAME:</strong> ${player.name}</p>
+//         <p><strong>PLACE:</strong> ${player.place}</p>
+//         <p><strong>CATEGORY:</strong> ${player.category}</p>
+//         <p><strong>TEAMS:</strong> ${player.teams}</p>
+//       </div>
+//     </div>
+//   `;
+// }
+
+// Function to render player cards
+function renderPlayers(data) {
+  const container = document.getElementById("playerGrid");
+  container.innerHTML = "";
+  data.forEach(player => {
+    const card = document.createElement("div");
+    card.className = "player-card";
+    card.innerHTML = `
+      <img src="${player.photo}" alt="${player.name}" onerror="this.src='images/players/default.jpg'"/>
+      <div class="player-details">
+        <h2>${player.name}</h2>
+        <p><strong>REGISTRATION NO:</strong> ${player.regNo}</p>
+        <p><strong>PLACE:</strong> ${player.place}</p>
+        <p><strong>CATEGORY:</strong> ${player.category}</p>
+        <p><strong>TEAMS:</strong> ${player.teams}</p>
+      </div>
+    `;
+    container.appendChild(card);
+  });
+}
+
+// Filter players based on search input
+document.getElementById("searchInput").addEventListener("input", function () {
+  const value = this.value.toLowerCase();
+  const filtered = players.filter(p =>
+    p.name.toLowerCase().includes(value) ||
+    p.place.toLowerCase().includes(value) ||
+    p.category.toLowerCase().includes(value) ||
+    p.teams.toLowerCase().includes(value)
+  );
+  renderPlayers(filtered);
+});
+
+// Initial render
+// Sort players alphabetically by name before rendering
+const sortedPlayers = [...players].sort((a, b) => a.name.localeCompare(b.name));
+renderPlayers(sortedPlayers);
+</script>
+
+<!-- Script for "Back to Home" or "Scroll to Top" button -->
+<script>
+  const scrollBtnContainer = document.getElementById('scrollButtons');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 200) {
+      scrollBtnContainer.classList.add('show');
+    } else {
+      scrollBtnContainer.classList.remove('show');
+    }
+  });
+</script>
+
+<!-- Back to Home & Scroll to Top Buttons -->
+<div id="scrollButtons">
+  <button class="scroll-btn" onclick="window.location.href='index.html'">
+    <span class="btn-icon">🏠</span><span class="btn-text"> Home</span>
+  </button>
+  <button class="scroll-btn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+    <span class="btn-icon">⬆️</span><span class="btn-text"> Top</span>
+  </button>
+</div>
+
+</body>
+</html>
