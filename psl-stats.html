@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PSL Tournaments – Panthers Super League</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0 20px;
+    }
+    header {
+      text-align: center;
+      padding: 40px 20px 20px;
+    }
+    header h1 {
+      font-size: 30px;
+      color: #d4590f;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 20px 0 60px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .season-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .season-card:hover {
+      transform: translateY(-5px);
+    }
+    .season-icon {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+    .season-title {
+      font-size: 20px;
+      font-weight: bold;
+      color: #d4590f;
+      margin-bottom: 10px;
+    }
+    .season-desc {
+      font-size: 14px;
+      color: #444;
+      margin-bottom: 20px;
+    }
+    .view-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #d4590f;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    .view-btn:hover {
+      background-color: #a8430b;
+    }
+    .season-logo {
+      width: 100px;
+      height: auto;
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Tournaments – Panthers Super League (PSL)</h1>
+    <p style="color: #333;">Official Seasons of the PSL with stats powered by CricHeroes</p>
+  </header>
+
+  <div class="card-grid">
+    <div class="season-card">
+      <!-- <div class="season-icon">📊</div> -->
+      <img src="images/psl-logos/season1.jpg" alt="PSL Season 1" class="season-logo">
+      <div class="season-title">PSL – Season 1</div>
+      <div class="season-desc">The inaugural edition of PSL with thrilling finishes and top talent.</div>
+      <a href="https://cricheroes.com/tournament/555861/Panthers-Super-League-(PSL-2023)" target="_blank" class="view-btn">View Stats</a>
+    </div>
+
+    <div class="season-card">
+      <!-- <div class="season-icon">🏏</div> -->
+      <img src="images/psl-logos/season2.jpg" alt="PSL Season 2" class="season-logo">
+      <div class="season-title">PSL – Season 2</div>
+      <div class="season-desc">Bigger, better, and more intense! Explore the journey of Season 2.</div>
+      <a href="https://cricheroes.com/tournament/826882/PANTHERS-SUPER-LEAGUE-(PSL)---SEASON-2" target="_blank" class="view-btn">View Stats</a>
+    </div>
+
+    <div class="season-card">
+      <!-- <div class="season-icon">🔥</div> -->
+      <img src="images/psl-logos/season3.jpg" alt="PSL Season 3" class="season-logo">
+      <div class="season-title">PSL – Season 3</div>
+      <div class="season-desc">The current and most competitive season so far. Updated live!</div>
+      <a href="https://cricheroes.com/tournament/1174934/PANTHERS-SUPER-LEAGUE-(PSL)---SEASON-3" target="_blank" class="view-btn">View Stats</a>
+    </div>
+
+    <div class="season-card">
+      <!-- <div class="season-icon">🔥</div> -->
+      <img src="images/psl-logos/season4.jpg" alt="PSL Season 4" class="season-logo">
+      <div class="season-title">PSL – Season 4</div>
+      <div class="season-desc">Coming Soon – Stay tuned for the next edition of PSL!</div>
+      <!-- <a href="https://cricheroes.com/tournament/1174934/PANTHERS-SUPER-LEAGUE-(PSL)---SEASON-3" target="_blank" class="view-btn">View Stats</a> -->
+      <a href="#" class="view-btn" style="pointer-events: none; background-color: #999;">Coming Soon</a>
+    </div>
+
+    <div class="season-card">
+      <!-- <div class="season-icon">❤️</div> -->
+      <img src="images/psl-logos/reunion_tournament.jpg" alt="PSL Season 4" class="season-logo">
+      <div class="season-title">REUNION TOURNAMENT – DEADLY PANTHERS (R.)</div>
+      <div class="season-desc">Reunion / GetTogether of Deadly Family!</div>
+      <a href="https://cricheroes.com/tournament/1174934/PANTHERS-SUPER-LEAGUE-(PSL)---SEASON-3" target="_blank" class="view-btn">View Stats</a>
+    </div>
+  </div>
+</body>
+</html>
