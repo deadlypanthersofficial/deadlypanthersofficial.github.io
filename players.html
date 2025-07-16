@@ -1776,6 +1776,16 @@ const sortedPlayers = [...players].sort((a, b) => a.name.localeCompare(b.name));
 renderPlayers(sortedPlayers);
 </script>
 
+<!-- Back to Home & Scroll to Top Buttons -->
+<div id="scrollButtons">
+  <button class="scroll-btn" onclick="window.location.href='index.html'">
+    <span class="btn-icon">🏠</span><span class="btn-text"> Home</span>
+  </button>
+  <button class="scroll-btn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+    <span class="btn-icon">⬆️</span><span class="btn-text"> Top</span>
+  </button>
+</div>
+
 <!-- Script for "Back to Home" or "Scroll to Top" button -->
 <script>
   const scrollBtnContainer = document.getElementById('scrollButtons');
@@ -1787,16 +1797,6 @@ renderPlayers(sortedPlayers);
     }
   });
 </script>
-
-<!-- Back to Home & Scroll to Top Buttons -->
-<div id="scrollButtons">
-  <button class="scroll-btn" onclick="window.location.href='index.html'">
-    <span class="btn-icon">🏠</span><span class="btn-text"> Home</span>
-  </button>
-  <button class="scroll-btn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
-    <span class="btn-icon">⬆️</span><span class="btn-text"> Top</span>
-  </button>
-</div>
-
+  
 </body>
 </html>
