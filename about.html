@@ -98,6 +98,27 @@
     }
     }
   </style>
+  
+  <!-- Home Float Button -->
+  <style>
+.home-float {
+  position: fixed;
+  top: 20px;           /* Changed from bottom to top */
+  left: 20px;          /* Changed from right to left */
+  background-color: #1e90ff;
+  color: white;
+  font-size: 22px;
+  padding: 6px 10px;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 999;
+  transition: background-color 0.3s ease;
+}
+.home-float:hover {
+  background-color: #0d6efd;
+}
+</style>
 </head>
 <body>
   <!-- Include your existing navbar here if needed -->
@@ -146,7 +167,7 @@
     }
   </script> -->
 
-  <!-- Deadly Panthers - Footer -->
+  <!-- Deadly Panthers - Global Footer -->
   <div id="global-footer"></div>
     <script>
     fetch("footer.html")
@@ -155,6 +176,8 @@
         document.getElementById("global-footer").innerHTML = html;
         });
     </script>
-
+  
+<a href="index.html" class="home-float" title="Go to Home">🏠</a>
+  
 </body>
 </html>
