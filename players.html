@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Players Registered</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"/>
+  <!-- Tom Select CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.css" rel="stylesheet" />
+
   <style>
     body {
       font-family: 'Roboto', sans-serif;
@@ -137,14 +140,432 @@
   margin-bottom: 20px;
   letter-spacing: 1px;
 }
+
+/* Filter Box Style */
+ .search-filter-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+  max-width: 100%;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  margin: 0 auto 30px auto;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-type: x mandatory;
+}
+
+.search-filter-wrapper input,
+.search-filter-wrapper select,
+.search-filter-wrapper button {
+  padding: 10px 12px;
+  font-size: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  flex: 0 0 auto;
+  white-space: nowrap;
+  scroll-snap-align: start;
+}
+
+.search-filter-wrapper button {
+  background-color: #d4590f;
+  color: white;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.search-filter-wrapper button:hover {
+  background-color: #a8430b;
+}
+
+/* Responsive fallback for very small screens */
+@media (max-width: 768px) {
+  .search-filter-wrapper {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .search-filter-wrapper input,
+  /* .search-filter-wrapper select, */
+  .search-filter-wrapper select {
+  font-size: 14px;
+}
+  .search-filter-wrapper button {
+    min-width: 160px;
+    flex: 1 1 40%;
+  }
+}
+.filter-toolbar {
+  background: #fff;
+  padding: 15px 20px;
+  margin: 20px auto 30px auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  max-width: 960px;
+}
+
+.search-filter-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #f4f4f4;
+  border-radius: 8px;
+  padding-left: 10px;
+  border: 1px solid #ccc;
+  flex: 1 1 180px;
+  max-width: 210px;
+}
+
+.input-icon select,
+.input-icon input {
+  border: none;
+  background: transparent;
+  padding: 10px;
+  font-size: 15px;
+  width: 100%;
+  outline: none;
+}
+
+.input-icon select {
+  padding-right: 24px;
+  appearance: none;
+}
+
+.search-filter-wrapper button {
+  background-color: #d4590f;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.search-filter-wrapper button:hover {
+  background-color: #a8430b;
+}
+
+/* Responsive stacking for smaller screens */
+@media (max-width: 768px) {
+  .search-filter-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .input-icon {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .search-filter-wrapper button {
+    width: 100%;
+  }
+}
+.filter-toolbar {
+  background: #fff;
+  padding: 15px 20px;
+  margin: 20px auto 30px auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  max-width: 1100px;
+}
+
+.search-filter-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  background: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 0 10px;
+  height: 44px;
+  flex: 0 0 auto;
+  min-width: 200px;
+}
+
+.field .icon {
+  margin-right: 6px;
+  font-size: 18px;
+}
+
+.field input,
+.field select {
+  border: none;
+  background: transparent;
+  font-size: 15px;
+  width: 100%;
+  padding: 8px 0;
+  outline: none;
+}
+
+.search-filter-wrapper button {
+  background-color: #d4590f;
+  color: white;
+  border: none;
+  height: 44px;
+  padding: 0 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.search-filter-wrapper button:hover {
+  background-color: #a8430b;
+}
+
+/* Responsive stacking on small screens */
+@media (max-width: 768px) {
+  .search-filter-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .field, .search-filter-wrapper button {
+    width: 100%;
+  }
+}
+
+/* NEW */
+/* Wider search field */
+.search-field {
+  min-width: 280px;
+  flex: 1 1 300px;
+}
+
+/* Uniform size for all dropdowns and button */
+.field:not(.search-field) {
+  min-width: 160px;
+  flex: 0 0 180px;
+}
+
+.search-filter-wrapper button {
+  min-width: 160px;
+  height: 44px;
+}
+
+/* NEW NEW */
+/* Make dropdowns and button smaller */
+.field:not(.search-field),
+.search-filter-wrapper button {
+  min-width: 140px;
+  flex: 0 0 140px;
+  height: 40px;
+  font-size: 14px;
+}
+
+.search-filter-wrapper button {
+  padding: 0 12px;
+}
+
+/* Slightly wider search input */
+.search-field {
+  min-width: 260px;
+  flex: 1 1 280px;
+  height: 40px;
+}
+
+/* Adjust icon alignment */
+.field .icon {
+  font-size: 16px;
+  margin-right: 5px;
+}
+
+.field input,
+.field select {
+  font-size: 14px;
+  padding: 6px 0;
+}
+
+/* Style for all <select> elements */
+.field select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent url("data:image/svg+xml;utf8,<svg fill='%23666' height='16' viewBox='0 0 24 24' width='16' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>") no-repeat right 12px center;
+  background-size: 12px;
+  padding-right: 30px; /* space for arrow */
+}
+
+/* toggle button + collapse behavior */
+.toggle-filters {
+  display: none;
+  margin: 10px auto 0 auto;
+  background-color: #d4590f;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Show toggle on mobile */
+@media (max-width: 768px) {
+  .toggle-filters {
+    display: block;
+  }
+
+  .filter-toolbar {
+    display: none;
+  }
+
+  .filter-toolbar.show {
+    display: block;
+    animation: fadeIn 0.3s ease;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Filter Toast Notification */
+#filterToast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #d4590f;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 15px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9999;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: opacity 0.3s ease, bottom 0.3s ease;
+}
+
+#filterToast.show {
+  opacity: 1;
+  bottom: 40px;
+  animation: bounceIn 0.4s ease;
+}
+
+@keyframes bounceIn {
+  0%   { transform: translateX(-50%) scale(0.95); opacity: 0; }
+  50%  { transform: translateX(-50%) scale(1.05); opacity: 1; }
+  100% { transform: translateX(-50%) scale(1);   opacity: 1; }
+}
+
+/* All Places/Teams Filter shows 5–6 options at a time when opened  */
+
 </style>
 </head>
 <body>
   <!-- <h1>PLAYERS REGISTERED</h1> -->
   <h1 class="section-title">PLAYERS REGISTERED</h1>
-  <div class="search-box">
-    <input type="text" id="searchInput" placeholder="Search by name, place, category or team..." />
+
+  <!-- Filter Box -->
+  <button class="toggle-filters" onclick="toggleFilters()">☰ Filters</button>
+  <div class="filter-toolbar">
+  <div class="search-filter-wrapper">
+    <div class="field search-field">
+  <span class="icon">🔍</span>
+  <input type="text" id="searchInput" placeholder="Search..." />
+</div>
+
+    <div class="field">
+      <span class="icon">🧢</span>
+      <select id="categoryFilter">
+        <option value="">All Categories</option>
+        <option value="BATSMAN">🏏 Batsman</option>
+        <option value="BOWLER">🎾 Bowler</option>
+        <option value="ALL-ROUNDER">⚔️ All-Rounder</option>
+        <option value="WK-BATSMAN">🧤 WK-Batsman</option>
+      </select>
+    </div>
+
+    <div class="field">
+  <span class="icon">🌍</span>
+  <select id="teamPlaceFilter">
+    <option value="">All Places/Teams</option>
+    <option value="Alappuzha">📍 Alappuzha</option>
+    <option value="Bailur, Karkala">📍 Bailur, Karkala</option>
+    <option value="Bangalore">📍 Bangalore</option>
+    <option value="Bantwal">📍 Bantwal</option>
+    <option value="Beejadi">📍 Beejadi</option>
+    <option value="Bola">📍 Bola</option>
+    <option value="Chennai">📍 Chennai</option>
+    <option value="Cochin">📍 Cochin</option>
+    <option value="Gangolli">📍 Gangolli</option>
+    <option value="Gosripuram">📍 Gosripuram</option>
+    <option value="Haliyal">📍 Haliyal</option>
+    <option value="Harikandige">📍 Harikandige</option>
+    <option value="Hebri">📍 Hebri</option>
+    <option value="Honnavar">📍 Honnavar</option>
+    <option value="Kallianpura">📍 Kallianpura</option>
+    <option value="Karkala">📍 Karkala</option>
+    <option value="Kedinje">📍 Kedinje</option>
+    <option value="Kochi">📍 Kochi</option>
+    <option value="Kota">📍 Kota</option>
+    <option value="Koteshwara">📍 Koteshwara</option>
+    <option value="Kudroli">📍 Kudroli</option>
+    <option value="Kumta">📍 Kumta</option>
+    <option value="Kundapura">📍 Kundapura</option>
+    <option value="Malpe">📍 Malpe</option>
+    <option value="Mandya">📍 Mandya</option>
+    <option value="Mangalore">📍 Mangalore</option>
+    <option value="Moodbidri">📍 Moodbidri</option>
+    <option value="Mulki">📍 Mulki</option>
+    <option value="Mumbai">📍 Mumbai</option>
+    <option value="Murdeshwar">📍 Murdeshwar</option>
+    <option value="Mysore">📍 Mysore</option>
+    <option value="Naikankatte">📍 Naikankatte</option>
+    <option value="Nerlakatte">📍 Nerlakatte</option>
+    <option value="Panemangalore">📍 Panemangalore</option>
+    <option value="Parkala">📍 Parkala</option>
+    <option value="Pune">📍 Pune</option>
+    <option value="Puttur">📍 Puttur</option>
+    <option value="Saibrakatte">📍 Saibrakatte</option>
+    <option value="Sasthan">📍 Sasthan</option>
+    <option value="Shivamogga">📍 Shivamogga</option>
+    <option value="Sirsi">📍 Sirsi</option>
+    <option value="Sullia">📍 Sullia</option>
+    <option value="Thekkatte">📍 Thekkatte</option>
+    <option value="Thokkotu">📍 Thokkotu</option>
+    <option value="Udupi">📍 Udupi</option>
+    <option value="Ullal">📍 Ullal</option>
+  </select>
+</div>
+
+    <div class="field">
+      <span class="icon">🔀</span>
+      <select id="sortBy">
+        <option value="">Sort By</option>
+        <option value="name">Name (A–Z)</option>
+        <option value="regNo">Registration No.</option>
+      </select>
+    </div>
+
+    <button id="clearFilters">❌ Clear</button>
   </div>
+</div>
+
   <div class="player-grid" id="playerGrid">
     <!-- Player cards will be injected here -->
   </div>
@@ -1721,22 +2142,6 @@
   }
 ];
 
-// //Function to get player cards
-// function getPlayerCard(player) {
-//   return `
-//     <div class="player-card">
-//       <img src="${player.photo}" alt="${player.name}" class="player-photo" onerror="this.onerror=null; this.src='images/players/default.jpg';">
-//       <div class="player-details">
-//         <p><strong>REGISTRATION NO:</strong> ${player.regNo}</p>
-//         <p><strong>NAME:</strong> ${player.name}</p>
-//         <p><strong>PLACE:</strong> ${player.place}</p>
-//         <p><strong>CATEGORY:</strong> ${player.category}</p>
-//         <p><strong>TEAMS:</strong> ${player.teams}</p>
-//       </div>
-//     </div>
-//   `;
-// }
-
 // Function to render player cards
 function renderPlayers(data) {
   const container = document.getElementById("playerGrid");
@@ -1759,21 +2164,64 @@ function renderPlayers(data) {
 }
 
 // Filter players based on search input
-document.getElementById("searchInput").addEventListener("input", function () {
-  const value = this.value.toLowerCase();
-  const filtered = players.filter(p =>
-    p.name.toLowerCase().includes(value) ||
-    p.place.toLowerCase().includes(value) ||
-    p.category.toLowerCase().includes(value) ||
-    p.teams.toLowerCase().includes(value)
-  );
+document.getElementById("searchInput").addEventListener("input", filterPlayers);
+document.getElementById("categoryFilter").addEventListener("change", filterPlayers);
+
+function filterPlayers() {
+  const value = document.getElementById("searchInput").value.toLowerCase();
+  const category = document.getElementById("categoryFilter").value;
+
+  const filtered = players.filter(p => {
+    const matchesSearch =
+      p.name.toLowerCase().includes(value) ||
+      p.place.toLowerCase().includes(value) ||
+      p.category.toLowerCase().includes(value) ||
+      p.teams.toLowerCase().includes(value);
+
+    const matchesCategory = category === "" || p.category === category;
+    return matchesSearch && matchesCategory;
+  });
+
   renderPlayers(filtered);
-});
+
+// Show or hide "No Results"
+document.getElementById("noResultsMsg").style.display = filtered.length === 0 ? "block" : "none";
+
+// Toast message
+if (filtered.length > 0) {
+  showToast(`✅ ${filtered.length} players found`, true); // With sound
+} else {
+  showToast("⚠️ No players found", true);
+}
+
+// Auto-collapse filters on mobile
+if (window.innerWidth <= 768) {
+  document.getElementById("filterBar").classList.remove("show");
+}
+}
 
 // Initial render
 // Sort players alphabetically by name before rendering
 const sortedPlayers = [...players].sort((a, b) => a.name.localeCompare(b.name));
 renderPlayers(sortedPlayers);
+</script>
+
+<!-- Toast Logic to JavaScript -->
+<script>
+  function showToast(message = "✅ Filters Applied", playSound = false) {
+  const toast = document.getElementById("filterToast");
+  toast.textContent = message;
+  toast.classList.add("show");
+
+  if (playSound) {
+    const audio = new Audio("https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg");
+    audio.play().catch(() => {});
+  }
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2500);
+}
 </script>
 
 <!-- Back to Home & Scroll to Top Buttons -->
@@ -1797,6 +2245,34 @@ renderPlayers(sortedPlayers);
     }
   });
 </script>
-  
+
+<!-- toggle button + collapse behavior -->
+<script>
+  function toggleFilters() {
+    const bar = document.getElementById("filterBar");
+    bar.classList.toggle("show");
+  }
+</script>
+
+<!-- Toast Notification -->
+<div id="filterToast"></div>
+
+<!-- No Results Message -->
+<div id="noResultsMsg" style="display:none; text-align:center; font-weight:bold; color:#d4590f; margin-top: 30px;">No players found</div>
+
+<!-- Tom Select JS -->
+<script src="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/js/tom-select.complete.min.js"></script>
+
+<!-- All Places/Teams Dropdown to shows 5-6 items at once -->
+<!-- <script>
+  new TomSelect("#teamPlaceFilter", {
+    maxOptions: 5,       // Show max 5 options
+    allowEmptyOption: true,
+    create: false,
+    dropdownClass: 'scrollable-dropdown',
+    placeholder: "All Places / Teams"
+  });
+</script> -->
+
 </body>
 </html>
