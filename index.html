@@ -719,6 +719,34 @@ body.dark-mode .modal-actions button {
   color: #fff;
 }
 
+/* NEW badge */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
+.new-badge {
+  font-family: 'Orbitron', 'Courier New', monospace;
+  color: #fff;
+  background: red;
+  padding: 2px 6px;
+  margin-left: 6px;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: 600;
+  animation: blinkGlow 1.2s infinite;
+  box-shadow: 0 0 8px red;
+  letter-spacing: 1px;
+}
+
+@keyframes blinkGlow {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 8px red, 0 0 15px yellow;
+  }
+  50% {
+    opacity: 0.3;
+    box-shadow: 0 0 4px red, 0 0 8px orange;
+  }
+}
+
 </style>
 
 </head>
@@ -761,6 +789,29 @@ body.dark-mode .modal-actions button {
   <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
 </a>
 
+<!-- Old Nav Bar -->
+<!-- <nav class="navbar">
+  <div class="nav-container">
+    <a href="#top" class="logo">
+      <img src="deadlypanthers-logo.png" alt="Deadly Panthers Logo">
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+    <ul class="nav-menu">
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="psl-stats.html" class="nav-link" title="View PSL Stats">🏆 Tournaments</a></li>
+      <li><a href="gallery.html" class="nav-link" title="Photos & Videos">🏞️ Gallery</a></li>
+      <li><a href="teams.html" class="nav-link">Teams</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+      <li>
+        <label class="switch" title="Toggle Dark Mode">
+          <input type="checkbox" id="darkModeSwitch" onclick="toggleDarkMode()">
+          <span class="slider"></span>
+        </label>
+      </li>
+    </ul>
+  </div>
+</nav> -->
+
 <nav class="navbar">
   <div class="nav-container">
     <a href="#top" class="logo">
@@ -768,11 +819,15 @@ body.dark-mode .modal-actions button {
     </a>
     <button class="nav-toggle" aria-label="Toggle menu">☰</button>
     <ul class="nav-menu">
-      <li><a href="#about" class="nav-link">About</a></li>
-      <li><a href="psl-stats.html" class="nav-link" title="View PSL Stats">🏆 Tournaments</a></li>
-      <li><a href="#teams" class="nav-link">Teams</a></li>
-      <li><a href="#register" class="nav-link">Register</a></li>
-      <li><a href="#contact" class="nav-link">Contact</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li>
+        <a href="psl-stats.html" class="nav-link" title="View PSL Stats">
+          🏆 Tournaments <span class="new-badge">NEW</span>
+        </a>
+      </li>
+      <li><a href="gallery.html" class="nav-link" title="Photos & Videos">🏞️ Gallery</a></li>
+      <li><a href="teams.html" class="nav-link">Teams</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
       <li>
         <label class="switch" title="Toggle Dark Mode">
           <input type="checkbox" id="darkModeSwitch" onclick="toggleDarkMode()">
@@ -782,6 +837,7 @@ body.dark-mode .modal-actions button {
     </ul>
   </div>
 </nav>
+
 
   <header>
     <div class="header-block">
@@ -1286,6 +1342,37 @@ document.querySelectorAll('.team-card img').forEach(card => {
   card.style.cursor = "pointer";
   card.addEventListener('click', () => showTeamDetails(team));
 });
+</script>
+
+<!-- NEW Badge -->
+<script>
+  const badgeId = 'newBadge';
+  const badgeKey = 'pslStatsNewBadgeShown';
+  const badgeDaysToShow = 7; // Change this number to show for more/fewer days
+
+  function daysBetween(date1, date2) {
+    const msPerDay = 24 * 60 * 60 * 1000;
+    return Math.floor((date2 - date1) / msPerDay);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const badge = document.getElementById(badgeId);
+    if (!badge) return;
+
+    const saved = localStorage.getItem(badgeKey);
+
+    if (!saved) {
+      // First visit – save current date
+      localStorage.setItem(badgeKey, new Date().toISOString());
+    } else {
+      const savedDate = new Date(saved);
+      const today = new Date();
+
+      if (daysBetween(savedDate, today) >= badgeDaysToShow) {
+        badge.style.display = 'none';
+      }
+    }
+  });
 </script>
 
 </body>
