@@ -505,18 +505,85 @@
   }
 }
 
+/* Show toggle button only on mobile */
+.toggle-filters {
+  display: none;
+  font-size: 18px;
+  padding: 8px 12px;
+  background-color: #d4590f;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .toggle-filters {
+    display: inline-block;
+  }
+
+  .filter-toolbar {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+
+  .filter-toolbar.show {
+    display: flex;
+  }
+}
+
+/* Sticky Header */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  padding: 10px 10px 15px;
+}
+
+.sticky-header h1.section-title {
+  margin: 0;
+  text-align: center;
+  font-size: 24px;
+  color: #d4590f;
+}
+
+@media (max-width: 768px) {
+  .sticky-header {
+    padding: 8px 10px 10px;
+  }
+
+  .sticky-header .toggle-filters {
+    display: block;
+    margin: 10px auto 0;
+  }
+}
+
 /* All Places/Teams Filter shows 5–6 options at a time when opened  */
 
 </style>
 </head>
 <body>
   <!-- <h1>PLAYERS REGISTERED</h1> -->
-  <h1 class="section-title">PLAYERS REGISTERED</h1>
+  <!-- <h1 class="section-title">PLAYERS REGISTERED</h1> -->
+  <div class="sticky-header" id="stickyHeader">
+  <h1 class="section-title">
+    <a href="players.html" style="text-decoration: none; color: #d4590f;">PLAYERS REGISTERED</a>
+  </h1>
 
   <!-- Filter Box -->
   <!-- <button class="mobile-filters-toggle" aria-label="Toggle filters">⋮</button> -->
   <button class="toggle-filters" onclick="toggleFilters()">☰ Filters</button>
-  <div class="filter-toolbar">
+  <!-- <div class="filter-toolbar"> -->
+  <div class="filter-toolbar" id="filterToolbar">
   <div class="search-filter-wrapper">
     <div class="field search-field">
   <span class="icon">🔍</span>
@@ -598,6 +665,7 @@
 
     <button id="clearFilters">❌ Clear</button>
   </div>
+</div>
 </div>
 
   <div class="player-grid" id="playerGrid">
@@ -2259,11 +2327,16 @@ if (window.innerWidth <= 768) {
 const sortedPlayers = [...players].sort((a, b) => a.name.localeCompare(b.name));
 renderPlayers(sortedPlayers);
 
-// Toggle mobile filter bar
+// // Toggle mobile filter bar
 document.querySelector('.mobile-filters-toggle')?.addEventListener('click', () => {
   const filterBar = document.querySelector('.filter-bar');
   filterBar.classList.toggle('show-on-mobile');
 });
+
+function toggleFilters() {
+  const toolbar = document.querySelector('.filter-toolbar');
+  toolbar.classList.toggle('show');
+}
 </script>
 
 <!-- Toast Logic to JavaScript -->
@@ -2333,6 +2406,18 @@ document.querySelector('.mobile-filters-toggle')?.addEventListener('click', () =
     placeholder: "All Places / Teams"
   });
 </script> -->
+
+<script>
+  const stickyHeader = document.getElementById("stickyHeader");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 40) {
+      stickyHeader.classList.add("shrink");
+    } else {
+      stickyHeader.classList.remove("shrink");
+    }
+  });
+</script>
 
 </body>
 </html>
