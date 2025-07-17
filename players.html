@@ -2163,15 +2163,26 @@ function renderPlayers(data) {
   });
 }
 
-// Filter players based on search input
+// Filter players based on searchInput/categoryFilter/teamPlacesFilter/sortBy/clearFilters
 document.getElementById("searchInput").addEventListener("input", filterPlayers);
 document.getElementById("categoryFilter").addEventListener("change", filterPlayers);
+document.getElementById("teamPlaceFilter").addEventListener("change", filterPlayers);
+document.getElementById("sortBy").addEventListener("change", filterPlayers);
+document.getElementById("clearFilters").addEventListener("click", () => {
+  document.getElementById("searchInput").value = "";
+  document.getElementById("categoryFilter").value = "";
+  document.getElementById("teamPlaceFilter").value = "";
+  document.getElementById("sortBy").value = "";
+  filterPlayers();
+});
 
 function filterPlayers() {
   const value = document.getElementById("searchInput").value.toLowerCase();
   const category = document.getElementById("categoryFilter").value;
+  const teamPlace = document.getElementById("teamPlaceFilter").value.toLowerCase();
+  const sortBy = document.getElementById("sortBy").value;
 
-  const filtered = players.filter(p => {
+  let filtered = players.filter(p => {
     const matchesSearch =
       p.name.toLowerCase().includes(value) ||
       p.place.toLowerCase().includes(value) ||
@@ -2179,8 +2190,16 @@ function filterPlayers() {
       p.teams.toLowerCase().includes(value);
 
     const matchesCategory = category === "" || p.category === category;
-    return matchesSearch && matchesCategory;
+    const matchesTeamPlace = teamPlace === "" || p.place.toLowerCase().includes(teamPlace) || p.teams.toLowerCase().includes(teamPlace);
+    return matchesSearch && matchesCategory && matchesTeamPlace;
   });
+
+  // Sort logic
+  if (sortBy === "name") {
+    filtered.sort((a, b) => a.name.localeCompare(b.name));
+  } else if (sortBy === "regNo") {
+    filtered.sort((a, b) => parseInt(a.regNo) - parseInt(b.regNo));
+  }
 
   renderPlayers(filtered);
 
