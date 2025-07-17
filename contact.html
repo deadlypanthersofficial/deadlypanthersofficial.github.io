@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us – Deadly Panthers (R.)</title>
+  <link rel="icon" type="image/png" href="deadlypanthers-favicon.png">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      color: #333;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.dark-mode {
+      background-color: #121212;
+      color: #f0f0f0;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.4rem;
+      margin: 40px 0 10px;
+      background: linear-gradient(90deg, #f26b1d, #ff914d);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    .contact-container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      background-color: #fff;
+      padding: 24px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    body.dark-mode form {
+      background-color: #1e1e1e;
+      box-shadow: 0 0 10px rgba(255,255,255,0.05);
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input, textarea {
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background-color: #fafafa;
+      color: #333;
+    }
+
+    body.dark-mode input,
+    body.dark-mode textarea {
+      background-color: #2a2a2a;
+      color: #fff;
+      border: 1px solid #444;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #f26b1d;
+      outline: none;
+    }
+
+    button {
+      background-color: #f26b1d;
+      color: #fff;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #e35a0d;
+    }
+
+    .social-links {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .social-links a {
+      color: #f26b1d;
+      font-size: 22px;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    .map-container {
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      form {
+        padding: 20px;
+      }
+    }
+
+    .home-float {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background-color: #1e90ff;
+      color: white;
+      font-size: 22px;
+      padding: 6px 10px;
+      border-radius: 50%;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      z-index: 999;
+      transition: background-color 0.3s ease;
+    }
+
+    .home-float:hover {
+      background-color: #0d6efd;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Contact Us</h1>
+  <p style="text-align: center; font-style: italic; color: #777;">
+    📩 We'd love to hear from you!
+  </p>
+
+  <div class="contact-container">
+    <form action="https://docs.google.com/forms/d/e/1FAIpQLSc8ub7ccr75WhJbdpwiD7xcorNSfOp77rz89N4uzHBTo2Jfog/formResponse" method="POST" target="_blank">
+      <label for="name">Your Name</label>
+      <input type="text" name="entry.198696397" id="name" placeholder="Enter your name" required>
+
+      <label for="email">Your Email</label>
+      <input type="email" name="entry.1493348830" id="email" placeholder="Enter your email" required>
+
+      <label for="message">Your Message</label>
+      <textarea name="entry.1268459613" id="message" rows="5" placeholder="Enter your message" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+
+    <div class="map-container">
+      <iframe
+        src="https://maps.google.com/maps?q=Mangalore&t=&z=13&ie=UTF8&iwloc=&output=embed"
+        width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen=""
+        loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+    <div class="social-links">
+      <p><strong>Follow us on:</strong></p>
+      <a href="https://www.instagram.com/deadlypanthersofficial/" target="_blank" title="Instagram">
+        📸 Instagram
+      </a>
+    </div>
+  </div>
+
+  <!-- Global Footer Include -->
+  <div id="global-footer"></div>
+  <script>
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("global-footer").innerHTML = html;
+      });
+
+    // Optional: Auto dark mode sync
+    const darkPref = localStorage.getItem("darkMode");
+    if (darkPref === "enabled") {
+      document.body.classList.add("dark-mode");
+    }
+  </script>
+
+  <a href="index.html" class="home-float" title="Go to Home">🏠</a>
+
+  <!-- Toast Notification -->
+<div id="toast" style="
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #f26b1d;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  box-shadow: 0 0 12px rgba(0,0,0,0.2);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  z-index: 9999;
+">
+  ✅ Message sent! Redirecting to Google Form...
+</div>
+
+<script>
+  const toast = document.getElementById("toast");
+  const form = document.querySelector("form");
+
+  form.addEventListener("submit", function () {
+    toast.style.opacity = "1";
+    setTimeout(() => {
+      toast.style.opacity = "0";
+    }, 4000); // Hide after 4 seconds
+  });
+</script>
+
+</body>
+</html>
