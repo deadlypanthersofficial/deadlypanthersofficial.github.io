@@ -472,6 +472,39 @@
   100% { transform: translateX(-50%) scale(1);   opacity: 1; }
 }
 
+/* Toggle visibility on mobile */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .filter-bar {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+  }
+
+  .filter-bar.show-on-mobile {
+    display: flex;
+  }
+
+  .mobile-filters-toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+}
+
 /* All Places/Teams Filter shows 5–6 options at a time when opened  */
 
 </style>
@@ -481,6 +514,7 @@
   <h1 class="section-title">PLAYERS REGISTERED</h1>
 
   <!-- Filter Box -->
+  <!-- <button class="mobile-filters-toggle" aria-label="Toggle filters">⋮</button> -->
   <button class="toggle-filters" onclick="toggleFilters()">☰ Filters</button>
   <div class="filter-toolbar">
   <div class="search-filter-wrapper">
@@ -2213,6 +2247,7 @@ if (filtered.length > 0) {
   showToast("⚠️ No players found", true);
 }
 
+
 // Auto-collapse filters on mobile
 if (window.innerWidth <= 768) {
   document.getElementById("filterBar").classList.remove("show");
@@ -2223,6 +2258,12 @@ if (window.innerWidth <= 768) {
 // Sort players alphabetically by name before rendering
 const sortedPlayers = [...players].sort((a, b) => a.name.localeCompare(b.name));
 renderPlayers(sortedPlayers);
+
+// Toggle mobile filter bar
+document.querySelector('.mobile-filters-toggle')?.addEventListener('click', () => {
+  const filterBar = document.querySelector('.filter-bar');
+  filterBar.classList.toggle('show-on-mobile');
+});
 </script>
 
 <!-- Toast Logic to JavaScript -->
