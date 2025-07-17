@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PSL 2025 Teams</title>
   <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" type="image/png" href="deadlypanthers-favicon.png">
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -14,26 +13,14 @@
       margin: 0;
       padding: 20px;
     }
-    .team-grid {
+    
+    /* .team-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 20px;
     }
-    /* .team-card {
-      background-color: #1f1f1f;
-      padding: 10px;
-      border-radius: 12px;
-      text-align: center;
-      cursor: pointer;
-      transition: transform 0.2s ease;
-    }
-    .team-card:hover {
-      transform: scale(1.05);
-      background-color: #2b2b2b;
-    } */
-
     .team-card {
-    border: 2px solid #e0e0e0; /* Light border */
+    border: 2px solid #e0e0e0;
     border-radius: 16px;
     padding: 16px;
     margin: 10px;
@@ -58,57 +45,63 @@
       font-weight: bold;
       font-size: 16px;
       color: #ffdd57;
+    } */
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* Desktop */
+      gap: 20px;
+      padding: 20px;
     }
-    /* .team-name {
-    color: #f26b1d;
-    background: none;
-    padding-top: 10px;
-    font-weight: 700;
+
+    @media (max-width: 1024px) {
+      .team-grid {
+        grid-template-columns: repeat(3, 1fr); /* Tablets */
+      }
+    }
+
+    @media (max-width: 768px) {
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr); /* Mobile landscape */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .team-grid {
+        grid-template-columns: 1fr; /* Mobile portrait */
+      }
+    }
+
+    .team-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 16px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .team-card:hover {
+      transform: scale(1.03);
+    }
+
+    .team-card img {
+      width: 100%;
+      height: auto;
+      max-height: 160px;
+      object-fit: contain;
+    }
+
+    .team-name {
+    color: #f26b1d !important;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 8px;
     text-transform: uppercase;
     font-size: 16px;
-    } */
-    /* Modal styles */
-    /* .modal-overlay {
-      display: none;
-      position: fixed;
-      z-index: 999;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(0, 0, 0, 0.85);
-      justify-content: center;
-      align-items: center;
     }
-    .modal-overlay.active {
-      display: flex;
-    }
-    .modal-content {
-      background-color: #222;
-      padding: 20px;
-      border-radius: 10px;
-      max-width: 600px;
-      width: 90%;
-      text-align: center;
-      position: relative;
-    }
-    .modal-content h2 {
-      margin-top: 0;
-      color: #ffdd57;
-    }
-    .member-block {
-      margin: 15px 0;
-    }
-    .member-block img {
-      width: 120px;
-      border-radius: 8px;
-      margin-bottom: 8px;
-    }
-    .close-btn {
-      position: absolute;
-      top: 10px; right: 15px;
-      color: white;
-      font-size: 22px;
-      cursor: pointer;
-    } */
+
 
 /* General image style for team logos */
 .team-logo img {
@@ -279,14 +272,6 @@
       font-size: 28px;
     }
   }
-  .team-name {
-  color: #f26b1d !important;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 8px;
-  text-transform: uppercase;
-  font-size: 16px;
-}
 </style>
 </head>
 <body>
@@ -302,9 +287,9 @@
     <div class="team-name">ENJOY TITANS</div>
   </div>
 
-  <div class="team-card" onclick="openModal('kings-ullal', 'KINGS ULLAL')">
-    <img src="images/team-photos/kings-ullal/kuLogo.jpg" alt="Kings Ullal Logo">
-    <div class="team-name">KINGS ULLAL</div>
+  <div class="team-card" onclick="openModal('veeranjaneya-cricketers-kaup', 'VEERANJANEYA CRICKETERS KAUP')">
+    <img src="images/team-photos/veeranjaneya-cricketers-kaup/vckLogo.jpg" alt="Veeranjaneya Cricketers Kaup Logo">
+    <div class="team-name">VEERANJANEYA CRICKETERS KAUP</div>
   </div>
 
   <div class="team-card" onclick="openModal('rising-stars-mangalore', 'RISING STARS MANGALORE')">
@@ -327,9 +312,9 @@
     <div class="team-name">SUPREME GOLDEN GARUDAS GOSRIPURAM</div>
   </div>
 
-  <div class="team-card" onclick="openModal('veeranjaneya-cricketers-kaup', 'VEERANJANEYA CRICKETERS KAUP')">
-    <img src="images/team-photos/veeranjaneya-cricketers-kaup/vckLogo.jpg" alt="Veeranjaneya Cricketers Kaup Logo">
-    <div class="team-name">VEERANJANEYA CRICKETERS KAUP</div>
+  <div class="team-card" onclick="openModal('kings-ullal', 'KINGS ULLAL')">
+    <img src="images/team-photos/kings-ullal/kuLogo.jpg" alt="Kings Ullal Logo">
+    <div class="team-name">KINGS ULLAL</div>
   </div>
 
   <div class="team-card" onclick="openModal('veera-venkatesh-warriors', 'VEERA VENKATESH WARRIORS')">
