@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gallery – Match Highlights</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      background-color: #f9f9f9;
+      color: #333;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 28px;
+      color: #d4590f;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+      gap: 10px;
+    }
+
+    .tab-btn {
+      padding: 10px 20px;
+      background: #d4590f;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .tab-btn:hover,
+    .tab-btn.active {
+      background: #a8430b;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    /* Placeholder gallery styles (photo/video layout comes next) */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .gallery-grid img,
+    .gallery-grid iframe {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    /* Lightbox Style */
+    #lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+#lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+  </style>
+
+  <!-- Home Float Button -->
+  <style>
+.home-float {
+  position: fixed;
+  top: 20px;           /* Changed from bottom to top */
+  left: 20px;          /* Changed from right to left */
+  background-color: #1e90ff;
+  color: white;
+  font-size: 22px;
+  padding: 6px 10px;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 999;
+  transition: background-color 0.3s ease;
+}
+.home-float:hover {
+  background-color: #0d6efd;
+}
+</style>
+</head>
+<body>
+
+  <h1>Match Highlights Gallery</h1>
+
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="photos">📸 Photos</button>
+    <button class="tab-btn" data-tab="videos">🎬 Videos</button>
+  </div>
+
+  <div id="photos" class="tab-content active">
+    <div class="gallery-grid">
+      <!-- Photo thumbnails will go here -->
+      <!-- Sample Photo Thumbnails -->
+       <!-- Updated with onclick -->
+    <img src="images/gallery/photo1.jpg" alt="Match Highlight 1" onclick="openLightbox(this.src)">
+    <img src="images/gallery/photo2.jpg" alt="Match Highlight 1" onclick="openLightbox(this.src)">
+    <img src="images/gallery/photo3.jpg" alt="Match Highlight 1" onclick="openLightbox(this.src)">
+    <img src="images/gallery/photo4.jpg" alt="Match Highlight 1" onclick="openLightbox(this.src)">
+    </div>
+  </div>
+
+  <div id="videos" class="tab-content">
+    <div class="gallery-grid">
+      <!-- Video iframes will go here -->
+      <!-- Sample Video Embeds -->
+      <!-- You can embed:
+           YouTube match highlights
+           Instagram Reels (via embed code)
+           Or even self-hosted .mp4 videos using <video controls src="..."> (optional — let me know if you want that) -->
+<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen title="Match Highlight 1"></iframe>
+
+<iframe src="https://www.youtube.com/embed/TJAfLE39ZZ8" frameborder="0" allowfullscreen title="Match Highlight 2"></iframe>
+
+<iframe src="https://www.youtube.com/embed/ScMzIvxBSi4" frameborder="0" allowfullscreen title="Match Highlight 3"></iframe>
+
+    </div>
+  </div>
+
+  <script>
+    const tabButtons = document.querySelectorAll(".tab-btn");
+    const tabContents = document.querySelectorAll(".tab-content");
+
+    tabButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        tabButtons.forEach(btn => btn.classList.remove("active"));
+        tabContents.forEach(tab => tab.classList.remove("active"));
+
+        button.classList.add("active");
+        document.getElementById(button.dataset.tab).classList.add("active");
+      });
+    });
+  </script>
+
+  <!-- Lightbox Script -->
+  <script>
+  function openLightbox(src) {
+    document.getElementById("lightbox-img").src = src;
+    document.getElementById("lightbox").style.display = "flex";
+  }
+
+  function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+  }
+  </script>
+
+  <!-- Lightbox container -->
+  <div id="lightbox" style="display:none;" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Zoomed Image" />
+  </div>
+
+  <a href="index.html" class="home-float" title="Go to Home">🏠</a>
+
+</body>
+</html>

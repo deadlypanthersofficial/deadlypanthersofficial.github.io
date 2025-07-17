@@ -570,6 +570,28 @@
 /* All Places/Teams Filter shows 5–6 options at a time when opened  */
 
 </style>
+
+<!-- Home Float Button -->
+  <style>
+.home-float {
+  position: fixed;
+  top: 20px;           /* Changed from bottom to top */
+  left: 20px;          /* Changed from right to left */
+  background-color: #1e90ff;
+  color: white;
+  font-size: 22px;
+  padding: 6px 10px;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 999;
+  transition: background-color 0.3s ease;
+}
+.home-float:hover {
+  background-color: #0d6efd;
+}
+</style>
+
 </head>
 <body>
   <!-- <h1>PLAYERS REGISTERED</h1> -->
@@ -2359,9 +2381,9 @@ function toggleFilters() {
 
 <!-- Back to Home & Scroll to Top Buttons -->
 <div id="scrollButtons">
-  <button class="scroll-btn" onclick="window.location.href='index.html'">
+  <!-- <button class="scroll-btn" onclick="window.location.href='index.html'">
     <span class="btn-icon">🏠</span><span class="btn-text"> Home</span>
-  </button>
+  </button> -->
   <button class="scroll-btn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
     <span class="btn-icon">⬆️</span><span class="btn-text"> Top</span>
   </button>
@@ -2418,6 +2440,8 @@ function toggleFilters() {
     }
   });
 </script>
+
+<a href="index.html" class="home-float" title="Go to Home">🏠</a>
 
 </body>
 </html>

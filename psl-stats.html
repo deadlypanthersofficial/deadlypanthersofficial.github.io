@@ -76,10 +76,32 @@
       margin-bottom: 12px;
     }
   </style>
+
+  <!-- Home Float Button -->
+  <style>
+.home-float {
+  position: fixed;
+  top: 20px;           /* Changed from bottom to top */
+  left: 20px;          /* Changed from right to left */
+  background-color: #1e90ff;
+  color: white;
+  font-size: 22px;
+  padding: 6px 10px;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 999;
+  transition: background-color 0.3s ease;
+}
+.home-float:hover {
+  background-color: #0d6efd;
+}
+</style>
 </head>
 <body>
   <header>
-    <h1>Tournaments – Panthers Super League (PSL)</h1>
+    <!-- <h1>Tournaments – Panthers Super League (PSL)</h1> -->
+    <h1><a href="psl-stats.html" style="color: #d4590f; text-decoration: none;">Tournaments – Panthers Super League (PSL)</a></h1>
     <p style="color: #333;">Official Seasons of the PSL with stats powered by CricHeroes</p>
   </header>
 
@@ -125,5 +147,8 @@
       <a href="https://cricheroes.com/tournament/1309082/REUNION-TOURNAMENT---DEADLY-PANTHERS(R.)" target="_blank" class="view-btn">View Stats</a>
     </div>
   </div>
+
+    <a href="index.html" class="home-float" title="Go to Home">🏠</a>
+
 </body>
 </html>
