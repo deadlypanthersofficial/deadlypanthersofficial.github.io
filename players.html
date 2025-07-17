@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Players Registered</title>
-  <link rel="icon" type="image/png" href="deadlypanthers-favicon.png">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"/>
   <!-- Tom Select CSS -->
   <link href="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.css" rel="stylesheet" />
@@ -665,6 +664,7 @@
     <option value="Parkala">📍 Parkala</option>
     <option value="Pune">📍 Pune</option>
     <option value="Puttur">📍 Puttur</option>
+    <option value="Sagar">📍 Sagar</option>
     <option value="Saibrakatte">📍 Saibrakatte</option>
     <option value="Sasthan">📍 Sasthan</option>
     <option value="Shivamogga">📍 Shivamogga</option>
@@ -674,6 +674,7 @@
     <option value="Thokkotu">📍 Thokkotu</option>
     <option value="Udupi">📍 Udupi</option>
     <option value="Ullal">📍 Ullal</option>
+    <option value="Yellapur">📍 Yellapur</option>
   </select>
 </div>
 
@@ -2264,6 +2265,30 @@
     category: "ALL-ROUNDER",
     teams: "PADUTHIRUPATHI CRICKETERS KARKALA",
     photo: "images/players/HARIPRASAD_PAI.jpg"
+  },
+  {
+    regNo: "197",
+    name: "RAKESH SHANBHAG",
+    place: "SAGAR",
+    category: "ALL-ROUNDER",
+    teams: "-",
+    photo: "images/players/RAKESH_SHANBHAG.jpg"
+  },
+  {
+    regNo: "198",
+    name: "KIRAN SHANBHAG",
+    place: "SAGAR",
+    category: "ALL-ROUNDER",
+    teams: "-",
+    photo: "images/players/KIRAN_SHANBHAG.jpg"
+  },
+  {
+    regNo: "199",
+    name: "YOGISH KUMTAKAR",
+    place: "YELLAPUR",
+    category: "ALL-ROUNDER",
+    teams: "-",
+    photo: "images/players/YOGISH_KUMTAKAR.jpg"
   }
 ];
 
@@ -2441,6 +2466,16 @@ function toggleFilters() {
     }
   });
 </script>
+
+<!-- Deadly Panthers - Footer -->
+    <div id="global-footer"></div>
+      <script>
+      fetch("footer.html")
+          .then(res => res.text())
+          .then(html => {
+          document.getElementById("global-footer").innerHTML = html;
+          });
+      </script>
 
 <a href="index.html" class="home-float" title="Go to Home">🏠</a>
 
