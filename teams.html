@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PSL 2025 Teams</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: white;
+      margin: 0;
+      padding: 20px;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .team-card {
+      background-color: #1f1f1f;
+      padding: 10px;
+      border-radius: 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .team-card:hover {
+      transform: scale(1.05);
+      background-color: #2b2b2b;
+    }
+    .team-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .team-name {
+      margin-top: 10px;
+      font-weight: bold;
+      font-size: 16px;
+      color: #ffdd57;
+    }
+    /* Modal styles */
+    /* .modal-overlay {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.85);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal-content {
+      background-color: #222;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 600px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+    }
+    .modal-content h2 {
+      margin-top: 0;
+      color: #ffdd57;
+    }
+    .member-block {
+      margin: 15px 0;
+    }
+    .member-block img {
+      width: 120px;
+      border-radius: 8px;
+      margin-bottom: 8px;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px; right: 15px;
+      color: white;
+      font-size: 22px;
+      cursor: pointer;
+    } */
+
+/* General image style for team logos */
+.team-logo img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease;
+}
+
+.team-logo img:hover {
+  transform: scale(1.05);
+}
+
+/* Modal photo styling */
+.modal-content .person img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* Mobile Responsive Style (for smaller screens) */
+@media (max-width: 600px) {
+  .modal-content .person {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+}
+</style>
+  
+  <!-- Modal styles -->
+  <style>
+  .modal-overlay {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  padding: 2rem;
+}
+
+.modal-content {
+  background: #fff;
+  color: #000;
+  padding: 20px;
+  border-radius: 16px;
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+}
+
+.modal-content h2 {
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.modal-content .person {
+  display: inline-block;
+  margin: 10px;
+  width: 160px;
+}
+
+.modal-content .person img {
+  width: 100%;
+  border-radius: 12px;
+  height: auto;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.modal-content .person p {
+  margin-top: 10px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+/* Fade-in animation */
+.modal-overlay {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.modal-overlay.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Close button */
+.modal-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: #ff4d4d;
+  border: none;
+  color: white;
+  font-size: 18px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+  z-index: 1001;
+}
+
+.modal-close-btn:hover {
+  background: #cc0000;
+}
+</style>
+
+<style>
+/* Home Float Button */
+.home-float {
+  position: fixed;
+  top: 20px;           /* Changed from bottom to top */
+  left: 20px;          /* Changed from right to left */
+  background-color: #1e90ff;
+  color: white;
+  font-size: 22px;
+  padding: 6px 10px;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 999;
+  transition: background-color 0.3s ease;
+}
+.home-float:hover {
+  background-color: #0d6efd;
+}
+</style>
+</head>
+<body>
+
+<h1 style="text-align:center; color:#ffdd57;">PANTHERS SUPER LEAGUE - 2025</h1>
+
+<div class="team-grid">
+  <!-- TEAM CARDS WILL BE INSERTED HERE -->
+  <div class="team-card" onclick="openModal('gajakresari-sullia-battlers', 'GAJAKESARI SULLIA BATTLERS')">
+    <img src="images/team-photos/gajakresari-sullia-battlers/gsbLogo.jpg" alt="Gajakresari Sullia Battlers Logo">
+    <div class="team-name">GAJAKESARI SULLIA BATTLERS</div>
+  </div>
+
+  <div class="team-card" onclick="openModal('enjoy-titans', 'ENJOY TITANS')">
+    <img src="images/team-photos/enjoy-titans/etLogo.jpg" alt="Enjoy Titans Logo">
+    <div class="team-name">ENJOY TITANS</div>
+  </div>
+
+  <div class="team-card" onclick="openModal('gsb-kings', 'GSB KINGS')">
+    <img src="images/team-photos/gsb-kings/gsbkLogo.jpg" alt="GSB Kings Logo">
+    <div class="team-name">GSB KINGS</div>
+  </div>
+
+  <div class="team-card" onclick="openModal('kings-ullal', 'KINGS ULLAL')">
+    <img src="images/team-photos/kings-ullal/kuLogo.jpg" alt="Kings Ullal Logo">
+    <div class="team-name">KINGS ULLAL</div>
+  </div>
+
+  <div class="team-card" onclick="openModal('rising-stars-mangalore', 'RISING STARS MANGALORE')">
+    <img src="images/team-photos/rising-stars-mangalore/rsmLogo.jpg" alt="Rising Stars Mangalore Logo">
+    <div class="team-name">RISING STARS MANGALORE</div>
+  </div>
+
+  <div class="team-card" onclick="openModal('royal-challengers-bantwal', 'ROYAL CHALLENGERS BANTWAL')">
+    <img src="images/team-photos/royal-challengers-bantwal/rcbLogo.jpg" alt="Royal Challengers Bantwal Logo">
+    <div class="team-name">ROYAL CHALLENGERS BANTWAL</div>
+  </div>
+
+  <div class="team-card" onclick="openModal('silent-shores-mysuru-maharajas', 'SILENT SHORES MYSURU MAHARAJAS')">
+    <img src="images/team-photos/silent-shores-mysuru-maharajas/ssmmLogo.jpg" alt="Silent Shores Mysuru Maharajas Logo">
+    <div class="team-name">SILENT SHORES MYSURU MAHARAJAS</div>
+  </div>
+
+  <div class="team-card" onclick="openModal('supreme-golden-garudas-gosripuram', 'SUPREME GOLDEN GARUDAS GOSRIPURAM')">
+    <img src="images/team-photos/supreme-golden-garudas-gosripuram/sgggLogo.jpg" alt="Supreme Golden Garudas Logo">
+    <div class="team-name">SUPREME GOLDEN GARUDAS GOSRIPURAM</div>
+  </div>
+
+  <div class="team-card" onclick="openModal('v-strikers', 'V STRIKERS')">
+    <img src="images/team-photos/v-strikers/vsLogo.jpg" alt="V Strikers Logo">
+    <div class="team-name">V STRIKERS</div>
+  </div>
+
+  <div class="team-card" onclick="openModal('veera-venkatesh-warriors', 'VEERA VENKATESH WARRIORS')">
+    <img src="images/team-photos/veera-venkatesh-warriors/vvwLogo.jpg" alt="Veera Venkatesh Warriors Logo">
+    <div class="team-name">VEERA VENKATESH WARRIORS</div>
+  </div>
+
+  <div class="team-card" onclick="openModal('veeranjaneya-cricketers-kaup', 'VEERANJANEYA CRICKETERS KAUP')">
+    <img src="images/team-photos/veeranjaneya-cricketers-kaup/vckLogo.jpg" alt="Veeranjaneya Cricketers Kaup Logo">
+    <div class="team-name">VEERANJANEYA CRICKETERS KAUP</div>
+  </div>
+
+  <div class="team-card" onclick="openModal('weekend-sports-club', 'WEEKEND SPORTS CLUB')">
+    <img src="images/team-photos/weekend-sports-club/wscLogo.jpg" alt="Weekend Sports Club Logo">
+    <div class="team-name">WEEKEND SPORTS CLUB</div>
+  </div>
+</div>
+
+<script>
+  const teamData = {
+    "gajakresari-sullia-battlers": {
+      name: "GAJAKESARI SULLIA BATTLERS",
+      folder: "gajakresari-sullia-battlers",
+      owner: "M KRISHNANANDA KAMATH",
+      coowner1: "M ARUNA KAMATH",
+      icon: "PREETHAM N PAI B"
+    },
+    "enjoy-titans": {
+      name: "ENJOY TITANS",
+      folder: "enjoy-titans",
+      owner: "VINAYAK PAI",
+      coowner1: "NANDAGOPAL BHAT J",
+      coowner2: "VAISHNAV PAI",
+      icon: "SHREEKRISHNA H"
+    },
+    "gsb-kings": {
+      name: "GSB KINGS",
+      folder: "gsb-kings",
+      owner: "PRASAD BHAT",
+      coowner1: "ADITYA BHANDARY",
+      coowner2: "PRASAD NAYAK",
+      icon: "PRANAV BHAT"
+    },
+    "veera-venkatesh-warriors": {
+      name: "VEERA VENKATESH WARRIORS",
+      folder: "veera-venkatesh-warriors",
+      owner: "HARISH G KAMATH",
+      coowner1: "MADHUKAR NAYAK K",
+      coowner2: "U PANDURANGA KINI",
+      icon: "VIGNESH SHENOY"
+    },
+    "royal-challengers-bantwal": {
+      name: "ROYAL CHALLENGERS BANTWAL",
+      folder: "royal-challengers-bantwal",
+      owner: "VIJETHA AVINASH KAMATH",
+      coowner1: "NIKHITHA ADARSH KAMATH",
+      coowner2: "VASUDHA KAMATH",
+      icon: "PRATHAMESH KAMATH"
+    },
+    "v-strikers": {
+      name: "V STRIKERS",
+      folder: "v-strikers",
+      owner: "SHIVANI BHAT",
+      icon: "RAKESH KAMATH"
+    },
+    "weekend-sports-club": {
+      name: "WEEKEND SPORTS CLUB",
+      folder: "weekend-sports-club",
+      owner: "CHAITANYA NAYAK",
+      coowner1: "GIRIDHAR PRABHU",
+      coowner2: "VIVEK PRABHU",
+      icon: "GAUTHAM PAI"
+    },
+    "veeranjaneya-cricketers-kaup": {
+      name: "VEERANJANEYA CRICKETERS KAUP",
+      folder: "veeranjaneya-cricketers-kaup",
+      owner: "VINAYAK NAYAK",
+      coowner1: "VEDAVYAS KAMATH",
+      icon: "VINAYAK SHENOY"
+    },
+    "supreme-golden-garudas-gosripuram": {
+      name: "SUPREME GOLDEN GARUDAS GOSRIPURAM",
+      folder: "supreme-golden-garudas-gosripuram",
+      owner: "AJITHA N PAI",
+      coowner1: "NARASIMHA PAI",
+      coowner2: "SIVAPRASAD P NAIK",
+      icon: "SREEKESH S SHENOY"
+    },
+    "kings-ullal": {
+      name: "KINGS ULLAL",
+      folder: "kings-ullal",
+      owner: "KRISHNA BHAT",
+      coowner1: "GURUCHARAN BHAT",
+      icon: "PUNDALIK PAI"
+    },
+    "rising-stars-mangalore": {
+      name: "RISING STARS MANGALORE",
+      folder: "rising-stars-mangalore",
+      owner: "PRITI PAI",
+      coowner1: "NIDHISHA PAI",
+      coowner2: "AKSHATHA PAI",
+      icon: "PRAJWAL SHENOY"
+    },
+    "silent-shores-mysuru-maharajas": {
+      name: "SILENT SHORES MYSURU MAHARAJAS",
+      folder: "silent-shores-mysuru-maharajas",
+      owner: "DR. JAGANNATH SHENOY",
+      coowner1: "KUSUMA SHENOY",
+      coowner2: "RAMPRASAD KAMATH",
+      icon: "VINAYAKA PAI"
+    }
+  };
+
+//   function openModal(teamId) {
+//     const team = teamData[teamId];
+//     if (!team) return;
+
+//     const folder = `images/team-photos/${team.folder}`;
+
+//     let html = `<h2>${team.name}</h2>`;
+
+//     html += `
+//       <div class="person">
+//         <img src="${folder}/owner.jpg" alt="Owner">
+//         <p><strong>OWNER:</strong><br>${team.owner}</p>
+//       </div>`;
+
+//     if (team.coowner1) {
+//       html += `
+//         <div class="person">
+//           <img src="${folder}/coowner1.jpg" alt="Co-owner 1">
+//           <p><strong>CO-OWNER:</strong><br>${team.coowner1}</p>
+//         </div>`;
+//     }
+
+//     if (team.coowner2) {
+//       html += `
+//         <div class="person">
+//           <img src="${folder}/coowner2.jpg" alt="Co-owner 2">
+//           <p><strong>CO-OWNER:</strong><br>${team.coowner2}</p>
+//         </div>`;
+//     }
+
+//     html += `
+//       <div class="person">
+//         <img src="${folder}/icon.jpg" alt="Icon Player">
+//         <p><strong>ICON PLAYER:</strong><br>${team.icon}</p>
+//       </div>`;
+
+//     document.getElementById("modalContent").innerHTML = html;
+//     document.getElementById("teamModal").style.display = "flex";
+//   }
+
+//   function closeModal(event) {
+//     if (event.target.id === "teamModal") {
+//       document.getElementById("teamModal").style.display = "none";
+//     }
+//   }
+
+function openModal(teamId) {
+  const team = teamData[teamId];
+  if (!team) return;
+
+  const folder = `images/team-photos/${team.folder}`;
+
+  let html = `
+    <button class="modal-close-btn" onclick="closeModal({target: {id: 'teamModal'}})">❌</button>
+    <h2>${team.name}</h2>`;
+
+  html += `
+    <div class="person">
+      <img src="${folder}/owner.jpg" alt="Owner">
+      <p><strong>OWNER:</strong><br>${team.owner}</p>
+    </div>`;
+
+  if (team.coowner1) {
+    html += `
+      <div class="person">
+        <img src="${folder}/coowner1.jpg" alt="Co-owner 1">
+        <p><strong>CO-OWNER 1:</strong><br>${team.coowner1}</p>
+      </div>`;
+  }
+
+  if (team.coowner2) {
+    html += `
+      <div class="person">
+        <img src="${folder}/coowner2.jpg" alt="Co-owner 2">
+        <p><strong>CO-OWNER 2:</strong><br>${team.coowner2}</p>
+      </div>`;
+  }
+
+  html += `
+    <div class="person">
+      <img src="${folder}/icon.jpg" alt="Icon Player">
+      <p><strong>ICON PLAYER:</strong><br>${team.icon}</p>
+    </div>`;
+
+  document.getElementById("modalContent").innerHTML = html;
+
+  const modal = document.getElementById("teamModal");
+  modal.classList.add("show");
+  modal.style.display = "flex";
+}
+
+function closeModal(event) {
+  if (event.target.id === "teamModal" || event.target.className === "modal-close-btn") {
+    const modal = document.getElementById("teamModal");
+    modal.classList.remove("show");
+    setTimeout(() => {
+      modal.style.display = "none";
+    }, 300); // matches fade duration
+  }
+}
+</script>
+
+<!-- Modal -->
+<div id="teamModal" class="modal-overlay" onclick="closeModal(event)">
+<button class="modal-close-btn" onclick="document.getElementById('teamModal').style.display='none'">❌</button>
+  <div class="modal-content" id="modalContent">
+    <span class="close-btn" onclick="closeModal(event)">&times;</span>
+    <!-- Injected content -->
+  </div>
+</div>
+
+<!-- Modal Overlay -->
+<!-- <div id="teamModal" class="modal-overlay" onclick="closeModal(event)">
+  <div class="modal-content" id="modalContent"></div>
+</div> -->
+
+<!-- Deadly Panthers - Footer -->
+    <div id="global-footer"></div>
+      <script>
+      fetch("footer.html")
+          .then(res => res.text())
+          .then(html => {
+          document.getElementById("global-footer").innerHTML = html;
+          });
+      </script>
+
+  <a href="index.html" class="home-float" title="Go to Home">🏠</a>
+
+</body>
+</html>
