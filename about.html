@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us – Deadly Panthers (R.)</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="icon" type="image/png" href="deadlypanthers-favicon.png">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      transition: background-color 0.3s, color 0.3s;
+      color: #333;
+    }
+
+    body.dark-mode {
+      background-color: #121212;
+      color: #f0f0f0;
+    }
+
+    .about-container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .team-photo {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+      margin-bottom: 30px;
+    }
+
+    h1, h2 {
+      color: #f26b1d;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      margin-top: 2rem;
+    }
+
+    ul {
+      list-style-type: '🐾 ';
+      padding-left: 1.5rem;
+    }
+
+    ul li {
+      margin-bottom: 0.7rem;
+    }
+
+    .hashtag {
+      text-align: center;
+      margin-top: 2rem;
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #ff7f3f;
+    }
+
+    body.dark-mode .hashtag {
+      color: #ffae59;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .about-container {
+        padding: 20px 16px;
+      }
+    }
+
+    /* Fancy Header Style*/
+    .fancy-about-header {
+    font-size: 42px;
+    font-weight: 900;
+    text-align: center;
+    background: linear-gradient(90deg, #f26b1d, #ff914d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 600px) {
+    .fancy-about-header {
+        font-size: 28px;
+    }
+    }
+  </style>
+</head>
+<body>
+  <!-- Include your existing navbar here if needed -->
+
+  <!-- <div class="about-container">
+    <img src="images/aboutUs/team-photo.jpg" alt="Deadly Panthers Team" class="team-photo" /> -->
+
+    <h1 class="fancy-about-header">ABOUT US — DEADLY PANTHERS (R.)</h1>
+    <p style="text-align: center; font-style: italic; color: #777;">
+    🗓️ Established in 2007 | Fearless. Fierce. Unstoppable.
+    </p>
+
+    <div class="about-container">
+    <img src="images/aboutUs/team-photo.jpg" alt="Deadly Panthers Team" class="team-photo" />
+
+    <p>Welcome to the official home of <strong>Deadly Panthers (R.)</strong> — a team forged by passion, united by purpose, and driven by the spirit of sportsmanship. We’re more than just a cricket team — we’re a family that plays, grows, and wins together.</p>
+
+    <h2>🔥 OUR IDENTITY</h2>
+    <p>Deadly Panthers isn’t just a name — it’s an attitude. Fierce on the field and humble off it, we pride ourselves on playing with heart, hustle, and harmony. Whether it's a league match or a friendly face-off, we show up with grit, strategy, and the will to give it our all.</p>
+
+    <h2>🏆 OUR JOURNEY</h2>
+    <p>It all began in <strong>2007</strong>, when a group of passionate cricket lovers came together to form what would become <strong>Deadly Panthers (R.)</strong>. What started as a humble initiative has now grown into one of the most respected and dynamic teams in the circuit. With a blend of seasoned players and rising stars, our team continues to roar louder each season.</p>
+
+    <h2>🤝 OUR TEAM CULTURE</h2>
+    <ul>
+      <li><strong>Unity Over Ego:</strong> Every player matters. We win together, we learn together, and no one stands alone.</li>
+      <li><strong>Respect and Integrity:</strong> On and off the pitch, we play fair, respect the game, and uphold the spirit of cricket.</li>
+      <li><strong>Hard Work Beats Talent:</strong> We train hard, support one another, and push each other to be better every day.</li>
+      <li><strong>Celebrate Every Moment:</strong> From match-winning sixes to diving catches to team huddles — we cherish every high and every hustle.</li>
+      <li><strong>Family Vibes Always:</strong> Off the field, we’re brothers — sharing laughs, memories, and meals. Our bond is our real strength.</li>
+    </ul>
+
+    <h2>🙌 JOIN THE PRIDE</h2>
+    <p>We’re always looking to connect with passionate players, loyal fans, and cricket lovers who share our energy. If you vibe with our values and live for the game — welcome to the family.</p>
+
+    <div class="hashtag">
+      #WeAreDeadly &nbsp; | &nbsp; #PanthersPride &nbsp; | &nbsp; #SpiritUnleashed
+    </div>
+  </div>
+
+  <!-- Optional: JS for dark mode sync
+  <script>
+    const darkPref = localStorage.getItem("darkMode");
+    if (darkPref === "enabled") {
+      document.body.classList.add("dark-mode");
+    }
+  </script> -->
+
+  <!-- Deadly Panthers - Footer -->
+  <div id="global-footer"></div>
+    <script>
+    fetch("footer.html")
+        .then(res => res.text())
+        .then(html => {
+        document.getElementById("global-footer").innerHTML = html;
+        });
+    </script>
+
+</body>
+</html>
