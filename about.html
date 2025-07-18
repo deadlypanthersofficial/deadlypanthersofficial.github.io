@@ -99,16 +99,45 @@
     }
   </style>
 
+  <!-- Background Image with Zoom in Animation-->
+  <style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    background-color: #f8f8f8;
+  }
+  body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('images/aboutUs/deadly_panthers_logo.png') no-repeat center center / cover;
+  opacity: 0.15;
+  z-index: -1;
+  animation: zoomBg 10s ease-in-out infinite alternate;
+  }
+
+  @keyframes zoomBg {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.1);
+    }
+  }
+  </style>
+
 <!-- Navbar Styles from navbar css file -->
 <link rel="stylesheet" href="navbar.css">
 
 </head>
 <body>
   <!-- Include your existing navbar here if needed -->
-
-  <!-- <div class="about-container">
-    <img src="images/aboutUs/team-photo.jpg" alt="Deadly Panthers Team" class="team-photo" /> -->
-
     <!-- Global Nav bar Menu -->
      <div id="navbar-placeholder"></div>
     <script>
@@ -145,6 +174,7 @@
     </p>
 
     <div class="about-container">
+    <!-- <div style="background-color: rgba(255, 255, 255, 0.85); padding: 20px; border-radius: 8px;"> -->
     <img src="images/aboutUs/team-photo.jpg" alt="Deadly Panthers Team" class="team-photo" />
 
     <p>Welcome to the official home of <strong>Deadly Panthers (R.)</strong> — a team forged by passion, united by purpose, and driven by the spirit of sportsmanship. We’re more than just a cricket team — we’re a family that plays, grows, and wins together.</p>
