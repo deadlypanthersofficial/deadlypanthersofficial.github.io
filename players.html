@@ -571,31 +571,42 @@
 
 </style>
 
-<!-- Home Float Button -->
-  <style>
-.home-float {
-  position: fixed;
-  top: 20px;           /* Changed from bottom to top */
-  left: 20px;          /* Changed from right to left */
-  background-color: #1e90ff;
-  color: white;
-  font-size: 22px;
-  padding: 6px 10px;
-  border-radius: 50%;
-  text-decoration: none;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  z-index: 999;
-  transition: background-color 0.3s ease;
-}
-.home-float:hover {
-  background-color: #0d6efd;
-}
-</style>
+<!-- Navbar Styles from navbar css file -->
+  <link rel="stylesheet" href="navbar.css">
 
 </head>
 <body>
-  <!-- <h1>PLAYERS REGISTERED</h1> -->
-  <!-- <h1 class="section-title">PLAYERS REGISTERED</h1> -->
+
+  <!-- Global Nav bar Menu -->
+     <div id="navbar-placeholder"></div>
+    <script>
+      fetch("navbar.html")
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById("navbar-placeholder").innerHTML = data;
+
+          // Mobile toggle functionality
+          const toggle = document.querySelector(".nav-toggle");
+          const menu = document.querySelector(".nav-menu");
+
+          if (toggle && menu) {
+            toggle.addEventListener("click", () => {
+              menu.classList.toggle("show");
+            });
+          }
+
+          // Active link styling (optional)
+          const navLinks = document.querySelectorAll(".nav-link");
+          navLinks.forEach(link => {
+            link.addEventListener("click", () => {
+              navLinks.forEach(l => l.classList.remove("active"));
+              link.classList.add("active");
+              if (menu) menu.classList.remove("show");
+            });
+          });
+        });
+    </script>
+    
   <div class="sticky-header" id="stickyHeader">
   <h1 class="section-title">
     <a href="players.html" style="text-decoration: none; color: #d4590f;">PLAYERS REGISTERED</a>
@@ -2476,8 +2487,6 @@ function toggleFilters() {
           document.getElementById("global-footer").innerHTML = html;
           });
       </script>
-
-<a href="index.html" class="home-float" title="Go to Home">🏠</a>
 
 </body>
 </html>

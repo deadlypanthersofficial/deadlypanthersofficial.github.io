@@ -116,35 +116,85 @@
         padding: 20px;
       }
     }
-
-    .home-float {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      background-color: #1e90ff;
-      color: white;
-      font-size: 22px;
-      padding: 6px 10px;
-      border-radius: 50%;
-      text-decoration: none;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      z-index: 999;
-      transition: background-color 0.3s ease;
-    }
-
-    .home-float:hover {
-      background-color: #0d6efd;
-    }
   </style>
+
+  <!-- Navbar Styles from navbar css file -->
+  <link rel="stylesheet" href="navbar.css">
+
 </head>
 <body>
+
+  <!-- Global Nav bar Menu -->
+     <div id="navbar-placeholder"></div>
+    <script>
+      fetch("navbar.html")
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById("navbar-placeholder").innerHTML = data;
+
+          // Mobile toggle functionality
+          const toggle = document.querySelector(".nav-toggle");
+          const menu = document.querySelector(".nav-menu");
+
+          if (toggle && menu) {
+            toggle.addEventListener("click", () => {
+              menu.classList.toggle("show");
+            });
+          }
+
+          // Active link styling (optional)
+          const navLinks = document.querySelectorAll(".nav-link");
+          navLinks.forEach(link => {
+            link.addEventListener("click", () => {
+              navLinks.forEach(l => l.classList.remove("active"));
+              link.classList.add("active");
+              if (menu) menu.classList.remove("show");
+            });
+          });
+        });
+    </script>
 
   <h1>Contact Us</h1>
   <p style="text-align: center; font-style: italic; color: #777;">
     📩 We'd love to hear from you!
   </p>
 
-  <div class="contact-container">
+<div class="contact-container">
+
+  <!-- Contact Info Section -->
+<div style="margin-bottom: 30px;">
+  <h2 style="color: #f26b1d;">📞 Official Contacts:</h2>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+    
+      <!-- Contact 1 -->
+      <div style="flex: 1; min-width: 260px; background-color: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 0 6px rgba(0,0,0,0.05);">
+        <p><strong>Name:</strong> Vignesh Nayak</p>
+        <p>
+          <strong>Phone:</strong> 
+          <a href="tel:+918197910246" style="color: #1e90ff;">+91 81979 10246</a><br>
+          <a href="https://wa.me/918197910246" target="_blank" style="color: #25D366; text-decoration: none; display: inline-flex; align-items: center;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 18px; height: 18px; margin-right: 6px;">
+            WhatsApp
+          </a>
+        </p>
+      </div>
+
+      <!-- Contact 2 -->
+      <div style="flex: 1; min-width: 260px; background-color: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 0 6px rgba(0,0,0,0.05);">
+        <p><strong>Name:</strong> Venkatesh Pai</p>
+        <p>
+          <strong>Phone:</strong> 
+          <a href="tel:+919901330800" style="color: #1e90ff;">+91 99013 30800</a><br>
+          <a href="https://wa.me/919901330800" target="_blank" style="color: #25D366; text-decoration: none; display: inline-flex; align-items: center;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 18px; height: 18px; margin-right: 6px;">
+            WhatsApp
+          </a>
+        </p>
+      </div>
+    </div>
+</div>
+
     <form action="https://docs.google.com/forms/d/e/1FAIpQLSc8ub7ccr75WhJbdpwiD7xcorNSfOp77rz89N4uzHBTo2Jfog/formResponse" method="POST" target="_blank">
       <label for="name">Your Name</label>
       <input type="text" name="entry.198696397" id="name" placeholder="Enter your name" required>
