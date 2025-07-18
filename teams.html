@@ -262,9 +262,43 @@ body.modal-open {
     }
   }
 </style>
+
+<!-- Navbar Styles from navbar css file -->
+  <link rel="stylesheet" href="navbar.css">
+
 </head>
 <body>
 
+  <!-- Global Nav bar Menu -->
+     <div id="navbar-placeholder"></div>
+    <script>
+      fetch("navbar.html")
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById("navbar-placeholder").innerHTML = data;
+
+          // Mobile toggle functionality
+          const toggle = document.querySelector(".nav-toggle");
+          const menu = document.querySelector(".nav-menu");
+
+          if (toggle && menu) {
+            toggle.addEventListener("click", () => {
+              menu.classList.toggle("show");
+            });
+          }
+
+          // Active link styling (optional)
+          const navLinks = document.querySelectorAll(".nav-link");
+          navLinks.forEach(link => {
+            link.addEventListener("click", () => {
+              navLinks.forEach(l => l.classList.remove("active"));
+              link.classList.add("active");
+              if (menu) menu.classList.remove("show");
+            });
+          });
+        });
+    </script>
+    
 <!-- <h1 style="text-align:center; color:#ffdd57;">PANTHERS SUPER LEAGUE - 2025</h1> -->
 <h1 class="fancy-teams-header" style="margin-bottom: 16px;">PANTHERS SUPER LEAGUE - 2025</h1>
 
