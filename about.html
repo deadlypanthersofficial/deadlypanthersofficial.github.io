@@ -98,7 +98,7 @@
     }
     }
   </style>
-  
+
   <!-- Home Float Button -->
   <style>
 .home-float {
@@ -119,12 +119,55 @@
   background-color: #0d6efd;
 }
 </style>
+
 </head>
 <body>
   <!-- Include your existing navbar here if needed -->
 
   <!-- <div class="about-container">
     <img src="images/aboutUs/team-photo.jpg" alt="Deadly Panthers Team" class="team-photo" /> -->
+
+    <!-- Global Nav bar Menu -->
+    <div id="navbar-placeholder"></div>
+      <script>
+        fetch("navbar.html")
+          .then(res => res.text())
+          .then(data => {
+            document.getElementById("navbar-placeholder").innerHTML = data;
+
+            // re-attach event listeners (for toggling mobile menu and dark mode)
+            const toggle = document.querySelector(".nav-toggle");
+            const menu = document.querySelector(".nav-menu");
+
+            if (toggle && menu) {
+              toggle.addEventListener("click", () => {
+                menu.classList.toggle("show");
+              });
+            }
+
+            const navLinks = document.querySelectorAll(".nav-link");
+            navLinks.forEach(link => {
+              link.addEventListener("click", () => {
+                navLinks.forEach(l => l.classList.remove("active"));
+                link.classList.add("active");
+                menu.classList.remove("show");
+              });
+            });
+
+            const darkSwitch = document.getElementById("darkModeSwitch");
+            if (darkSwitch) {
+              darkSwitch.addEventListener("change", () => {
+                document.body.classList.toggle("dark-mode");
+                localStorage.setItem("darkMode", document.body.classList.contains("dark-mode") ? "enabled" : "disabled");
+              });
+              // apply saved mode
+              if (localStorage.getItem("darkMode") === "enabled") {
+                document.body.classList.add("dark-mode");
+                darkSwitch.checked = true;
+              }
+            }
+          });
+      </script>
 
     <h1 class="fancy-about-header">ABOUT US — DEADLY PANTHERS (R.)</h1>
     <p style="text-align: center; font-style: italic; color: #777;">
@@ -176,8 +219,8 @@
         document.getElementById("global-footer").innerHTML = html;
         });
     </script>
-  
-<a href="index.html" class="home-float" title="Go to Home">🏠</a>
-  
+
+    <a href="index.html" class="home-float" title="Go to Home">🏠</a>
+
 </body>
 </html>
