@@ -1,0 +1,59 @@
+.site-footer {
+  text-align: center;
+  padding: 24px;
+  margin-top: 40px;
+  background-color: #eee;
+  color: #444;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.site-footer .footer-text {
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.site-footer .footer-credit {
+  letter-spacing: 0.5px;
+}
+
+.insta-link {
+  background: linear-gradient(90deg, #f26b1d, #ff914d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+}
+
+.insta-icon {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+}
+
+.insta-link:hover .insta-icon {
+  transform: scale(1.2);
+}
+
+/* 🌙 Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .site-footer {
+    background-color: #111;
+    color: #ccc;
+  }
+
+  .site-footer .footer-text {
+    color: #ccc;
+  }
+}
+
+/* Optional: explicit .dark-mode class override */
+.dark-mode .site-footer {
+  background-color: #111 !important;
+  color: #ccc !important;
+}
