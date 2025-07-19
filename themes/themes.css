@@ -1,0 +1,46 @@
+/* Themes for Different Occasions */
+
+/* === Default Deadly Panthers Theme === */
+body.default-theme {
+  background: url("images/themes/default_deadly_panthers.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* === Diwali Theme === */
+body.diwali-theme {
+  background: url("images/themes/diwali.jpeg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* === Republic Day Theme === */
+body.republic-theme {
+  background: url("images/themes/republic.png") no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* === Independence Day Theme === */
+body.independence-theme {
+  background: url("images/themes/independence.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* === Ganesh Chaturthi Theme === */
+body.ganesh-theme {
+  background: url("images/themes/ganesha.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* === Holi Theme === */
+body.holi-theme {
+  background: url("images/themes/holi.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Optional overlay to make content readable */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6); /* Adjust for readability */
+  z-index: -1;
+}

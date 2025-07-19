@@ -1,0 +1,778 @@
+/* Base Layout & Typography */
+/* If you want body to be plain white/dark background */
+body {
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  background: #0e0e0e;
+  color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+/* Body part CSS code ends here */
+
+/* Header */
+header {
+  background: linear-gradient(to right, #ffd70033, #ffffff11);
+  padding: 2em 1em 1em;
+  text-align: center;
+  border-bottom: 2px solid #f2c94c;
+  box-shadow: 0 2px 8px rgba(255, 215, 0, 0.2);
+}
+
+h1 {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #f7c948;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+/* Tabs (Main Buttons) */
+.tab-buttons {
+  margin-top: 1em;
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+
+.tab-button {
+  padding: 0.7em 1.4em;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  background: #f26b1d;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.tab-button:hover,
+.tab-button.active {
+  background: #d85e10;
+  color: #fff;
+  box-shadow: 0 0 12px #f26b1d88;
+  transform: scale(1.05);
+}
+
+/* Main Tab Content */
+.tab-content {
+  display: none;
+  padding: 2em;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Season Tabs */
+.season-tabs {
+  margin: 1em 0 1.5em;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.7em;
+}
+
+.season-tab {
+  background: #1e1e1e;
+  border: 1px solid #333;
+  color: #eee;
+  padding: 0.5em 1.2em;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.season-tab:hover,
+.season-tab.active {
+  background: #f26b1d;
+  color: #000;
+  box-shadow: 0 0 10px #f26b1d55;
+}
+
+/* Season Content Boxes */
+.season-content {
+  display: none;
+  background-color: #1b1b1b;
+  border-radius: 10px;
+  padding: 1.5em;
+  margin-top: 1em;
+  box-shadow: 0 0 12px rgba(255, 165, 0, 0.15);
+}
+
+.season-content.active {
+  display: block;
+}
+
+/* Summary */
+.summary {
+  background-color: #232323;
+  color: #fff;
+  padding: 1em;
+  border-left: 5px solid #f26b1d;
+  border-radius: 8px;
+  margin-bottom: 1em;
+  box-shadow: 0 0 8px #f26b1d33;
+}
+
+/* Winner Cards */
+.winner-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2em;
+  justify-content: center;
+  color: white;
+  margin-bottom: 1em;
+}
+
+/* Headings */
+h2 {
+  font-size: 1.6rem;
+  color: #f26b1d;
+  margin-bottom: 0.6em;
+}
+
+h3 {
+  font-size: 1.4rem;
+  margin-top: 2em;
+  color: #ffd700;
+  text-align: center;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .winner-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tab-buttons {
+    flex-direction: column;
+  }
+
+  .season-tabs {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+}
+
+/* Carousel Gallery */
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  padding: 1em 0;
+  margin: 2em auto;
+  max-width: 95%;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 1em;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.carousel-track img {
+  height: 180px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.carousel-track img:hover {
+  transform: scale(1.05);
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #f26b1d;
+  color: #000;
+  font-size: 2rem;
+  border: none;
+  border-radius: 50%;
+  padding: 0.3em 0.6em;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 0 12px #f26b1d66;
+}
+
+.carousel-btn.prev {
+  left: 10px;
+}
+
+.carousel-btn.next {
+  right: 10px;
+}
+
+@media (max-width: 600px) {
+  .carousel-track img {
+    height: 140px;
+  }
+
+  .carousel-btn {
+    font-size: 1.6rem;
+    padding: 0.2em 0.5em;
+  }
+}
+.carousel-track {
+  display: flex;
+  gap: 1em;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.carousel-item {
+  flex: 0 0 auto;
+  text-align: center;
+}
+
+.carousel-item img {
+  height: 180px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.caption {
+  margin-top: 0.5em;
+  font-size: 0.9em;
+  color: #f0f0f0;
+}
+.carousel-title {
+  text-align: center;
+  font-size: 1.6rem;
+  color: gold;
+  margin: 2em 0 1em;
+  text-shadow: 1px 1px 4px #000;
+}
+
+/* Lightbox style */
+.lightbox {
+  position: fixed;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.85);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #f26b1d;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2.5rem;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Deadly Panthers tab Images */
+.panthers-info {
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.panthers-info .team-logo {
+  width: 100px;
+  height: auto;
+  margin-bottom: 1em;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #f26b1d88;
+}
+
+/* Responsiveness Audit / Fixes */
+@media (max-width: 768px) {
+  .carousel-title {
+    font-size: 1.2rem;
+    margin-top: 1.5em;
+  }
+
+  .carousel-track {
+    gap: 0.6em;
+  }
+
+  .carousel-item img {
+    height: 140px;
+  }
+
+  .caption {
+    font-size: 0.8em;
+  }
+
+  .carousel-btn {
+    font-size: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0.4em;
+  }
+
+  .season-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5em;
+  }
+
+  .season-tab {
+    flex: 1 1 auto;
+    padding: 0.5em 0.8em;
+    font-size: 0.85em;
+  }
+
+  header h1 {
+    font-size: 1.6rem;
+  }
+}
+
+/* Lightbox arrows and Zoom in/out controls */
+.lightbox-arrow {
+  position: absolute;
+  top: 50%;
+  font-size: 3rem;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  padding: 0.3em;
+  z-index: 1001;
+}
+
+.lightbox-arrow.left {
+  left: 20px;
+}
+
+.lightbox-arrow.right {
+  right: 20px;
+}
+
+.zoom-controls {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1002;
+}
+
+.zoom-controls button {
+  font-size: 1.5rem;
+  padding: 0.4em 0.7em;
+  margin: 0 0.5em;
+  border: none;
+  border-radius: 6px;
+  background-color: #f9741c;
+  color: white;
+  cursor: pointer;
+}
+
+/* === PSL Winners Section Styles === */
+
+.winner-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 1.5em;
+  margin-top: 1em;
+}
+
+.winner-box {
+  background-color: #1b1b1b;
+  border: 2px solid gold;
+  border-radius: 10px;
+  padding: 1em;
+  width: 300px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.winner-box:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 18px rgba(255, 215, 0, 0.4);
+}
+
+.winner-box img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 0.5em;
+}
+
+.team-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin: 0.5em auto;
+  display: block;
+  border-radius: 50%;
+  background: #fff;
+  padding: 5px;
+  box-shadow: 0 0 8px #f9741c;
+}
+
+/* Placeholder box for TBD content */
+.winner-box.placeholder {
+  border-style: dashed;
+  color: #aaa;
+  font-style: italic;
+  background: #222;
+}
+
+/* Season summary box */
+.summary {
+  background: #232323;
+  border-left: 4px solid gold;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-radius: 6px;
+  color: white;
+  font-size: 1.1em;
+  box-shadow: 0 0 10px rgba(249, 116, 28, 0.3);
+}
+
+/* Trophy bounce animation for winners */
+.winner-box.winner-highlight::before {
+  content: "🏆";
+  font-size: 2em;
+  display: block;
+  animation: bounce 1s infinite alternate;
+  margin-bottom: 0.3em;
+}
+
+@keyframes bounce {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-5px); }
+}
+
+/* Shared base */
+.winner-box {
+  transition: transform 0.3s ease;
+}
+
+/* 🥇 Winner */
+.winner-box.winner-highlight {
+  border-color: gold;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.3);
+}
+
+.winner-box.winner-highlight::before {
+  content: "🏆";
+  font-size: 2em;
+  display: block;
+  animation: bounce 1s infinite alternate;
+  margin-bottom: 0.3em;
+}
+
+/* 🥈 Runner */
+.winner-box.runner-highlight {
+  border-color: silver;
+  box-shadow: 0 0 10px rgba(192, 192, 192, 0.2);
+}
+
+.winner-box.runner-highlight::before {
+  content: "🥈";
+  font-size: 2em;
+  display: block;
+  animation: bounce 1s infinite alternate;
+  margin-bottom: 0.3em;
+}
+
+/* 🥉 2nd Runner */
+.winner-box.third-highlight {
+  border-color: #cd7f32;
+  box-shadow: 0 0 10px rgba(205, 127, 50, 0.3);
+}
+
+.winner-box.third-highlight::before {
+  content: "🥉";
+  font-size: 2em;
+  display: block;
+  animation: bounce 1s infinite alternate;
+  margin-bottom: 0.3em;
+}
+
+@keyframes bounce {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-5px); }
+}
+
+/* Center the Section Title */
+.section-title {
+  text-align: center;
+  color: gold;
+  margin-top: 1em;
+  font-size: 1.8em;
+}
+
+/* Centre the Text in Season Box */
+.centered-text {
+  text-align: center;
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+/* Summary box highlighting */
+.summary {
+  background-color: #232323;
+  padding: 1em;
+  border-radius: 8px;
+  margin-bottom: 1.5em;
+  color: white;
+  box-shadow: 0 0 10px rgba(249, 116, 28, 0.5); /* Glowing orange */
+  border: 2px solid #f9741c;
+  transition: box-shadow 0.3s ease;
+}
+
+.centered-text {
+  text-align: center;
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+.league-title {
+  font-size: 1.4em;
+  color: gold;
+  font-weight: bold;
+  text-shadow: 0 0 5px gold;
+  margin-bottom: 0.6em;
+  display: inline-block;
+  animation: glow-pulse 2s infinite ease-in-out;
+}
+
+@keyframes glow-pulse {
+  0%   { text-shadow: 0 0 5px gold; }
+  50%  { text-shadow: 0 0 15px gold; }
+  100% { text-shadow: 0 0 5px gold; }
+}
+
+/* MVP Highlights Box */
+.mvp-highlight {
+  background: linear-gradient(to right, #1e1e1e, #121212);
+  border: 2px solid gold;
+  border-radius: 10px;
+  padding: 2em;
+  margin-top: 2em;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+}
+
+.mvp-title {
+  text-align: center;
+  color: gold;
+  font-size: 1.8em;
+  margin-bottom: 1em;
+  text-shadow: 0 0 10px gold;
+}
+
+.mvp-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5em;
+}
+
+.mvp-photo img {
+  max-width: 300px;
+  border-radius: 10px;
+  border: 3px solid #f9741c;
+  box-shadow: 0 0 10px rgba(249, 116, 28, 0.4);
+}
+
+.mvp-details {
+  text-align: center;
+  color: white;
+}
+
+.mvp-name {
+  font-size: 1.4em;
+  color: gold;
+  margin-bottom: 0.5em;
+}
+
+.mvp-award {
+  font-size: 1.1em;
+  margin-bottom: 1em;
+}
+
+.scooter-img {
+  max-width: 220px;
+  margin-top: 0.5em;
+  animation: floatUpDown 2s infinite ease-in-out;
+}
+
+@keyframes floatUpDown {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
+/* MVP stats when player photo is hovered */
+.photo-wrapper {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.photo-wrapper img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.stat-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  color: #f9741c;
+  font-size: 1em;
+  text-align: center;
+  padding: 1em;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.photo-wrapper:hover .stat-overlay {
+  opacity: 1;
+}
+
+.photo-wrapper:hover img {
+  transform: scale(1.05);
+}
+
+/* Individual Awards of the Tournament */
+.award-section {
+  margin-top: 3em;
+  padding: 2em;
+  background-color: #1b1b1b;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.2);
+}
+
+.award-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5em;
+  margin-top: 1.5em;
+}
+
+.award-box {
+  background-color: #232323;
+  padding: 1em;
+  border-radius: 10px;
+  width: 220px;
+  text-align: center;
+  border: 2px solid #f9741c;
+  box-shadow: 0 0 10px rgba(249, 116, 28, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.award-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px rgba(255, 200, 0, 0.4);
+}
+
+.award-box img {
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 0.5em;
+  border: 2px solid gold;
+}
+
+.award-box h3 {
+  color: gold;
+  margin-bottom: 0.5em;
+}
+
+.player-name {
+  color: white;
+  font-weight: bold;
+  margin-top: 0.8em;
+  font-size: 1.1em;
+}
+.award-box .photo-wrapper {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.award-box .photo-wrapper img {
+  width: 100%;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.award-box .stat-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 15, 15, 0.92);
+  color: #f9741c;
+  font-size: 0.9em;
+  text-align: center;
+  padding: 0.8em;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.award-box .photo-wrapper:hover .stat-overlay {
+  opacity: 1;
+}
+
+.award-box .photo-wrapper:hover img {
+  transform: scale(1.05);
+}
+
+/* Simulate hover on mobile tap */
+.photo-wrapper.show-overlay .stat-overlay {
+  opacity: 1;
+}
+
+
