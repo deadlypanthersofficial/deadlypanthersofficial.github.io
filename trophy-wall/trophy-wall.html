@@ -4,20 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Trophy Wall</title>
-  <link rel="stylesheet" href="/trophy-wall/trophy-wall.css">
+  <link rel="stylesheet" href="trophy-wall.css">
   <link rel="stylesheet" href="/themes/themes.css">
   <link rel="icon" type="image/png" href="deadlypanthers-favicon.png">
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
   <!-- Navbar Styles from navbar css file -->
-  <link rel="stylesheet" href="navbar/navbar.css">
+  <link rel="stylesheet" href="/navbar/navbar.css">
 </head>
 <body>
 
     <!-- Global Nav bar Menu -->
     <div id="navbar-placeholder"></div>
    <script>
-     fetch("navbar.html")
+     fetch("/navbar/navbar.html")
        .then(res => res.text())
        .then(data => {
          document.getElementById("navbar-placeholder").innerHTML = data;
@@ -651,13 +651,13 @@
 </div>
 </div>
 
-  <script src="/trophy-wall/trophy-wall.js"></script>
+  <script src="trophy-wall.js"></script>
   <script src="/themes/theme-loader.js"></script>
 
   <!-- Deadly Panthers - Global Footer -->
   <div id="global-footer"></div>
     <script>
-    fetch("footer/footer.html")
+    fetch("/footer/footer.html")
         .then(res => res.text())
         .then(html => {
         document.getElementById("global-footer").innerHTML = html;
