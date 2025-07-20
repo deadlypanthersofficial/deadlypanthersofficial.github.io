@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" href="deadlypanthers-favicon.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-  <style>
+<style>
     html {
       scroll-behavior: smooth;
     }
@@ -751,45 +751,15 @@ body.dark-mode .modal-actions button {
 
 </head>
 <body>
-  <!-- Team Details Modal -->
-<div id="teamModal" class="modal-overlay">
-  <div class="modal-content team-details-modal">
-    <h3 id="teamName" style="margin-bottom: 16px; color: #f26b1d;"></h3>
-    <div class="team-members">
-      <div class="member-card" id="ownerCard">
-        <img src="" alt="Owner Photo" id="ownerPhoto">
-        <p><strong>Owner:</strong> <span id="ownerName"></span></p>
-      </div>
-      <div class="member-card" id="coOwner1Card">
-        <img src="" alt="Co-owner 1 Photo" id="coOwner1Photo">
-        <p><strong>Co-Owner 1:</strong> <span id="coOwner1Name"></span></p>
-      </div>
-      <div class="member-card" id="coOwner2Card">
-        <img src="" alt="Co-owner 2 Photo" id="coOwner2Photo">
-        <p><strong>Co-Owner 2:</strong> <span id="coOwner2Name"></span></p>
-      </div>
-      <!-- <div class="member-card" id="coOrdinatorCard">
-        <img src="" alt="Co-ordinator Photo" id="coOrdinatorPhoto">
-        <p><strong>Co-ordinator:</strong> <span id="coOrdinatorName"></span></p>
-      </div> -->
-      <div class="member-card" id="iconCard">
-        <img src="" alt="Icon Player Photo" id="iconPhoto">
-        <p><strong>Icon Player:</strong> <span id="iconName"></span></p>
-      </div>
-    </div>
-    <div class="modal-actions">
-      <button onclick="closeTeamModal()">❌ Close</button>
-    </div>
-  </div>
-</div>
 
-  <div class="loader" id="loader"></div>
-  <a href="https://www.instagram.com/deadlypanthersofficial/" 
+<!-- Instagram Floating Icon -->
+<div class="loader" id="loader"></div>
+<a href="https://www.instagram.com/deadlypanthersofficial/" 
    class="follow-float" target="_blank" title="Follow us on Instagram">
   <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
 </a>
 
-
+<!-- Navbar/ Navigation Bar/ Menu -->
 <nav class="navbar">
   <div class="nav-container">
     <a href="#top" class="logo">
@@ -804,12 +774,13 @@ body.dark-mode .modal-actions button {
         </a>
       </li>
       <!-- <li><a href="#" class="nav-link" title="Photos & Videos">🏞️ Gallery</a></li> -->
-<!--       <li>
+      <!-- <li>
         <a href="/trophy-wall/trophy-wall.html" class="nav-link" title="Photos & Videos">🏆 Trophy Wall <span class="new-badge">NEW</span></a>
       </li> -->
       <li>
-        <a href="#" class="nav-link" title="Photos & Videos">🏆 Trophy Wall <span class="new-badge">Coming Soon</span></a>
+              <a href="#" class="nav-link" title="Photos & Videos">🏆 Trophy Wall <span class="new-badge">Coming Soon</span></a>
       </li>
+
       <li><a href="teams.html" class="nav-link" title="PSL 2025 Teams">
           👥 Teams <span class="new-badge">NEW</span>
         </a>
@@ -826,20 +797,26 @@ body.dark-mode .modal-actions button {
 </nav>
 
 
-  <header>
-    <div class="header-block">
+<header>
+
+<!-- Header Block -->
+
+<!-- Header Details -->
+<div class="header-block">
   <h1 class="fancy-header">Deadly Panthers (R.)</h1>
   <p class="tagline">🏏 Since 2007 | Fearless. Fierce. Unstoppable.</p>
 </div>
 
-    <img src="HeaderImage.jpg" alt="Header Image">
-  </header>
+<!-- Header Image -->
+<img src="HeaderImage.jpg" alt="Header Image">
+
+</header>
 
   <div class="content">
     <h2>About the Tournament - Panthers Super League 2025 </h2>
     <p>We are excited to bring to you the 4th Season of <strong>Panthers Super League</strong> - a thrilling cricket tournament featuring top talent and fierce competition. Join us for a weekend full of action, sportsmanship, and fun!</p>
 
-   <!-- Countdown Section -->
+<!-- Countdown Section -->
 <!-- Venue & Match Schedule Section -->
 <section class="venue-schedule" style="background-color: #fff8f2; padding: 40px 20px; text-align: center;">
   <h2>📍 Match Venue & Schedule</h2>
@@ -849,12 +826,14 @@ body.dark-mode .modal-actions button {
     🕘 <strong>Start Time:</strong> 09:00 AM Onwards
   </p>
 </section>
+
+<!-- Match Date - Countdown Section -->
 <section class="countdown-section" style="background: #fff3e6; padding: 40px 20px; text-align: center;">
   <h2>⏳ Countdown to Panthers Super League 2025</h2>
   <div id="countdown" style="font-size: 32px; margin-top: 20px; font-weight: bold; color: #333;"></div>
 </section>
      
-    <div style="
+<div style="
   background-color: #fff3e6;
   border-left: 6px solid #f26b1d;
   padding: 16px;
@@ -871,23 +850,25 @@ body.dark-mode .modal-actions button {
     <!-- <a href="#" class="register-button" onclick="openRegisterPopup()">Register Now</a> -->
     </div>
 
-    <!-- Registered Players List -->
-    <section style="background-color: #fff4e6; padding: 40px 20px; text-align: center; border-radius: 12px; margin: 40px auto; max-width: 900px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
-  <h2 style="color: #d4590f; font-size: 28px; margin-bottom: 10px;">MEET OUR TALENTED PLAYERS</h2>
-  <p style="color: #333; font-size: 16px; margin-bottom: 25px;">
+  <!-- Registered Players List -->
+<section style="background-color: #fff4e6; padding: 40px 20px; text-align: center; border-radius: 12px; margin: 40px auto; max-width: 900px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+<h2 style="color: #d4590f; font-size: 28px; margin-bottom: 10px;">MEET OUR TALENTED PLAYERS</h2>
+<p style="color: #333; font-size: 16px; margin-bottom: 25px;">
     Click below to view all registered players for PSL 2025
-  </p>
-  <a href="players.html" style="display: inline-block; padding: 12px 24px; background-color: #d4590f; color: #fff; text-decoration: none; font-weight: bold; border-radius: 6px; transition: background 0.3s;">
-    VIEW PLAYERS
-  </a>
+</p>
+<a href="players.html" style="display: inline-block; padding: 12px 24px; background-color: #d4590f; color: #fff; text-decoration: none; font-weight: bold; border-radius: 6px; transition: background 0.3s;">
+    VIEW PLAYERS <span class="new-badge">New</span>
+</a>
 </section>
 
 
 <!-- Team Gallery Section -->
 <section class="team-gallery swiper" style="padding: 40px 20px; background-color: #f9f9f9; text-align: center; overflow: hidden;">
-  <h2 style="color: #f26b1d;">🏏 Teams Participating</h2>
-  <div class="swiper-wrapper" style="margin-top: 30px;">
-    <div class="swiper-slide">
+<h2 style="color: #f26b1d;">🏏 Teams Participating</h2>
+<div class="swiper-wrapper" style="margin-top: 30px;">
+
+<!-- Swiper Team Cards Starts from here -->
+<div class="swiper-slide">
   <div class="team-card">
     <img src="GSB KINGS.jpg" alt="GSB KINGS">
     <p>GSB KINGS</p>
@@ -959,10 +940,14 @@ body.dark-mode .modal-actions button {
     <p>ENJOY TITANS</p>
   </div>
 </div>
+</div>
 </section>
 
-    <img src="TournamentPoster.jpg" alt="Match Poster" style="margin-top: 40px; width: 100%; border-radius: 10px;">
+<!-- Tournament Poster -->
+<img src="TournamentPoster.jpg" alt="Match Poster" style="margin-top: 40px; width: 100%; border-radius: 10px;">
 
+<!-- Instgram Reels Section Starts from here -->
+<!-- Header -->
 <h2 style="text-align:center; color:#f26b1d; margin-top: 60px;">
   🎥 Watch the Highlights from PSL - Season 3
 </h2>
@@ -991,47 +976,17 @@ body.dark-mode .modal-actions button {
   <div class="swiper-button-prev"></div>
 </section>
 
+<!-- Instagram Follow -->
     <div class="instagram-follow">
       📸 Follow us on Instagram for behind-the-scenes, live updates & highlights:<br>
       <a href="https://www.instagram.com/deadlypanthersofficial/" target="_blank">@deadlypanthersofficial</a>
     </div>
   </div>
 
-  <!-- <footer>
-    &copy; 2025 Deadly Panthers (R.) | Panthers Super League - Season 4
-  </footer> -->
-
-  <footer style="text-align: center; padding: 24px; background-color: #eee; margin-top: 40px;">
-  <div style="margin-bottom: 8px; color: #444; font-weight: 500;">
-    &copy; 2025 Deadly Panthers (R.) | Panthers Super League - Season 4
-  </div>
-  <div style="font-size: 14px; font-family: 'Courier New', monospace; letter-spacing: 0.5px; margin-bottom: 6px;">
-    Built with ❤️ using <strong>HTML + JS</strong>
-  </div>
-  <div style="font-size: 14px; font-family: 'Courier New', monospace; letter-spacing: 0.5px;">
-    Developed by: 
-    <a href="https://www.instagram.com/anvi_mallya/" target="_blank"
-       style="
-        background: linear-gradient(90deg, #f26b1d, #ff914d);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-decoration: none;
-        font-weight: bold;
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        transition: all 0.3s ease;">
-      <img id="instaIcon" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
-           alt="Instagram" style="width: 16px; height: 16px; transition: transform 0.3s ease;">
-      AnVeEtH mAlLyA
-    </a>
-  </div>
-</footer>
-
 <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script>
 
+<script>
 // Wait for DOM to be ready
 document.addEventListener("DOMContentLoaded", function () {
   const toggle = document.querySelector(".nav-toggle");
@@ -1059,7 +1014,7 @@ navLinks.forEach(link => {
   });
 });
 
-  // Toggle mobile nav
+// Toggle mobile nav
 document.querySelector(".nav-toggle").addEventListener("click", () => {
   document.querySelector(".nav-menu").classList.toggle("show");
 });
@@ -1155,7 +1110,7 @@ document.querySelector(".nav-toggle").addEventListener("click", () => {
   window.addEventListener("load", updateInstaIcon);
 
 //Back To Top Button
-  const backToTopBtn = document.getElementById("backToTop");
+const backToTopBtn = document.getElementById("backToTop");
 
 window.addEventListener("scroll", () => {
   backToTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
@@ -1207,8 +1162,18 @@ window.addEventListener('keydown', function (e) {
 });
 </script>
 
-  <!-- Custom Register Confirmation Modal -->
-<div id="registerModal" class="modal-overlay">
+<!-- // Redirect team logo click to teams.html // -->
+<script>
+  document.querySelectorAll('.team-card img').forEach(img => {
+    img.style.cursor = "pointer";
+    img.addEventListener('click', () => {
+      window.location.href = "teams.html";
+    });
+  });
+</script>
+
+<!-- Custom Register Confirmation Modal -->
+<!-- <div id="registerModal" class="modal-overlay">
   <div class="modal-content scale-in">
     <p>
       You're being redirected to the <strong>PSL 2025 Registration Form</strong>.<br><br>
@@ -1219,117 +1184,7 @@ window.addEventListener('keydown', function (e) {
       <button onclick="closeRegisterPopup()">❌ Cancel</button>
     </div>
   </div>
-</div>
-  <button id="backToTop" title="Back to Top">↑</button>
-
- <script>
-const teamData = {
-  "GAJAKESARI SULLIA BATTLERS": {
-    owner: { name: "M KRISHNANANDA KAMATH", img: "/images/team-photos/gajakresari-sullia-battlers/owner.jpg" },
-    coOwner1: { name: "M ARUNA KAMATH", img: "/images/team-photos/gajakresari-sullia-battlers/coowner1.jpg" },
-    icon: { name: "PREETHAM N PAI B", img: "/images/team-photos/gajakresari-sullia-battlers/icon.jpg" }
-  },
-  "ENJOY TITANS": {
-    owner: { name: "VINAYAK PAI", img: "/images/team-photos/enjoy-titans/owner.jpg" },
-    coOwner1: { name: "NANDAGOPAL BHAT J", img: "/images/team-photos/enjoy-titans/coowner1.jpg" },
-    coOwner2: { name: "VAISHNAV PAI", img: "/images/team-photos/enjoy-titans/coowner2.jpg" },
-    icon: { name: "SHREEKRISHNA H", img: "/images/team-photos/enjoy-titans/icon.jpg" }
-  },
-  "GSB KINGS": {
-    owner: { name: "PRASAD BHAT", img: "/images/team-photos/gsb-kings/owner.jpg" },
-    coOwner1: { name: "ADITYA BHANDARY", img: "/images/team-photos/gsb-kings/coowner1.jpg" },
-    coOwner2: { name: "PRASAD NAYAK", img: "/images/team-photos/gsb-kings/coowner2.jpg" },
-    icon: { name: "PRANAV BHAT", img: "/images/team-photos/gsb-kings/icon.jpg" }
-  },
-  "VEERA VENKATESH WARRIORS": {
-    owner: { name: "HARISH G KAMATH", img: "/images/team-photos/veera-venkatesh-warriors/owner.jpg" },
-    coOwner1: { name: "MADHUKAR NAYAK K", img: "/images/team-photos/veera-venkatesh-warriors/coowner1.jpg" },
-    coOwner2: { name: "U PANDURANGA KINI", img: "/images/team-photos/veera-venkatesh-warriors/coowner2.jpg" },
-    icon: { name: "VIGNESH SHENOY", img: "/images/team-photos/veera-venkatesh-warriors/icon.jpg" }
-  },
-  "ROYAL CHALLENGERS BANTWAL": {
-    owner: { name: "VIJETHA AVINASH KAMATH", img: "/images/team-photos/royal-challengers-bantwal/owner.jpg" },
-    coOwner1: { name: "NIKHITHA ADARSH KAMATH", img: "/images/team-photos/royal-challengers-bantwal/coowner1.jpg" },
-    coOwner2: { name: "VASUDHA KAMATH", img: "/images/team-photos/royal-challengers-bantwal/coowner2.jpg" },
-    icon: { name: "PRATHAMESH KAMATH", img: "/images/team-photos/royal-challengers-bantwal/icon.jpg" }
-  },
-  "V STRIKERS": {
-    owner: { name: "SHIVANI BHAT", img: "/images/team-photos/v-strikers/owner.jpg" },
-    icon: { name: "RAKESH KAMATH", img: "/images/team-photos/v-strikers/icon.jpg" }
-  },
-  "WEEKEND SPORTS CLUB": {
-    owner: { name: "CHAITANYA NAYAK", img: "/images/team-photos/weekend-sports-club/owner.jpg" },
-    coOwner1: { name: "GIRIDHAR PRABHU", img: "/images/team-photos/weekend-sports-club/coowner1.jpg" },
-    coOwner2: { name: "VIVEK PRABHU", img: "/images/team-photos/weekend-sports-club/coowner2.jpg" },
-    icon: { name: "GAUTHAM PAI", img: "/images/team-photos/weekend-sports-club/icon.jpg" }
-  },
-  "VEERANJANEYA CRICKETERS KAUP": {
-    owner: { name: "VINAYAK NAYAK", img: "/images/team-photos/veeranjaneya-cricketers-kaup/owner.jpg" },
-    coOwner1: { name: "VEDAVYAS KAMATH", img: "/images/team-photos/veeranjaneya-cricketers-kaup/coowner1.jpg" },
-    icon: { name: "VINAYAK SHENOY", img: "/images/team-photos/veeranjaneya-cricketers-kaup/icon.jpg" }
-  },
-  "SUPREME GOLDEN GARUDAS GOSRIPURAM": {
-    owner: { name: "AJITHA N PAI", img: "/images/team-photos/supreme-golden-garudas-gosripuram/owner.jpg" },
-    coOwner1: { name: "NARASIMHA PAI", img: "/images/team-photos/supreme-golden-garudas-gosripuram/coowner1.jpg" },
-    coOwner2: { name: "SIVAPRASAD P NAIK", img: "/images/team-photos/supreme-golden-garudas-gosripuram/coowner2.jpg" },
-    icon: { name: "SREEKESH S SHENOY", img: "/images/team-photos/supreme-golden-garudas-gosripuram/icon.jpg" }
-  },
-  "KINGS ULLAL": {
-    owner: { name: "KRISHNA BHAT", img: "/images/team-photos/kings-ullal/owner.jpg" },
-    coOwner1: { name: "GURUCHARAN BHAT", img: "/images/team-photos/kings-ullal/coowner1.jpg" },
-    icon: { name: "PUNDALIK PAI", img: "/images/team-photos/kings-ullal/icon.jpg" }
-  },
-  "RISING STARS MANGALORE": {
-    owner: { name: "PRITI PAI", img: "/images/team-photos/rising-stars-mangalore/owner.jpg" },
-    coOwner1: { name: "NIDHISHA PAI", img: "/images/team-photos/rising-stars-mangalore/coowner1.jpg" },
-    coOwner2: { name: "AKSHATHA PAI", img: "/images/team-photos/rising-stars-mangalore/coowner2.jpg" },
-    icon: { name: "PRAJWAL SHENOY", img: "/images/team-photos/rising-stars-mangalore/icon.jpg" }
-  },
-  "SILENT SHORES MYSURU MAHARAJAS": {
-    owner: { name: "DR.JAGANNATH SHENOY", img: "/images/team-photos/silent-shores-mysuru-maharajas/owner.jpg" },
-    coOwner1: { name: "KUSUMA SHENOY", img: "/images/team-photos/silent-shores-mysuru-maharajas/coowner1.jpg" },
-    coOwner2: { name: "RAMPRASAD KAMATH", img: "/images/team-photos/silent-shores-mysuru-maharajas/coordinator.jpg" },
-    icon: { name: "VINAYAKA PAI", img: "/images/team-photos/silent-shores-mysuru-maharajas/icon.jpg" }
-  }
-};
-
-function showTeamDetails(teamName) {
-  const data = teamData[teamName];
-  if (!data) return;
-
-  document.getElementById('teamName').textContent = teamName;
-  document.getElementById('ownerName').textContent = data.owner?.name || "TBA";
-  document.getElementById('ownerPhoto').src = data.owner?.img || "";
-  
-  document.getElementById('coOwner1Name').textContent = data.coOwner1?.name || "";
-  document.getElementById('coOwner1Photo').src = data.coOwner1?.img || "";
-  document.getElementById('coOwner1Card').style.display = data.coOwner1 ? "block" : "none";
-
-  document.getElementById('coOwner2Name').textContent = data.coOwner2?.name || "";
-  document.getElementById('coOwner2Photo').src = data.coOwner2?.img || "";
-  document.getElementById('coOwner2Card').style.display = data.coOwner2 ? "block" : "none";
-
-  // document.getElementById('coOordinatorName').textContent = data.coOordinator?.name || "";
-  // document.getElementById('coOordinatorPhoto').src = data.coOordinator?.img || "";
-  // document.getElementById('coOordinatorCard').style.display = data.coOordinator ? "block" : "none";
-
-  document.getElementById('iconName').textContent = data.icon?.name || "TBA";
-  document.getElementById('iconPhoto').src = data.icon?.img || "";
-
-  document.getElementById('teamModal').style.display = 'flex';
-}
-
-function closeTeamModal() {
-  document.getElementById('teamModal').style.display = 'none';
-}
-
-// Attach click handlers
-document.querySelectorAll('.team-card img').forEach(card => {
-  const team = card.alt?.trim();
-  card.style.cursor = "pointer";
-  card.addEventListener('click', () => showTeamDetails(team));
-});
-</script>
+</div> -->
 
 <!-- NEW Badge -->
 <script>
@@ -1362,5 +1217,34 @@ document.querySelectorAll('.team-card img').forEach(card => {
   });
 </script>
 
+<!-- Footer for Website -->
+<footer style="text-align: center; padding: 24px; background-color: #eee; margin-top: 40px;">
+  <div style="margin-bottom: 8px; color: #444; font-weight: 500;">
+    &copy; 2025 Deadly Panthers (R.) | Panthers Super League - Season 4
+  </div>
+  <div style="font-size: 14px; font-family: 'Courier New', monospace; letter-spacing: 0.5px; margin-bottom: 6px;">
+    Built with ❤️ using <strong>HTML + JS</strong>
+  </div>
+  <div style="font-size: 14px; font-family: 'Courier New', monospace; letter-spacing: 0.5px;">
+    Developed by: 
+    <a href="https://www.instagram.com/anvi_mallya/" target="_blank"
+       style="
+        background: linear-gradient(90deg, #f26b1d, #ff914d);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-decoration: none;
+        font-weight: bold;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: all 0.3s ease;">
+      <img id="instaIcon" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+           alt="Instagram" style="width: 16px; height: 16px; transition: transform 0.3s ease;">
+      AnVeEtH mAlLyA
+    </a>
+  </div>
+</footer>
+
+<button id="backToTop" title="Back to Top">↑Top</button>
 </body>
 </html>
