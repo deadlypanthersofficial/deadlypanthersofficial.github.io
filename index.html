@@ -262,7 +262,9 @@ body.dark-mode footer div {
 body.dark-mode #backToTop {
   background-color: #ff7f3f;
 }
-.follow-float {
+
+/* Instagram Float */
+/* .follow-float {
   position: fixed;
   bottom: 100px;
   left: 30px;
@@ -272,7 +274,29 @@ body.dark-mode #backToTop {
   border-radius: 50%;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   transition: transform 0.3s ease;
+} */
+
+.follow-float {
+  position: fixed;
+  bottom: 30px; /* Reduced from 100px for better anchoring */
+  left: 20px;
+  z-index: 1000;
+  background-color: white;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+  will-change: transform;
+  pointer-events: auto;
 }
+
+@media (max-width: 600px) {
+  .follow-float {
+    bottom: 20px; /* More stable and consistent on mobile */
+    left: 20px;
+  }
+}
+
 .follow-float img {
   width: 28px;
   height: 28px;
@@ -384,40 +408,6 @@ body.dark-mode .modal-actions button:last-child:hover {
 
 .pulse {
   animation: pulse 1.5s infinite;
-}
-/* Team Card Hover */
-.team-card {
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-.team-card img {
-  height: 120px;
-  border-radius: 12px;
-  transition: transform 0.3s ease;
-}
-.team-card:hover img {
-  transform: scale(1.1);
-}
-.team-card p {
-  margin-top: 10px;
-  font-size: 14px;
-  font-weight: bold;
-  color: #333;
-}
-body.dark-mode .team-card p {
-  color: #f0f0f0;
-}
-body.dark-mode .team-card {
-  background: #1f1f1f;
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
-}
-
-body.dark-mode .team-card:hover {
-  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.1);
-}
-
-body.dark-mode .team-card p {
-  color: #ddd;
 }
 
 /* Navbar Styles */
@@ -669,56 +659,6 @@ body.dark-mode .tagline {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Team Details Modal */
-.team-details-modal {
-  max-width: 600px;
-  padding: 20px;
-  background: #fff;
-  border-radius: 12px;
-  text-align: center;
-}
-
-.team-members {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-.member-card {
-  width: 120px;
-  text-align: center;
-}
-
-.member-card img {
-  width: 100%;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 10px;
-  border: 2px solid #f26b1d;
-}
-
-.member-card p {
-  font-size: 14px;
-  margin-top: 6px;
-}
-
-/* Dark mode support */
-body.dark-mode .team-details-modal {
-  background: #222;
-  color: #eee;
-}
-
-body.dark-mode .member-card img {
-  border-color: #ff914d;
-}
-
-body.dark-mode .modal-actions button {
-  background-color: #444;
-  color: #fff;
-}
-
 /* NEW badge */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
 
@@ -762,16 +702,20 @@ body.dark-mode .modal-actions button {
 <!-- Navbar/ Navigation Bar/ Menu -->
 <nav class="navbar">
   <div class="nav-container">
-    <a href="#top" class="logo">
+    <a href="index.html" class="logo">
       <img src="deadlypanthers-logo.png" alt="Deadly Panthers Logo">
     </a>
     <button class="nav-toggle" aria-label="Toggle menu">☰</button>
     <ul class="nav-menu">
-      <li><a href="about.html" class="nav-link" title="About Deadly Panthers (R.)">ℹ️ About</a></li>
+      <li>
+        <a href="about.html" class="nav-link" title="About Deadly Panthers (R.)">ℹ️ About</a>
+      </li>
       <li>
         <a href="psl-stats.html" class="nav-link" title="View PSL Stats">🏏 Tournaments <span class="new-badge">NEW</span></a>
       </li>
-      <!-- <li><a href="#" class="nav-link" title="Photos & Videos">🏞️ Gallery</a></li> -->
+      <!-- <li>
+        <a href="#" class="nav-link" title="Photos & Videos">🏞️ Gallery <span class="new-badge">Coming Soon</span></a>
+      </li> -->
       <!-- <li>
         <a href="/trophy-wall/trophy-wall.html" class="nav-link" title="Photos & Videos">🏆 Trophy Wall <span class="new-badge">NEW</span></a>
       </li> -->
@@ -781,13 +725,17 @@ body.dark-mode .modal-actions button {
       <li>
         <a href="teams.html" class="nav-link" title="PSL 2025 Teams">👥 Teams <span class="new-badge">NEW</span></a>
       </li>
-      <li><a href="contact.html" class="nav-link" title="Contact Us Page">📞 Contact</a></li>
+      <li>
+        <a href="contact.html" class="nav-link" title="Contact Us Page">📞 Contact</a>
+      </li>
+      
       <!-- <li>
         <label class="switch" title="Toggle Dark Mode">
           <input type="checkbox" id="darkModeSwitch" onclick="toggleDarkMode()">
           <span class="slider"></span>
         </label>
       </li> -->
+
     </ul>
   </div>
 </nav>
@@ -842,9 +790,10 @@ body.dark-mode .modal-actions button {
   <!-- Don’t miss your chance to be a part of <strong>Panthers Super League 2025</strong>.<br> -->
   <!-- <span style="color: #d4590f;">Only the first 180 players will be accepted!</span> -->
 </div>
-    <div style="text-align: center; margin-top: 10px;">
-    <!-- <a href="#" class="register-button" onclick="openRegisterPopup()">Register Now</a> -->
-    </div>
+
+<div style="text-align: center; margin-top: 10px;">
+  <!-- <a href="#" class="register-button" onclick="openRegisterPopup()">Register Now</a> -->
+</div>
 
   <!-- Registered Players List -->
 <section style="background-color: #fff4e6; padding: 40px 20px; text-align: center; border-radius: 12px; margin: 40px auto; max-width: 900px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
@@ -1218,7 +1167,7 @@ window.addEventListener('keydown', function (e) {
   <div style="margin-bottom: 8px; color: #444; font-weight: 500;">
     &copy; 2025 Deadly Panthers (R.) | Panthers Super League - Season 4
   </div>
-<!--   <div style="font-size: 14px; font-family: 'Courier New', monospace; letter-spacing: 0.5px; margin-bottom: 6px;">
+  <!-- <div style="font-size: 14px; font-family: 'Courier New', monospace; letter-spacing: 0.5px; margin-bottom: 6px;">
     Built with ❤️ using <strong>HTML + JS</strong>
   </div> -->
   <div style="font-size: 14px; font-family: 'Courier New', monospace; letter-spacing: 0.5px;">
