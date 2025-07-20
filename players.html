@@ -7,9 +7,8 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"/>
   <!-- Tom Select CSS -->
   <link href="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.css" rel="stylesheet" />
-  <link rel="icon" type="image/png" href="deadlypanthers-favicon.png">
 
-  <style>
+<style>
     body {
       font-family: 'Roboto', sans-serif;
       background: #f9f9f9;
@@ -573,7 +572,7 @@
 </style>
 
 <!-- Navbar Styles from navbar css file -->
-  <link rel="stylesheet" href="navbar.css">
+  <link rel="stylesheet" href="/navbar/navbar.css">
 
 </head>
 <body>
@@ -581,7 +580,7 @@
   <!-- Global Nav bar Menu -->
      <div id="navbar-placeholder"></div>
     <script>
-      fetch("navbar.html")
+      fetch("/navbar/navbar.html")
         .then(res => res.text())
         .then(data => {
           document.getElementById("navbar-placeholder").innerHTML = data;
@@ -607,7 +606,7 @@
           });
         });
     </script>
-    
+  
   <div class="sticky-header" id="stickyHeader">
   <h1 class="section-title">
     <a href="players.html" style="text-decoration: none; color: #d4590f;">PLAYERS REGISTERED</a>
