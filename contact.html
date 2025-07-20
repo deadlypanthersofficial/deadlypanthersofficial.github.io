@@ -152,7 +152,7 @@
   </style>
 
   <!-- Navbar Styles from navbar css file -->
-  <link rel="stylesheet" href="navbar.css">
+  <link rel="stylesheet" href="/navbar/navbar.css">
 
 </head>
 <body>
@@ -160,7 +160,7 @@
   <!-- Global Nav bar Menu -->
      <div id="navbar-placeholder"></div>
     <script>
-      fetch("navbar.html")
+      fetch("/navbar/navbar.html")
         .then(res => res.text())
         .then(data => {
           document.getElementById("navbar-placeholder").innerHTML = data;
@@ -260,7 +260,7 @@
   <!-- Global Footer Include -->
   <div id="global-footer"></div>
   <script>
-    fetch("footer.html")
+    fetch("/footer/footer.html")
       .then(res => res.text())
       .then(html => {
         document.getElementById("global-footer").innerHTML = html;

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PSL 2025 Teams</title>
   <link rel="icon" type="image/png" href="deadlypanthers-favicon.png">
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css">
   <style>
     /* body {
       font-family: Arial, sans-serif;
@@ -288,7 +288,7 @@ body.modal-open {
   </style>
 
 <!-- Navbar Styles from navbar css file -->
-  <link rel="stylesheet" href="navbar.css">
+  <link rel="stylesheet" href="/navbar/navbar.css">
 
 </head>
 <body>
@@ -296,7 +296,7 @@ body.modal-open {
   <!-- Global Nav bar Menu -->
      <div id="navbar-placeholder"></div>
     <script>
-      fetch("navbar.html")
+      fetch("/navbar/navbar.html")
         .then(res => res.text())
         .then(data => {
           document.getElementById("navbar-placeholder").innerHTML = data;
@@ -575,7 +575,7 @@ document.body.classList.remove('modal-open');
 <!-- Deadly Panthers - Footer -->
     <div id="global-footer"></div>
       <script>
-      fetch("footer.html")
+      fetch("/footer/footer.html")
           .then(res => res.text())
           .then(html => {
           document.getElementById("global-footer").innerHTML = html;
