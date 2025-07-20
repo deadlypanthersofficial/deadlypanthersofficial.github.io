@@ -264,7 +264,7 @@ body.dark-mode #backToTop {
 }
 
 /* Instagram Float */
-/* .follow-float {
+.follow-float {
   position: fixed;
   bottom: 100px;
   left: 30px;
@@ -274,27 +274,6 @@ body.dark-mode #backToTop {
   border-radius: 50%;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   transition: transform 0.3s ease;
-} */
-
-.follow-float {
-  position: fixed;
-  bottom: 30px; /* Reduced from 100px for better anchoring */
-  left: 20px;
-  z-index: 1000;
-  background-color: white;
-  padding: 10px;
-  border-radius: 50%;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  transition: transform 0.3s ease;
-  will-change: transform;
-  pointer-events: auto;
-}
-
-@media (max-width: 600px) {
-  .follow-float {
-    bottom: 20px; /* More stable and consistent on mobile */
-    left: 20px;
-  }
 }
 
 .follow-float img {
