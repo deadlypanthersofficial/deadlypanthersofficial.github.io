@@ -17,6 +17,8 @@
       padding: 20px;
     } */
     body {
+      font-family: 'Roboto', sans-serif;
+      background: #f9f9f9;
       margin: 0;
       padding: 0; /* Remove padding from body */
     }
@@ -561,7 +563,7 @@
 .sticky-header h1.section-title {
   margin: 0;
   text-align: center;
-  font-size: 24px;
+  font-size: 36px;
   color: #d4590f;
 }
 
@@ -574,6 +576,22 @@
     display: block;
     margin: 10px auto 0;
   }
+}
+
+/* Excel Download Button */
+.download-btn {
+  background-color: #d4590f;
+  color: white;
+  padding: 10px 20px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.download-btn:hover {
+  background-color: #a8430b;
 }
 
 /* All Places/Teams Filter shows 5–6 options at a time when opened  */
@@ -622,6 +640,10 @@
   <h1 class="section-title">
     <a href="players.html" style="text-decoration: none; color: #d4590f;">PLAYERS REGISTERED</a>
   </h1>
+
+  <div style="text-align: center; margin-top: 10px;">
+  <a href="/players/PSL 2025 - PLAYER LIST.xlsx" download class="download-btn">📥 Excel Download</a>
+  </div>
 
   <!-- Filter Box -->
   <!-- <button class="mobile-filters-toggle" aria-label="Toggle filters">⋮</button> -->
