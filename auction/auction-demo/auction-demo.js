@@ -7,7 +7,7 @@ const players = [
     base: 1000,
     bid: 18000,
     next: "Anirudh Kamath (Batsman)",
-    img: "images/players/VIGNESH_BHAT.jpg"
+    img: "/images/players/VIGNESH_BHAT.jpg"
   },
   {
     name: "Anirudh Kamath",
@@ -15,7 +15,7 @@ const players = [
     base: 1000,
     bid: 7000,
     next: "Pavan Telang (Bowler)",
-    img: "images/players/ANIRUDH.jpg"
+    img: "/images/players/ANIRUDH.jpg"
   },
   {
     name: "Pavan Telang",
@@ -23,7 +23,7 @@ const players = [
     base: 1000,
     bid: 9000,
     next: "Deepak Kamath (All-rounder)",
-    img: "images/players/PAVAN_TELANG.jpg"
+    img: "/images/players/PAVAN_TELANG.jpg"
   },
   {
     name: "Deepak Kamath",
@@ -31,7 +31,7 @@ const players = [
     base: 1000,
     bid: 14000,
     next: "Srinivas Pai BH (Batsman)",
-    img: "images/players/DEEPAK_KAMATH_BOLA.jpg"
+    img: "/images/players/DEEPAK_KAMATH_BOLA.jpg"
   },
   {
     name: "Srinivas Pai BH",
@@ -39,7 +39,7 @@ const players = [
     base: 1000,
     bid: 12000,
     next: "Rohit B Kamath (Bowler)",
-    img: "images/players/SRINIVAS_PAI_BH.jpg"
+    img: "/images/players/SRINIVAS_PAI_BH.jpg"
   },
   {
     name: "Rohit B Kamath",
@@ -47,7 +47,7 @@ const players = [
     base: 1000,
     bid: 5000,
     next: "Adithya Sakardande (All-rounder)",
-    img: "images/players/ROHIT_B_KAMATH.jpg"
+    img: "/images/players/ROHIT_B_KAMATH.jpg"
   },
   {
     name: "Aditya Sakhardande",
@@ -55,7 +55,7 @@ const players = [
     base: 1000,
     bid: 20000,
     // next: "—",
-    img: "images/players/ADITYA_SAKHARDANDE.jpg"
+    img: "/images/players/ADITYA_SAKHARDANDE.jpg"
   },
 ];
 
