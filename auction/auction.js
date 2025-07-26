@@ -17,13 +17,13 @@ function updateCountdown() {
 setInterval(updateCountdown, 1000);
 updateCountdown();
 
-// Load Navbar and Footer
-fetch("navbar.html").then(res => res.text()).then(data => {
-  document.getElementById("navbar-placeholder").innerHTML = data;
-});
-fetch("footer.html").then(res => res.text()).then(data => {
+// Load Footer
+fetch("/footer/footer.html").then(res => res.text()).then(data => {
   document.getElementById("footer-placeholder").innerHTML = data;
 });
+// fetch("/footer/footer.html").then(res => res.text()).then(html => {
+//         document.getElementById("global-footer").innerHTML = html;
+//         });
 
 // Switch Toggle
 document.getElementById("home-toggle").addEventListener("click", () => {
