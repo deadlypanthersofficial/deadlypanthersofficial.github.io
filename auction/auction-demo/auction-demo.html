@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PSL 2025 - Live Auction</title>
+  <link rel="stylesheet" href="auction-demo.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Toggle Auction Mode Button -->
+<button id="home-toggle" class="home-toggle-btn">
+  🏠 Home
+</button>
+<button id="auction-toggle" class="toggle-btn">
+  🎮 Switch to Main Auction Site
+</button>
+
+  <!-- 🔴 Blinking LIVE Banner -->
+  <div class="live-banner">
+    <span class="live-dot"></span> Auction Demo - Panthers Super League
+  </div>
+
+  <main class="auction-container">
+    
+    <!-- 🧍 Player Card Section -->
+    <section class="player-card">
+      <img id="player-img" src="" alt="Player Image">
+      <div class="player-details">
+        <h2 id="player-name">Player Name</h2>
+        <p id="player-role">Player Role</p>
+        <p id="player-base">Base Price: ₹0</p>
+        <p id="next-player">Next: —</p>
+        <div id="sold-banner" class="sold-badge">💰 SOLD!</div>
+      </div>
+    </section>
+
+    <!-- 🔥 Auction Panel Section -->
+    <section class="auction-panel">
+      <div class="bid-header">
+        <div id="bid-timer" class="timer">⏱️ 15s</div>
+        <h3>Current Bid</h3>
+        <div id="player-bid" class="bid-amount">₹0</div>
+      </div>
+
+      <div class="bid-log-container">
+        <h4>📃 Bidding Log</h4>
+        <div id="bid-log" class="bid-log"></div>
+      </div>
+
+      <div id="player-team" class="final-team"></div>
+    </section>
+
+  </main>
+  
+  <!-- 💼 Team Purse Section -->
+  <section class="team-purse-section">
+    <h2>💼 Team Purse Summary</h2>
+    <div class="purse-container">
+    <div class="team-card">
+      <h3>Gajakesari Sullia Battlers</h3>
+      <p>Total Purse: ₹50,000</p>
+      <p>Spent: ₹0</p>
+      <p>Remaining: ₹50,000</p>
+    </div>
+    <div class="team-card">
+      <h3>Enjoy Titans</h3>
+      <p>Total Purse: ₹50,000</p>
+      <p>Spent: ₹0</p>
+      <p>Remaining: ₹50,000</p>
+    </div>
+    <div class="team-card">
+      <h3>GSB Kings</h3>
+      <p>Total Purse: ₹50,000</p>
+      <p>Spent: ₹0</p>
+      <p>Remaining: ₹50,000</p>
+    </div>
+    <div class="team-card">
+      <h3>Veera Venkatesh Warriors</h3>
+      <p>Total Purse: ₹50,000</p>
+      <p>Spent: ₹0</p>
+      <p>Remaining: ₹50,000</p>
+    </div>
+    <div class="team-card">
+      <h3>Royal Challengers Bantwal</h3>
+      <p>Total Purse: ₹50,000</p>
+      <p>Spent: ₹0</p>
+      <p>Remaining: ₹50,000</p>
+    </div>
+    <div class="team-card">
+      <h3>V Strikers</h3>
+      <p>Total Purse: ₹50,000</p>
+      <p>Spent: ₹0</p>
+      <p>Remaining: ₹50,000</p>
+    </div>
+    <div class="team-card">
+      <h3>Weekend Sports Club</h3>
+      <p>Total Purse: ₹50,000</p>
+      <p>Spent: ₹0</p>
+      <p>Remaining: ₹50,000</p>
+    </div>
+    <div class="team-card">
+      <h3>Veeranjaneya Cricketers Kaup</h3>
+      <p>Total Purse: ₹50,000</p>
+      <p>Spent: ₹0</p>
+      <p>Remaining: ₹50,000</p>
+    </div>
+    <div class="team-card">
+      <h3>Supreme Golden Garudas Gosripuram</h3>
+      <p>Total Purse: ₹50,000</p>
+      <p>Spent: ₹0</p>
+      <p>Remaining: ₹50,000</p>
+    </div>
+    <div class="team-card">
+      <h3>Kings Ullal</h3>
+      <p>Total Purse: ₹50,000</p>
+      <p>Spent: ₹0</p>
+      <p>Remaining: ₹50,000</p>
+    </div>
+    <div class="team-card">
+      <h3>Rising Stars Mangalore</h3>
+      <p>Total Purse: ₹50,000</p>
+      <p>Spent: ₹0</p>
+      <p>Remaining: ₹50,000</p>
+    </div>
+    <div class="team-card">
+      <h3>Silent Shores Mysuru Maharajas</h3>
+      <p>Total Purse: ₹50,000</p>
+      <p>Spent: ₹0</p>
+      <p>Remaining: ₹50,000</p>
+    </div>
+    </div>
+  </section>
+
+  <!-- 🔊 Sound effects -->
+  <audio id="sold-sound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_4b4a746c23.mp3?filename=success-fanfare-trumpets-6185.mp3"></audio>
+  <audio id="auctioneer-sound" src="https://cdn.pixabay.com/download/audio/2021/09/23/audio_9f51006f17.mp3?filename=auctioneer-fast-voice.mp3"></audio>
+
+  <script src="auction-demo.js"></script>
+</body>
+</html>
