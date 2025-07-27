@@ -18,12 +18,11 @@ setInterval(updateCountdown, 1000);
 updateCountdown();
 
 // Load Footer
-fetch("/footer/footer.html").then(res => res.text()).then(data => {
-  document.getElementById("footer-placeholder").innerHTML = data;
+fetch("/footer/footer.html")
+    .then(res => res.text())
+    .then(html => {
+    document.getElementById("global-footer").innerHTML = html;
 });
-// fetch("/footer/footer.html").then(res => res.text()).then(html => {
-//         document.getElementById("global-footer").innerHTML = html;
-//         });
 
 // Switch Toggle
 document.getElementById("home-toggle").addEventListener("click", () => {
