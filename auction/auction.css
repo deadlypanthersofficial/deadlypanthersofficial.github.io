@@ -150,6 +150,34 @@ ul li {
   transition-property: transform, opacity;
 }
 
+/* Team Purse section */
+.purse-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.team-card {
+  background-color: #1c1c1c;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 20px;
+  width: 260px;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease;
+}
+
+.team-card:hover {
+  transform: scale(1.03);
+}
+
+.team-card h3 {
+  margin-bottom: 10px;
+  color: #1abc9c;
+}
+
 /* 🔁 Responsive Media Queries */
 @media (max-width: 768px) {
   h1 {
@@ -183,6 +211,15 @@ ul li {
     font-size: 0.9rem;
     padding: 8px 12px;
   }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .team-card {
+    width: 90%;
+  }
 }
 
 @media (max-width: 480px) {
@@ -209,5 +246,22 @@ ul li {
 
   .rules ul {
     font-size: 1rem;
+  }
+
+  .countdown #countdown {
+    gap: 10px;
+  }
+
+  .countdown #countdown div {
+    width: 65px;
+    padding: 8px;
+  }
+
+  #countdown span {
+    font-size: 1.2rem;
+  }
+
+  .team-card {
+    width: 95%;
   }
 }
