@@ -1,4 +1,8 @@
-/* Base styles remain unchanged */
+/* -------------------------------
+   🎨 PSL Auction - auction.css
+   ------------------------------- */
+
+/* Base Styles */
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
@@ -26,7 +30,7 @@ ul li {
   font-size: 1.1rem;
 }
 
-/* Hero section */
+/* Hero Section */
 .hero {
   background: linear-gradient(to right, #005f5f, #0a0a0a);
   padding: 60px 20px;
@@ -73,7 +77,7 @@ ul li {
   color: white;
 }
 
-/* Countdown */
+/* Countdown Section */
 .countdown #countdown {
   display: flex;
   justify-content: center;
@@ -106,7 +110,7 @@ ul li {
   color: #aaa;
 }
 
-/* Rules */
+/* Rules Section */
 .rules ul {
   text-align: left;
   max-width: 600px;
@@ -139,46 +143,20 @@ ul li {
   left: 20px;
 }
 
-/* Footer responsive */
+/* Footer */
 #global-footer {
   margin-top: 40px;
 }
 
-/* AOS transition fix */
+/* AOS Animation Fix */
 [data-aos] {
   opacity: 0;
   transition-property: transform, opacity;
 }
 
-/* Team Purse section */
-.purse-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-.team-card {
-  background-color: #1c1c1c;
-  border: 1px solid #333;
-  border-radius: 10px;
-  padding: 20px;
-  width: 260px;
-  color: #fff;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
-  transition: transform 0.3s ease;
-}
-
-.team-card:hover {
-  transform: scale(1.03);
-}
-
-.team-card h3 {
-  margin-bottom: 10px;
-  color: #1abc9c;
-}
-
-/* 🔁 Responsive Media Queries */
+/* -----------------------------
+   🔁 Responsive Breakpoints
+   ----------------------------- */
 @media (max-width: 768px) {
   h1 {
     font-size: 1.8rem;
@@ -211,57 +189,78 @@ ul li {
     font-size: 0.9rem;
     padding: 8px 12px;
   }
-
-  .hero-buttons {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .team-card {
-    width: 90%;
-  }
 }
 
 @media (max-width: 480px) {
+  body {
+    padding-top: 20px;
+  }
+
   .hero {
     padding: 40px 15px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    line-height: 1.4;
   }
 
   .hero-buttons {
     flex-direction: column;
     align-items: center;
+    gap: 10px;
+    margin-top: 20px;
   }
 
   .btn-primary,
   .btn-outline {
-    width: 100%;
-    text-align: center;
-  }
-
-  .toggle-btn,
-  .home-toggle-btn {
-    top: 15px;
-    font-size: 0.85rem;
-  }
-
-  .rules ul {
     font-size: 1rem;
+    width: 90%;
+    max-width: 300px;
+    padding: 12px 16px;
+    box-sizing: border-box;
+    text-align: center;
   }
 
   .countdown #countdown {
     gap: 10px;
+    padding: 10px;
+    justify-content: center;
+    text-align: center;
   }
 
   .countdown #countdown div {
     width: 65px;
     padding: 8px;
+    font-size: 0.9rem;
   }
 
   #countdown span {
     font-size: 1.2rem;
   }
 
-  .team-card {
-    width: 95%;
+  #countdown label {
+    font-size: 0.7rem;
+  }
+
+  .date-info {
+    font-size: 0.9rem;
+    padding: 0 10px;
+  }
+
+  .toggle-btn,
+  .home-toggle-btn {
+    top: 10px;
+    font-size: 0.85rem;
+    padding: 6px 10px;
+  }
+
+  .rules ul {
+    font-size: 1rem;
   }
 }
