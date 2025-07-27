@@ -9,6 +9,45 @@ function updateCountdown() {
   const hour = minute * 60;
   const day = hour * 24;
 
+  const countdownSection = document.getElementById("countdown-section");
+  const dateInfo = document.querySelector(".date-info");
+
+  if (gap <= 0) {
+    // Show final message
+    document.getElementById("countdown").innerHTML = `
+      <div style="width:100%; text-align:center;">
+        <h2 style="color:#1abc9c;">🎉 Auction Day is Here!</h2>
+      </div>
+    `;
+
+    if (dateInfo) dateInfo.style.display = "none";
+
+    // Run confetti for 5 seconds
+    let duration = 5 * 1000;
+    let endTime = Date.now() + duration;
+
+    (function launchConfetti() {
+      confetti({
+        particleCount: 6,
+        angle: 60,
+        spread: 60,
+        origin: { x: 0 }
+      });
+      confetti({
+        particleCount: 6,
+        angle: 120,
+        spread: 60,
+        origin: { x: 1 }
+      });
+
+      if (Date.now() < endTime) {
+        requestAnimationFrame(launchConfetti);
+      }
+    })();
+
+    return;
+  }
+
   document.getElementById("days").innerText = Math.floor(gap / day);
   document.getElementById("hours").innerText = Math.floor((gap % day) / hour);
   document.getElementById("minutes").innerText = Math.floor((gap % hour) / minute);
