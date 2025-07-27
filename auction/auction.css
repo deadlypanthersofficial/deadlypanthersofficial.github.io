@@ -1,43 +1,65 @@
+/* Base styles remain unchanged */
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #0e0f11;
-  color: #e0f7f4;
   margin: 0;
   padding: 0;
-}
-
-h1, h2 {
-  text-align: center;
-  margin-bottom: 15px;
+  background-color: #0a0a0a;
+  color: white;
 }
 
 section {
-  padding: 50px 20px;
-}
-
-.hero {
-  background: linear-gradient(90deg, #004d40, #0e0f11);
-  color: #ffffff;
+  padding: 40px 20px;
   text-align: center;
 }
 
-.hero-buttons {
-  margin-top: 20px;
+h1, h2 {
+  margin-bottom: 20px;
 }
 
-.btn-primary, .btn-outline {
-  text-decoration: none;
-  padding: 12px 24px;
-  margin: 10px;
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin: 12px 0;
+  font-size: 1.1rem;
+}
+
+/* Hero section */
+.hero {
+  background: linear-gradient(to right, #005f5f, #0a0a0a);
+  padding: 60px 20px;
+  color: white;
+}
+
+.hero-buttons {
+  margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.btn-primary,
+.btn-outline {
+  padding: 12px 25px;
+  font-size: 1rem;
   font-weight: bold;
   border-radius: 8px;
-  display: inline-block;
-  transition: all 0.3s;
+  text-decoration: none;
+  transition: 0.3s ease;
+  cursor: pointer;
 }
 
 .btn-primary {
   background-color: #1abc9c;
-  color: #fff;
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #16a085;
 }
 
 .btn-outline {
@@ -46,108 +68,146 @@ section {
   background: transparent;
 }
 
-.btn-primary:hover {
-  background-color: #148f77;
-}
-
 .btn-outline:hover {
   background-color: #1abc9c;
-  color: #fff;
+  color: white;
 }
 
-.countdown {
-  background-color: #1f1f1f;
-  text-align: center;
-}
-
-#countdown {
+/* Countdown */
+.countdown #countdown {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
   margin: 20px 0;
 }
 
-#countdown div {
-  background: #2d2d2d;
-  padding: 20px 30px;
-  border-radius: 12px;
-  min-width: 100px;
+.countdown #countdown div {
+  background: #111;
+  padding: 15px;
+  border-radius: 10px;
+  width: 90px;
 }
 
 #countdown span {
-  font-size: 2.2rem;
-  font-weight: bold;
-  color: #1abc9c;
+  font-size: 2rem;
+  display: block;
 }
 
 #countdown label {
-  display: block;
-  margin-top: 8px;
   text-transform: uppercase;
   font-size: 0.8rem;
+  color: #ccc;
 }
 
 .date-info {
-  color: #aaa;
   margin-top: 10px;
+  font-size: 1rem;
+  color: #aaa;
 }
 
+/* Rules */
 .rules ul {
-  list-style: none;
-  padding-left: 0;
+  text-align: left;
   max-width: 600px;
   margin: auto;
 }
 
-.rules li {
-  background-color: #202e2c;
-  margin: 10px 0;
-  padding: 15px 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 8px rgba(0,255,200,0.05);
+.rules li::before {
+  content: "✅ ";
 }
 
-/* Switch Toggle */
-.toggle-btn {
-  position: fixed;
-  bottom: 25px;
-  left: 25px;
-  background: #1abc9c;
-  color: white;
-  padding: 12px 18px;
-  font-weight: bold;
-  font-size: 14px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  box-shadow: 0 0 10px rgba(26, 188, 156, 0.4);
-  z-index: 9999;
-  transition: all 0.3s ease;
-}
-.toggle-btn:hover {
-  background: #148f77;
-  transform: scale(1.05);
-}
-
-/* Switch Home */
+/* Toggle Buttons */
+.toggle-btn,
 .home-toggle-btn {
   position: fixed;
-  bottom: 72px;
-  left: 25px;
+  top: 20px;
+  right: 20px;
   background: #1abc9c;
-  color: white;
-  padding: 12px 18px;
-  font-weight: bold;
-  font-size: 14px;
   border: none;
-  border-radius: 10px;
+  color: white;
+  padding: 10px 15px;
+  font-weight: bold;
+  border-radius: 8px;
   cursor: pointer;
-  box-shadow: 0 0 10px rgba(26, 188, 156, 0.4);
-  z-index: 9999;
-  transition: all 0.3s ease;
-}
-.home-toggle-btn:hover {
-  background: #148f77;
-  transform: scale(1.05);
+  z-index: 999;
+  margin-left: 10px;
 }
 
+.home-toggle-btn {
+  right: auto;
+  left: 20px;
+}
+
+/* Footer responsive */
+#global-footer {
+  margin-top: 40px;
+}
+
+/* AOS transition fix */
+[data-aos] {
+  opacity: 0;
+  transition-property: transform, opacity;
+}
+
+/* 🔁 Responsive Media Queries */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  .btn-primary, .btn-outline {
+    font-size: 0.95rem;
+    padding: 10px 20px;
+  }
+
+  .countdown #countdown div {
+    width: 70px;
+    padding: 10px;
+  }
+
+  #countdown span {
+    font-size: 1.5rem;
+  }
+
+  .rules ul {
+    padding: 0 15px;
+  }
+
+  .toggle-btn,
+  .home-toggle-btn {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 40px 15px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn-primary,
+  .btn-outline {
+    width: 100%;
+    text-align: center;
+  }
+
+  .toggle-btn,
+  .home-toggle-btn {
+    top: 15px;
+    font-size: 0.85rem;
+  }
+
+  .rules ul {
+    font-size: 1rem;
+  }
+}
