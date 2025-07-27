@@ -70,3 +70,25 @@ document.getElementById("home-toggle").addEventListener("click", () => {
 document.getElementById("auction-toggle").addEventListener("click", () => {
   window.location.href = "/auction/auction-demo/auction-demo.html";
 });
+
+// Tab switch logic
+document.querySelectorAll(".tab-buttons button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    // Remove active from all buttons
+    document.querySelectorAll(".tab-buttons button").forEach(b => b.classList.remove("active"));
+    // Hide all contents
+    document.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active"));
+
+    // Activate clicked tab
+    btn.classList.add("active");
+    const target = btn.getAttribute("data-tab");
+    document.getElementById(target).classList.add("active");
+  });
+});
+
+function showTab(id) {
+  document.querySelectorAll(".tab-content").forEach(div => div.style.display = "none");
+  document.querySelectorAll(".tab").forEach(btn => btn.classList.remove("active"));
+  document.getElementById(id).style.display = "block";
+  event.currentTarget.classList.add("active");
+}

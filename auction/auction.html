@@ -54,7 +54,7 @@
 
 
   <!-- Rules -->
-  <section class="rules" data-aos="fade-up">
+  <!-- <section class="rules" data-aos="fade-up">
     <h2>📜 Auction Rules</h2>
     <ul>
       <li>💰 Fixed budget: ₹50,000 per team</li>
@@ -63,7 +63,109 @@
       <li>🛑 Re-auction is not allowed after a sale</li>
       <li>🔁 Unsold players may return to the pool</li>
     </ul>
-  </section>
+  </section> -->
+
+<!-- 📜 Auction & Match Rules Section with Tabs -->
+<section class="rules-tabs" data-aos="fade-up">
+  <!-- Tab Buttons -->
+  <div class="tabs">
+    <button class="tab active" onclick="showTab('auction')">📜 Auction Rules</button>
+    <button class="tab" onclick="showTab('match')">🏏 Match Rules</button>
+  </div>
+
+  <!-- Auction Rules Tab -->
+  <div class="tab-content" id="auction" style="display: block;">
+  <ul>
+    <li>💰 Fixed budget: <strong>₹50,000</strong> per team</li>
+    <li>🎯 Each team must buy exactly 14 players in the auction</li>
+    <li>🎟️ Total Players in Auction: 194 players</li>
+    <li>🏆 Final squad = 14 players + 1 Icon Player (Total: 15)</li>
+    <li>💸 Base Price per player: ₹1,000</li>
+    <li>📈 Bid Increments:
+      <ul>
+        <li>🔼 ₹1,000 increments for bids up to ₹10,000</li>
+        <li>⏫ ₹2,000 increments for bids beyond ₹10,000</li>
+      </ul>
+    </li>
+    <li>⛔ Jump Bids are Not Allowed — follow incremental rules strictly</li>
+    <li>🚫 Re-auction is not allowed once a player is sold</li>
+    <li>🔁 Unsold players will return to the pool after 1st Round</li>
+    <li>📊 Owners can track everything from the Auction Dashboard</li>
+    <li>🤝 12 teams will participate in the bidding battle</li>
+  </ul>
+  </div>
+
+<!-- Match Rules Tab -->
+<div class="tab-content" id="match" style="display: none;">
+  <ul>
+    <li>👥 <strong>Total Teams:</strong> 12 teams will participate in the tournament.</li>
+    
+    <li>📦 <strong>Pool Division:</strong> Teams are divided into 3 pools:
+      <ul>
+        <li>🅰️ Pool A – 4 teams</li>
+        <li>🅱️ Pool B – 4 teams</li>
+        <li>🅲️ Pool C – 4 teams</li>
+      </ul>
+    </li>
+
+    <li>🏏 <strong>League Matches:</strong>
+      <ul>
+        <li>🎯 Format: 5 overs per innings</li>
+        <li>🎳 Minimum 5 bowlers (1 over each)</li>
+        <li>⬆️ Top 2 teams from each pool qualify for Super League</li>
+      </ul>
+    </li>
+
+    <li>🔁 <strong>Super League Stage:</strong>
+      <ul>
+        <li>🆕 Formed Pools: Pool D & Pool E with 3 teams each</li>
+        <li>📏 Format: 5 overs per innings</li>
+        <li>🚀 Top 2 teams from each Super League pool go to Playoffs</li>
+      </ul>
+    </li>
+
+    <li>🎯 <strong>Playoffs:</strong>
+      <ul>
+        <li>⏱️ Match Format: 6 overs per innings</li>
+        <li>🥇 Qualifier 1: D1 vs E1 → Winner to Final</li>
+        <li>🥈 Eliminator: D2 vs E2 → Loser eliminated</li>
+        <li>⚔️ Qualifier 2: Loser of Q1 vs Winner of Eliminator → Winner to Final</li>
+      </ul>
+    </li>
+
+    <li>🏆 <strong>Grand Finale:</strong> Final will be a 7-over match per innings.</li>
+
+    <li>📊 <strong>Points System (League & Super League):</strong>
+      <ul>
+        <li>✅ Win – 2 Points</li>
+        <li>🤝 Tie / No Result – 1 Point</li>
+        <li>❌ Loss – 0 Points</li>
+      </ul>
+    </li>
+
+    <li>⚖️ <strong>Tie-breaker Criteria:</strong>
+      <ul>
+        <li>📊 Net Run Rate (NRR) [CricHeroes Scoring App]</li>
+      </ul>
+    </li>
+
+    <li>🎲 <strong>Super Over (For Knockouts Only):</strong>
+      <ul>
+        <li>🏁 Used if a knockout match ends in a tie</li>
+        <li>⚾ 1 bowler, 3 batsmen per team</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+</section>
+
+<!-- Closing Message -->
+<div class="closing-message" data-aos="fade-up">
+  <p style="font-size: 1.2rem; margin: 0;">
+    <span class="icon">🐾</span><strong>Wishing all the team owners the very best of luck! ❤️</strong><br>
+    — Team Deadly Panthers (R.)
+  </p>
+</div>
 
   <!-- Deadly Panthers - Global Footer -->
   <div id="global-footer"></div>
