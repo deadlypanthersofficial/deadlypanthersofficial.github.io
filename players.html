@@ -2634,7 +2634,12 @@ function toggleFilters() {
   <button class="scroll-btn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
     <span class="btn-icon">⬆️</span><span class="btn-text"> Top</span>
   </button>
+  <button class="scroll-btn" onclick="scrollToBottom()" title="Go to Bottom">
+    ⬇️ <span class="btn-text">Bottom</span>
+  </button>
 </div>
+
+
 
 <!-- Script for "Back to Home" or "Scroll to Top" button -->
 <script>
@@ -2647,6 +2652,27 @@ function toggleFilters() {
     }
   });
 </script>
+
+<!-- Script for "Scroll to Bottom" button -->
+<script>
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function scrollToBottom() {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+  }
+
+  window.addEventListener("scroll", () => {
+    const scrollBtnBox = document.getElementById("scrollButtons");
+    if (window.scrollY > 300) {
+      scrollBtnBox.classList.add("show");
+    } else {
+      scrollBtnBox.classList.remove("show");
+    }
+  });
+</script>
+
 
 <!-- toggle button + collapse behavior -->
 <script>
