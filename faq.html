@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PSL FAQs</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0e0f11;
+      color: #e0f7f4;
+      margin: 0;
+      padding: 0 20px;
+    }
+
+    h1 {
+    text-align: center;
+    font-size: 38px;
+    font-weight: 800;
+    background: linear-gradient(90deg, #00ffc3, #00bfff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 40px 0 10px;
+    letter-spacing: 1px;
+    animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      text-align: center;
+      color: #00ffc3;
+      padding: 30px 0 10px;
+    }
+
+    .faq-container, .form-section {
+      max-width: 800px;
+      margin: auto;
+      padding-bottom: 40px;
+    }
+
+    .faq-item {
+      background-color: #1a1b1e;
+      margin: 10px 0;
+      padding: 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .faq-item:hover {
+      background-color: #2a2c31;
+    }
+
+    .faq-question {
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .faq-answer {
+      display: none;
+      margin-top: 10px;
+      font-size: 16px;
+      color: #d0f0eb;
+    }
+
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+
+    .form-section iframe {
+      width: 100%;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,255,195,0.2);
+    }
+
+    .form-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: #1a1b1e;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0,255,195,0.2);
+}
+
+.form-section label {
+  font-weight: bold;
+  color: #00ffc3;
+}
+
+.form-section input {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background-color: #2a2c31;
+  color: #e0f7f4;
+  font-size: 16px;
+}
+
+.form-section textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background-color: #2a2c31;
+  color: #e0f7f4;
+  font-size: 16px;
+  resize: vertical;
+  min-height: 120px; /* ✅ makes it bigger by default */
+  line-height: 1.5;
+}
+
+.form-section input:focus,
+.form-section textarea:focus {
+  outline: 2px solid #00ffc3;
+}
+
+.form-section button {
+  background-color: #00ffc3;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.form-section button:hover {
+  background-color: #00cfa1;
+}
+  </style>
+</head>
+<body>
+
+  <h1>Panthers Super League – FAQs</h1>
+
+  <!-- <h2>Ask Your Question</h2> -->
+  <h2 style="text-align:center; font-size:18px; color:#a0f0e0; margin-top:-10px; font-weight:400;">
+  Find answers to your most common questions below!
+</h2>
+<div class="form-section">
+  <form id="psl-question-form"
+        action="https://docs.google.com/forms/d/e/1FAIpQLSdAm3-TkNX0p3KvxLENPtnqPzEHIPgus10IKXemCMgDY__eDg/formResponse"
+        method="POST"
+        target="hidden_iframe"
+        onsubmit="return formSubmitted();">
+    
+    <label for="name">Your Name</label>
+    <input type="text" name="entry.1663701445" id="name" required>
+
+    <label for="contact">Your WhatsApp or Email</label>
+    <input type="text" name="entry.1696274530" id="contact" required>
+
+    <!-- <label for="question">Your Question or Doubt</label>
+    <textarea name="entry.1205304039" id="question" required></textarea> -->
+    <label for="question">Your Question or Doubt</label>
+    <textarea name="entry.1205304039" id="question" required placeholder="Type your question or doubt here..."></textarea>
+
+
+    <button type="submit">📨 Submit Question</button>
+    <p id="form-success" style="display:none; color:#00ffc3; font-weight:bold; margin-top:15px;">
+      ✅ Thank you! Your question was submitted.
+    </p>
+  </form>
+
+  <iframe name="hidden_iframe" style="display:none;"></iframe>
+</div>
+
+
+  <script>
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+      item.addEventListener('click', () => {
+        item.classList.toggle('active');
+      });
+    });
+  </script>
+
+  <script>
+  function formSubmitted() {
+    document.getElementById("psl-question-form").style.display = "none";
+    document.getElementById("form-success").style.display = "block";
+    return true; // allows the form to be submitted
+  }
+</script>
+
+</body>
+</html>
