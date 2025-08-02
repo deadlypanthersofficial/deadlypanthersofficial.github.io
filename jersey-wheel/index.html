@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Panthers Super League 2025 - Jersey Selector</title>
+  <link rel="stylesheet" href="jersey-wheel.css" />
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+
+</head>
+<body>
+  <!-- <div class="background-overlay"></div> -->
+  <div id="app">
+    <header>
+      <h1>Panthers Super League 2025<br><span>Jersey Color Selector</span></h1>
+    </header>
+
+    <div class="main-container">
+    <div class="wheel-section">
+    <!-- Wheel Container -->
+    <div class="wheel-container">
+      <canvas id="wheel" width="600" height="600"></canvas>
+      <div class="pointer">&#9660;</div>
+    </div>
+    </div>
+
+    <div class="control-panel">
+    <!-- Dropdown + Controls -->
+    <div class="controls">
+      <select id="teamDropdown" disabled>
+        <option value="">Select a Team</option>
+        <option>GAJAKESARI SULLIA BATTLERS</option>
+        <option>ENJOY TITANS</option>
+        <option>GSB KINGS</option>
+        <option>VEERA VENKATESH WARRIORS</option>
+        <option>ROYAL CHALLENGERS BANTWAL</option>
+        <option>V STRIKERS</option>
+        <option>WEEKEND SPORTS CLUB</option>
+        <option>VEERANJANEYA CRICKETERS KAUP</option>
+        <option>SUPREME GOLDEN GARUDAS GOSRIPURAM</option>
+        <option>KINGS ULLAL</option>
+        <option>RISING STARS MANGALORE</option>
+        <option>SILENT SHORES MYSURU MAHARAJAS</option>
+      </select>
+
+      <div class="button-group">
+        <button id="spinButton">🎯 Spin</button>
+        <button id="undoButton">🔙 Undo</button>
+        <button id="resetButton">🔄 Reset</button>
+        <button id="exportButton">📄 Export PDF</button>
+      </div>
+
+      <div id="progress">0 / 12 teams selected</div>
+    </div>
+  </div>
+  </div>
+  </div>
+
+  <div id="exportSection" style="display:none;">
+  <h1>Panthers Super League 2025 - Final Jersey Colors</h1>
+  <img id="exportWheelImage" style="max-width:100%;margin:20px 0;" />
+  <ul id="exportList" style="list-style:none;padding:0;font-size:1.2em;text-align:left;">
+    <!-- List will be populated -->
+  </ul>
+  <p style="margin-top:30px;color:#555;">Generated on <span id="exportDate"></span></p>
+</div>
+
+
+  <!-- Audio -->
+  <audio id="stopSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_1637899c66.mp3?filename=game-notification-121622.mp3" preload="auto"></audio>
+
+  <!-- JS -->
+  <script src="jersey-wheel.js"></script>
+</body>
+</html>
